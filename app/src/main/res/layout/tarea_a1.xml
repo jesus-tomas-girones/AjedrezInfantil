@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="Levanta las cejas"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/levantaCejas"
+            android:onClick="levantaCejas"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:text="Mira:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Spinner
+                android:entries="@array/miradas"
+                android:entryValues="@array/miradas_valores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spiner_miradas" />
+        </LinearLayout>
+
+        <Button
+            android:text="Parpadea"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/parpadea"
+            android:onClick="parpadea"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:text="Habla:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Spinner
+                android:entries="@array/lecciones"
+                android:entryValues="@array/lecciones_valores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_lecciones" />
+        </LinearLayout>
+
+        <Button
+            android:text="Habla"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/habla"
+            android:onClick="habla"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="Calla"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/calla"
+            android:onClick="calla"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <usu.ajedrezinfantil.VistaAvatar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/vistaAvatar"/>
+
+</LinearLayout>

@@ -1,0 +1,53 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="casilla" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="casilla.blanca" >
+        <item name="android:background">@color/cuadriculaBlanca</item>
+    </style>
+
+    <style name="casilla.negra" >
+        <item name="android:background">@color/cuadriculaNegra</item>
+    </style>
+
+    <style name="marco" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/cuadriculaMarco</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textSize">@dimen/tamaño_textoBorde</item>
+        <item name="android:textColor">@color/textoMarco</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_weight">@dimen/grosor_marco</item>
+    </style>
+
+    <style name="marco.superior">
+        <item name="android:layout_marginBottom">@dimen/borde_interior</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="marco.inferior">
+        <item name="android:layout_marginTop">@dimen/borde_interior</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="marco.derecha">
+        <item name="android:layout_marginLeft">@dimen/borde_interior</item>
+    </style>
+
+    <style name="marco.izquierda">
+        <item name="android:layout_marginRight">@dimen/borde_interior</item>
+    </style>
+
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/frameAvatar">
+
+        <ImageView
+            android:id="@+id/imageViewCara"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:src="@drawable/cuerpo_rey_blanco"/>
+
+        <ImageView
+            android:id="@+id/imageViewCejas"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:src="@drawable/cejas_animacion"/>
+
+        <ImageView
+            android:id="@+id/imageViewOjos"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:src="@drawable/ojos_parpadeo"/>
+
+        <ImageView
+            android:id="@+id/imageViewBoca"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:src="@drawable/boca_animacion"/>
+
+</FrameLayout>

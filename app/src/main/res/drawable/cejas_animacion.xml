@@ -1,0 +1,15 @@
+<animation-list
+    xmlns:android= "http://schemas.android.com/apk/res/android"
+    android:oneshot= "true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <item
+        android:drawable="@drawable/cejas_centro"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/cejas_arriba"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/cejas_centro"
+        android:duration="50" />
+</animation-list>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lecciones">
+        <item>"Presentación"</item>
+        <item>"Lección 1"</item>
+        <item>"Lección 2"</item>
+        <item>"Lección 3"</item>
+    </string-array>
+    <string-array name="lecciones_valores">
+        <item>presentacion.mp3</item>
+        <item>leccion1.mp3</item>
+        <item>leccion2.mp3</item>
+        <item>leccion3.mp3</item>
+    </string-array>
+    <string-array name="miradas">
+        <item>"centro"</item>
+        <item>"izquierda"</item>
+        <item>"derecha"</item>
+    </string-array>
+    <string-array name="miradas_valores">
+        <item>CENTER</item>
+        <item>LEFT_CENTER</item>
+        <item>RIGHT_CENTER</item>
+    </string-array>
+</resources>

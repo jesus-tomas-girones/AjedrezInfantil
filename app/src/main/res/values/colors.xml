@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="cuadriculaNegra">#000000</color>
+    <color name="cuadriculaBlanca">#ffffff</color>
+    <color name="cuadriculaMarco">#683c12</color>
+    <color name="bordeMarco">#000000</color>
+    <color name="textoMarco">#000000</color>
+    <color name="fondoPantalla">#7CD1EC</color>
+    <color name="gris">#E6E6E6</color>
+
+</resources>

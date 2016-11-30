@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by Jesús Tomás on 21/11/2016. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tablero"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/fondoPantalla"
+    android:padding="3dp"
+    tools:context="usu.ajedrezinfantil.SquaredLinearLayout">
+
+    <LinearLayout
+        android:id="@+id/piezas"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <usu.ajedrezinfantil.SquaredLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+           <ImageView
+               android:id="@+id/torre"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_weight="1"
+               android:layout_margin="2dp"
+               android:background="@drawable/boton_pieza"
+               app:srcCompat="@drawable/torre_blanca" />
+        </usu.ajedrezinfantil.SquaredLinearLayout>
+        <usu.ajedrezinfantil.SquaredLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        <ImageView
+            android:id="@+id/alfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/boton_pieza"
+            app:srcCompat="@drawable/alfil_blanco" />
+        </usu.ajedrezinfantil.SquaredLinearLayout>
+        <usu.ajedrezinfantil.SquaredLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        <ImageView
+            android:id="@+id/dama"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/boton_pieza"
+            app:srcCompat="@drawable/dama_blanca" />
+        </usu.ajedrezinfantil.SquaredLinearLayout>
+        <usu.ajedrezinfantil.SquaredLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        <ImageView
+            android:id="@+id/caballo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/boton_pieza"
+            app:srcCompat="@drawable/caballo_blanco" />
+        </usu.ajedrezinfantil.SquaredLinearLayout>
+        <usu.ajedrezinfantil.SquaredLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        <ImageView
+            android:id="@+id/peon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/boton_pieza"
+            app:srcCompat="@drawable/peon_blanco" />
+        </usu.ajedrezinfantil.SquaredLinearLayout>
+        <usu.ajedrezinfantil.SquaredLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        <ImageView
+            android:id="@+id/rey"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/boton_pieza"
+            app:srcCompat="@drawable/rey_blanco" />
+        </usu.ajedrezinfantil.SquaredLinearLayout>
+    </LinearLayout>
+
+    <usu.ajedrezinfantil.VistaAvatar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/vistaAvatar"/>
+
+    <!--ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/rey_blanco" /-->
+
+    <usu.ajedrezinfantil.SquaredLinearLayout
+        android:id="@+id/tabla"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/bordeMarco"
+        android:padding="@dimen/borde_exterior"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="@dimen/grosor_marco">
+            <TextView
+                style="@style/marco" />
+            <TextView
+                style="@style/marco.superior" />
+            <TextView
+                style="@style/marco.superior" />
+            <TextView
+                style="@style/marco.superior" />
+           <TextView
+                style="@style/marco.superior" />
+            <TextView
+                style="@style/marco.superior" />
+            <TextView
+                style="@style/marco.superior" />
+            <TextView
+                style="@style/marco.superior" />
+            <TextView
+                style="@style/marco.superior" />
+            <TextView
+                style="@style/marco" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                style="@style/marco.izquierda"
+                android:text="8" />
+            <ImageView
+                android:id="@+id/A8"
+                style="@style/casilla.blanca"
+                android:tag="A8" />
+            <ImageView
+                android:id="@+id/B8"
+                style="@style/casilla.negra"
+                android:tag="B8" />
+            <ImageView
+                android:id="@+id/C8"
+                style="@style/casilla.blanca"
+                android:tag="C8" />
+            <ImageView
+                android:id="@+id/D8"
+                style="@style/casilla.negra"
+                android:tag="D8" />
+            <ImageView
+                android:id="@+id/E8"
+                style="@style/casilla.blanca"
+                android:tag="E8" />
+            <ImageView
+                android:id="@+id/F8"
+                style="@style/casilla.negra"
+                android:tag="F8" />
+            <ImageView
+                android:id="@+id/G8"
+                style="@style/casilla.blanca"
+                android:tag="G8" />
+            <ImageView
+                android:id="@+id/H8"
+                style="@style/casilla.negra"
+                android:tag="H8" />
+            <TextView
+                style="@style/marco.derecha" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                style="@style/marco.izquierda"
+                android:text="7" />
+            <ImageView
+                android:id="@+id/A7"
+                style="@style/casilla.negra"
+                android:tag="A7" />
+            <ImageView
+                android:id="@+id/B7"
+                style="@style/casilla.blanca"
+                android:tag="B7" />
+            <ImageView
+                android:id="@+id/C7"
+                style="@style/casilla.negra"
+                android:tag="C7" />
+            <ImageView
+                android:id="@+id/D7"
+                style="@style/casilla.blanca"
+                android:tag="D7" />
+            <ImageView
+                android:id="@+id/E7"
+                style="@style/casilla.negra"
+                android:tag="E7" />
+            <ImageView
+                android:id="@+id/F7"
+                style="@style/casilla.blanca"
+                android:tag="F7" />
+            <ImageView
+                android:id="@+id/G7"
+                style="@style/casilla.negra"
+                android:tag="G7" />
+            <ImageView
+                android:id="@+id/H7"
+                style="@style/casilla.blanca"
+                android:tag="H7" />
+            <TextView
+                style="@style/marco.derecha" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                style="@style/marco.izquierda"
+                android:text="6" />
+            <ImageView
+                android:id="@+id/A6"
+                style="@style/casilla.blanca"
+                android:tag="A6" />
+            <ImageView
+                android:id="@+id/B6"
+                android:tag="B6"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/C6"
+                android:tag="C6"
+                style="@style/casilla.blanca" />
+            <ImageView
+                android:id="@+id/D6"
+                android:tag="D6"
+                style="@style/casilla.negra" />
+            <ImageView
+                android:id="@+id/E6"
+                android:tag="E6"
+                style="@style/casilla.blanca" />
+            <ImageView
+                android:id="@+id/F6"
+                android:tag="F6"
+                style="@style/casilla.negra" />
+            <ImageView
+                android:id="@+id/G6"
+                android:tag="G6"
+                style="@style/casilla.blanca" />
+            <ImageView
+                android:id="@+id/H6"
+                android:tag="H6"
+                style="@style/casilla.negra" />
+
+            <TextView
+                style="@style/marco.derecha" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                style="@style/marco.izquierda"
+                android:text="5"/>
+            <ImageView
+                android:id="@+id/A5"
+                android:tag="A5"
+                style="@style/casilla.negra" />
+            <ImageView
+                android:id="@+id/B5"
+                android:tag="B5"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/C5"
+                android:tag="C5"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/D5"
+                android:tag="D5"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/E5"
+                android:tag="E5"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/F5"
+                android:tag="F5"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/G5"
+                android:tag="G5"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/H5"
+                android:tag="H5"
+                style="@style/casilla.blanca" />
+
+            <TextView
+                style="@style/marco.derecha" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/marco.izquierda"
+                android:text="4" />
+
+            <ImageView
+                android:id="@+id/A4"
+                android:tag="A4"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/B4"
+                android:tag="B4"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/C4"
+                android:tag="C4"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/D4"
+                android:tag="D4"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/E4"
+                android:tag="E4"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/F4"
+                android:tag="F4"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/G4"
+                android:tag="G4"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/H4"
+                android:tag="H4"
+                style="@style/casilla.negra" />
+
+            <TextView
+                style="@style/marco.derecha" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/marco.izquierda"
+                android:text="3" />
+
+            <ImageView
+                android:id="@+id/A3"
+                android:tag="A3"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/B3"
+                android:tag="B3"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/C3"
+                android:tag="C3"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/D3"
+                android:tag="D3"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/E3"
+                android:tag="E3"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/F3"
+                android:tag="F3"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/G3"
+                android:tag="G3"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/H3"
+                android:tag="H3"
+                style="@style/casilla.blanca" />
+
+            <TextView
+                style="@style/marco.derecha" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/marco.izquierda"
+                android:text="2" />
+
+            <ImageView
+                android:id="@+id/A2"
+                android:tag="A2"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/B2"
+                android:tag="B2"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/C2"
+                android:tag="C2"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/D2"
+                android:tag="D2"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/E2"
+                android:tag="E2"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/F2"
+                android:tag="F2"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/G2"
+                android:tag="G2"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/H2"
+                android:tag="H2"
+                style="@style/casilla.negra" />
+
+            <TextView
+                style="@style/marco.derecha" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                style="@style/marco.izquierda"
+                android:text="1"/>
+
+            <ImageView
+                android:id="@+id/A1"
+                android:tag="A1"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/B1"
+                android:tag="B1"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/C1"
+                android:tag="C1"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/D1"
+                android:tag="D1"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/E1"
+                android:tag="E1"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/F1"
+                android:tag="F1"
+                style="@style/casilla.blanca" />
+
+            <ImageView
+                android:id="@+id/G1"
+                android:tag="G1"
+                style="@style/casilla.negra" />
+
+            <ImageView
+                android:id="@+id/H1"
+                android:tag="H1"
+                style="@style/casilla.blanca" />
+
+            <TextView
+                style="@style/marco.derecha"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="@dimen/grosor_marco">
+            <TextView
+                style="@style/marco"/>
+            <TextView
+                style="@style/marco.inferior"
+                android:text="A" />
+            <TextView
+                style="@style/marco.inferior"
+                android:text="B" />
+            <TextView
+                style="@style/marco.inferior"
+                android:text="C" />
+            <TextView
+                style="@style/marco.inferior"
+                android:text="D" />
+            <TextView
+                style="@style/marco.inferior"
+                android:text="E" />
+            <TextView
+                style="@style/marco.inferior"
+                android:text="F" />
+            <TextView
+                style="@style/marco.inferior"
+                android:text="G" />
+            <TextView
+                style="@style/marco.inferior"
+                android:text="H" />
+            <TextView
+                style="@style/marco"/>
+        </LinearLayout>
+    </usu.ajedrezinfantil.SquaredLinearLayout>
+
+</LinearLayout>
