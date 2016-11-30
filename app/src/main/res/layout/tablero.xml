@@ -29,72 +29,78 @@
                android:layout_weight="1"
                android:layout_margin="2dp"
                android:background="@drawable/boton_pieza"
+               android:tag="PAlfil"
                app:srcCompat="@drawable/torre_blanca" />
         </usu.ajedrezinfantil.SquaredLinearLayout>
         <usu.ajedrezinfantil.SquaredLinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-        <ImageView
-            android:id="@+id/alfil"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="2dp"
-            android:background="@drawable/boton_pieza"
-            app:srcCompat="@drawable/alfil_blanco" />
+            <ImageView
+                android:id="@+id/alfil"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:background="@drawable/boton_pieza"
+                android:tag="PAlfil"
+                app:srcCompat="@drawable/alfil_blanco" />
         </usu.ajedrezinfantil.SquaredLinearLayout>
         <usu.ajedrezinfantil.SquaredLinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-        <ImageView
-            android:id="@+id/dama"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="2dp"
-            android:background="@drawable/boton_pieza"
-            app:srcCompat="@drawable/dama_blanca" />
+            <ImageView
+                android:id="@+id/dama"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:background="@drawable/boton_pieza"
+                android:tag="PDama"
+                app:srcCompat="@drawable/dama_blanca" />
         </usu.ajedrezinfantil.SquaredLinearLayout>
         <usu.ajedrezinfantil.SquaredLinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-        <ImageView
-            android:id="@+id/caballo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="3dp"
-            android:background="@drawable/boton_pieza"
-            app:srcCompat="@drawable/caballo_blanco" />
+            <ImageView
+                android:id="@+id/caballo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:background="@drawable/boton_pieza"
+                android:tag="PCaballo"
+                app:srcCompat="@drawable/caballo_blanco" />
         </usu.ajedrezinfantil.SquaredLinearLayout>
         <usu.ajedrezinfantil.SquaredLinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-        <ImageView
-            android:id="@+id/peon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="3dp"
-            android:background="@drawable/boton_pieza"
-            app:srcCompat="@drawable/peon_blanco" />
+            <ImageView
+                android:id="@+id/peon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:background="@drawable/boton_pieza"
+                android:tag="PPeon"
+                app:srcCompat="@drawable/peon_blanco" />
         </usu.ajedrezinfantil.SquaredLinearLayout>
         <usu.ajedrezinfantil.SquaredLinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-        <ImageView
-            android:id="@+id/rey"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="3dp"
-            android:background="@drawable/boton_pieza"
-            app:srcCompat="@drawable/rey_blanco" />
+            <ImageView
+                android:id="@+id/rey"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:background="@drawable/boton_pieza"
+                android:tag="PRey"
+                app:srcCompat="@drawable/rey_blanco" />
         </usu.ajedrezinfantil.SquaredLinearLayout>
     </LinearLayout>
 
@@ -104,19 +110,13 @@
         android:layout_weight="1"
         android:id="@+id/vistaAvatar"/>
 
-    <!--ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/rey_blanco" /-->
-
     <usu.ajedrezinfantil.SquaredLinearLayout
         android:id="@+id/tabla"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/bordeMarco"
-        android:padding="@dimen/borde_exterior"
-        >
+        android:padding="@dimen/borde_exterior">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
