@@ -197,7 +197,10 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                         int colDestino = destino.charAt(0) - 'A';
                         int filaDestino = destino.charAt(1) - '1';
                         if (origen.charAt(0) == 'P'){ //Arrastramos una pieza de fuera al tablero
-                            movimientoValido = onColocar(origen.charAt(1), colDestino, filaDestino);
+
+                            movimientoValido =
+                                    (vistaDestino.getDrawable() == null) &&  //No hay una pieza ya colocada
+                                    onColocar(origen.charAt(1), colDestino, filaDestino); //La posición es correcta
                         } else {                      // Arrastramos una pieza del tablero al tablero
                             int colOrigen = origen.charAt(0) - 'A';
                             int filaOrigen = origen.charAt(1) - '1';
@@ -208,7 +211,8 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                         if (vistaOrigen.getDrawable() != null) {
                             vistaDestino.setImageDrawable(vistaOrigen.getDrawable());
                         }
-                        if (vistaOrigen.getTag() != null) {
+                        if ((vistaOrigen.getTag() != null) &&
+                            (vistaOrigen.getTag().toString().charAt(0) != 'P')) {
                             vistaOrigen.setImageDrawable(null);
                         }
                         vistaDestino.invalidate();

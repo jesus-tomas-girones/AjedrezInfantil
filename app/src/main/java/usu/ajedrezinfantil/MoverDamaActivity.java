@@ -46,9 +46,9 @@ public class MoverDamaActivity extends EjercicioBaseActivity {
         boolean movimientoCorrecto = movimientoDama(colOrigen, filaOrigen, colDestino, filaDestino);
         if (movimientoCorrecto) {
             contadorMovimientos++;
-            avatar.habla(R.raw.mover_dama_bien);
+            avatar.habla(R.raw.mover_dama_bien); //Todo: (Jesús) Cambiar nombre mover_dama_bien -> bien_intenta_otra_vez
             if (contadorMovimientos > 3) {
-                avatar.habla(R.raw.mover_dama_superado, new VistaAvatar.OnAvatarHabla() {
+                avatar.habla(R.raw.mover_dama_superado, new VistaAvatar.OnAvatarHabla() { //Todo: (Jesús) Cambiar nombre mover_dama_superado -> ejercicio_superado
                     @Override
                     public void onTerminaHabla() {
                         finish();
@@ -58,7 +58,6 @@ public class MoverDamaActivity extends EjercicioBaseActivity {
         } else {
             //contadorErrores++;
             avatar.habla(R.raw.mover_dama_mal);
-
 
         }
         return movimientoCorrecto;

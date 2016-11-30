@@ -10,6 +10,13 @@ public class MainActivity extends AppCompatActivity  {
 
     //Todo: (Raúl) Solicitar permiso grabación audio
 
+    //Todo: Poner avatar a la izquierda y botones a la derecha con Capítulo 1, capítulo 2, ...
+
+    //Todo: Crear actividad Capitulo 1: avatar a la izquierda y botones a la derecha. Botones: verVideo, Ejercicio coordenadas, Ejercicio Colocar fichas,
+
+    //Todo: Crear actividad ver video
+
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
