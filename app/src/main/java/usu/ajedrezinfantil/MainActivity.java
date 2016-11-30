@@ -8,6 +8,8 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity  {
 
+    //Todo: (Raúl) Solicitar permiso grabación audio
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

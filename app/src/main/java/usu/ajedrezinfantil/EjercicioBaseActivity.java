@@ -101,7 +101,6 @@ public class EjercicioBaseActivity extends AppCompatActivity {
 
 //                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(new View(getApplicationContext()));
 
-
 //                shadowBuilder.getView().setBackgroundColor(Color.TRANSPARENT);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -164,7 +163,6 @@ public class EjercicioBaseActivity extends AppCompatActivity {
         // from the dimensions passed in onProvideShadowMetrics().
         @Override
         public void onDrawShadow(Canvas canvas) {
-
             // Draws the ColorDrawable in the Canvas passed in from the system.
             shadow.draw(canvas);
         }
@@ -188,40 +186,36 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                 case DragEvent.ACTION_DRAG_ENTERED:
                     break;
                 case DragEvent.ACTION_DROP:
-                    Log.i("Script", vistaDestino.getTag() + "- ACTION_DROP");
+                    //Log.i("Script", vistaDestino.getTag() + "- ACTION_DROP");
                     boolean movimientoValido;
-                    if ((vistaOrigen.getTag() != null) &&
-                            (vistaDestino.getTag() != null)) {
-
+                    if ((vistaOrigen.getTag() == null) ||
+                            (vistaDestino.getTag() == null)) {
+                        movimientoValido = true;     // No podemos aplicar validación de movimiento
+                    } else {
                         String origen = vistaOrigen.getTag().toString();
                         String destino = vistaDestino.getTag().toString();
-                        int colOrigen = origen.charAt(0) - 'A';
-                        int filaOrigen = origen.charAt(1) - '1';
                         int colDestino = destino.charAt(0) - 'A';
                         int filaDestino = destino.charAt(1) - '1';
-                        movimientoValido = onMovimiento(colOrigen, filaOrigen, colDestino, filaDestino);
-                    } else {
-                        movimientoValido = true;
+                        if (origen.charAt(0) == 'P'){ //Arrastramos una pieza de fuera al tablero
+                            movimientoValido = onColocar(origen.charAt(1), colDestino, filaDestino);
+                        } else {                      // Arrastramos una pieza del tablero al tablero
+                            int colOrigen = origen.charAt(0) - 'A';
+                            int filaOrigen = origen.charAt(1) - '1';
+                            movimientoValido = onMovimiento(colOrigen, filaOrigen, colDestino, filaDestino);
+                        }
                     }
-
                     if (movimientoValido && (vistaOrigen != vistaDestino)) {
                         if (vistaOrigen.getDrawable() != null) {
                             vistaDestino.setImageDrawable(vistaOrigen.getDrawable());
                         }
                         if (vistaOrigen.getTag() != null) {
                             vistaOrigen.setImageDrawable(null);
-                            //vistaOrigen.setBackgroundColor(Color.WHITE);
-                            //vistaOrigen.setVisibility(View.VISIBLE);
                         }
-//                        vistaDestino.clearColorFilter();
                         vistaDestino.invalidate();
-
                     }
                 case DragEvent.ACTION_DRAG_ENDED:
-                    Log.i("Script", "- ACTION_DRAG_ENDED");
-                    //                 vistaDestino.clearColorFilter();
+                    //Log.i("Script", "- ACTION_DRAG_ENDED");
                     //vistaDestino.invalidate();
-
                 default:
                     break;
             }
@@ -243,11 +237,25 @@ public class EjercicioBaseActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * método ha de ser sobreescrito por los descencientes para comprobar que se ha
+     * producido una colocación de pieza desde fuera y para validarla
+     *
+     * @param pieza  "T" -> Torre, "A" -> Alfil, ...
+     * @param colDestino  columna destino
+     * @param filaDestino fila destino
+     * @return true: validamos movimiento, false: lo anulamos
+     */
+    protected boolean onColocar(char pieza, int colDestino, int filaDestino) {
+        return true;
+    }
+
     boolean funcion(int colOrigen, int filaOrigen, int colDestino, int filaDestino) {
         return (filaOrigen == filaDestino) || (colOrigen == colDestino) || //misma fila o columna
                 (Math.abs(filaOrigen - filaDestino) == Math.abs(colOrigen - colDestino)); //misma diagonal
     }
 
+    //Todo: terminar implementar resaltaCasilla
     void resaltarCasilla(int colOrigen, int filaOrigen, boolean _funcion) { //Este parámetro se pasa con un landa
         LinearLayout tabla = (LinearLayout) findViewById(R.id.tabla);
         for (int f = 1, iMax = tabla.getChildCount() - 1; f < iMax; f++) {
@@ -262,7 +270,9 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                     if (vista2 instanceof ImageView) {
                         ImageView imagen = (ImageView) vista2;
                         if (funcion(colOrigen, filaOrigen, c-1, f-1)) {
-                            imagen.startAnimation(null); //Crear una animación
+
+                            //Todo: Crear una animación
+                            imagen.startAnimation(null); //
                         }
                     }
                 }
