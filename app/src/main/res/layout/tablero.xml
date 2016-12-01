@@ -9,7 +9,7 @@
     android:orientation="horizontal"
     android:background="@color/fondoPantalla"
     android:padding="3dp"
-    tools:context="usu.ajedrezinfantil.SquaredLinearLayout">
+    tools:context="es.upv.mmoviles.ajedrez.SquaredLinearLayout">
 
     <LinearLayout
         android:id="@+id/piezas"
@@ -18,7 +18,7 @@
         android:layout_weight="0"
         android:orientation="vertical"
         android:visibility="gone">
-        <usu.ajedrezinfantil.SquaredLinearLayout
+        <es.upv.mmoviles.ajedrez.SquaredLinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -31,8 +31,8 @@
                android:background="@drawable/boton_pieza"
                android:tag="PTorre"
                app:srcCompat="@drawable/torre_blanca" />
-        </usu.ajedrezinfantil.SquaredLinearLayout>
-        <usu.ajedrezinfantil.SquaredLinearLayout
+        </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
+        <es.upv.mmoviles.ajedrez.SquaredLinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -45,8 +45,8 @@
                 android:background="@drawable/boton_pieza"
                 android:tag="PAlfil"
                 app:srcCompat="@drawable/alfil_blanco" />
-        </usu.ajedrezinfantil.SquaredLinearLayout>
-        <usu.ajedrezinfantil.SquaredLinearLayout
+        </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
+        <es.upv.mmoviles.ajedrez.SquaredLinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -59,8 +59,8 @@
                 android:background="@drawable/boton_pieza"
                 android:tag="PDama"
                 app:srcCompat="@drawable/dama_blanca" />
-        </usu.ajedrezinfantil.SquaredLinearLayout>
-        <usu.ajedrezinfantil.SquaredLinearLayout
+        </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
+        <es.upv.mmoviles.ajedrez.SquaredLinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -73,8 +73,8 @@
                 android:background="@drawable/boton_pieza"
                 android:tag="PCaballo"
                 app:srcCompat="@drawable/caballo_blanco" />
-        </usu.ajedrezinfantil.SquaredLinearLayout>
-        <usu.ajedrezinfantil.SquaredLinearLayout
+        </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
+        <es.upv.mmoviles.ajedrez.SquaredLinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -87,8 +87,8 @@
                 android:background="@drawable/boton_pieza"
                 android:tag="PPeon"
                 app:srcCompat="@drawable/peon_blanco" />
-        </usu.ajedrezinfantil.SquaredLinearLayout>
-        <usu.ajedrezinfantil.SquaredLinearLayout
+        </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
+        <es.upv.mmoviles.ajedrez.SquaredLinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -101,16 +101,16 @@
                 android:background="@drawable/boton_pieza"
                 android:tag="PRey"
                 app:srcCompat="@drawable/rey_blanco" />
-        </usu.ajedrezinfantil.SquaredLinearLayout>
+        </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
     </LinearLayout>
 
-    <usu.ajedrezinfantil.VistaAvatar
+    <es.upv.mmoviles.ajedrez.VistaAvatar
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:id="@+id/vistaAvatar"/>
 
-    <usu.ajedrezinfantil.SquaredLinearLayout
+    <es.upv.mmoviles.ajedrez.SquaredLinearLayout
         android:id="@+id/tabla"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -569,6 +569,6 @@
             <TextView
                 style="@style/marco"/>
         </LinearLayout>
-    </usu.ajedrezinfantil.SquaredLinearLayout>
+    </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
 
 </LinearLayout>

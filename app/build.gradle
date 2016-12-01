@@ -4,7 +4,7 @@ android {
     compileSdkVersion 24   // para la librería Vector Drawable
     buildToolsVersion "24.0.2"
     defaultConfig {
-        applicationId "usu.ajedrezinfantil"
+        applicationId "es.upv.mmoviles.ajedrez"
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1
