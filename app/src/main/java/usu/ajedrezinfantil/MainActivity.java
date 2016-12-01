@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity  {
+    // ESTO ES UNA PRUEBA
 
     //Todo: (Raúl) Solicitar permiso grabación audio
 
