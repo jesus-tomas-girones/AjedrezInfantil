@@ -1,4 +1,4 @@
-package usu.ajedrezinfantil;
+package es.upv.mmoviles.ajedrez;
 
 import android.app.Activity;
 import android.content.Context;

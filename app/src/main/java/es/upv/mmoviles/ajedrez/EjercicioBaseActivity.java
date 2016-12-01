@@ -1,4 +1,4 @@
-package usu.ajedrezinfantil;
+package es.upv.mmoviles.ajedrez;
 
 import android.content.ClipData;
 import android.graphics.Canvas;
@@ -9,7 +9,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;

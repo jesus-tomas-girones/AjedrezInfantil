@@ -1,10 +1,7 @@
-package usu.ajedrezinfantil;
+package es.upv.mmoviles.ajedrez;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.util.AttributeSet;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.LinearLayout;
 
 /**
