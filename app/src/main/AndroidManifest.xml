@@ -11,7 +11,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
         android:largeHeap="true">
         <activity android:name="es.upv.mmoviles.ajedrez.MainActivity"
             android:screenOrientation="landscape">
@@ -21,17 +21,13 @@
             </intent-filter>
         </activity>
         <activity android:name="es.upv.mmoviles.ajedrez.EjercicioBaseActivity"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+            android:screenOrientation="landscape" />
         <activity android:name="es.upv.mmoviles.ajedrez.TareaA1Activity"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+            android:screenOrientation="landscape" />
         <activity android:name="es.upv.mmoviles.ajedrez.ColocarPiezasActivity"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+            android:screenOrientation="landscape" />
         <activity android:name="es.upv.mmoviles.ajedrez.MoverDamaActivity"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>
