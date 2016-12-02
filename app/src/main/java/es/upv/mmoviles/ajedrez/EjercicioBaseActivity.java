@@ -277,7 +277,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                         if (funcion(colOrigen, filaOrigen, c-1, f-1)) {
 
                             //Crear Animación Parpadeo
-                            Animation fadeInAnimation = AnimationUtils.loadAnimation(this,R.anim.animacion_parpadea_casilla);
+                            Animation fadeInAnimation = AnimationUtils.loadAnimation(this,R.anim.animacion_parpadeo_casilla);
                             imagen.startAnimation(fadeInAnimation);
 
                         }
