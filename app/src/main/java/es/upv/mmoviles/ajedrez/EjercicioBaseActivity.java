@@ -171,7 +171,6 @@ public class EjercicioBaseActivity extends AppCompatActivity {
 
     //Listener que establece el evento onDrag de una vista
     class MiDragListener implements View.OnDragListener {
-
         @Override
         public boolean onDrag(View v, DragEvent event) {
             ImageView vistaDestino = (ImageView) v;
@@ -232,7 +231,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
      * método ha de ser sobreescrito por los descencientes para comprobar que se ha
      * producido un movimiento y para validarlo
      *
-     * @param colOrigen   columna origen "A" -> 0, "B· ->1, ...
+     * @param colOrigen   columna origen "A" -> 0, "B" ->1, ...
      * @param filaOrigen  fila origen "1" -> 0, "2" ->1, ...
      * @param colDestino  columna destino
      * @param filaDestino fila destino
@@ -245,23 +244,56 @@ public class EjercicioBaseActivity extends AppCompatActivity {
     /**
      * método ha de ser sobreescrito por los descencientes para comprobar que se ha
      * producido una colocación de pieza desde fuera y para validarla
-     *
      * @param pieza  "T" -> Torre, "A" -> Alfil, ...
-     * @param colDestino  columna destino
-     * @param filaDestino fila destino
+     * @param colDestino  columna destino "A" -> 0, "B" ->1, ...
+     * @param filaDestino fila destino "1" -> 0, "2" ->1, ...
      * @return true: validamos movimiento, false: lo anulamos
      */
     protected boolean onColocar(char pieza, int colDestino, int filaDestino) {
         return true;
     }
 
-    boolean funcion(int colOrigen, int filaOrigen, int colDestino, int filaDestino) {
-        return (filaOrigen == filaDestino) || (colOrigen == colDestino) || //misma fila o columna
-                (Math.abs(filaOrigen - filaDestino) == Math.abs(colOrigen - colDestino)); //misma diagonal
+    /**
+     * hacemos que una determinada casilla parpadee un par de segundos
+     * @param col  columna  "A" -> 0, "B" ->1, ...
+     * @param fila fila "1" -> 0, "2" ->1, ...
+     */
+    void resaltarCasilla(int col, int fila) {
+        ImageView imagen = getCasilla(col, fila);
+        Animation fadeInAnimation = AnimationUtils.loadAnimation(this,R.anim.animacion_parpadeo_casilla);
+        imagen.startAnimation(fadeInAnimation);
     }
 
-    //Todo: terminar implementar resaltaCasilla
-    void resaltarCasilla(int colOrigen, int filaOrigen, boolean _funcion) { //Este parámetro se pasa con un landa
+    /**
+     * nos devuelve la casilla situada en unas coordenadas
+     * @param col  columna "A" -> 0, "B" ->1, ...
+     * @param fila fila "1" -> 0, "2" ->1, ...
+     * @return casilla
+     */
+    private ImageView getCasilla(int col, int fila) {
+        LinearLayout tabla = (LinearLayout) findViewById(R.id.tabla);
+        LinearLayout linea = (LinearLayout)tabla.getChildAt(8-fila);  //Las filas se numera de abajo a arriba
+        return (ImageView) linea.getChildAt(col+1);  // Hay que sumar 1 por el borde
+    }
+
+    /**
+     * permite verificar si el movimiento de una pieza de ajedrez es válido
+     * @author  Jesús Tomás
+     */
+    public interface Validador {
+        /** nos indica si la pieza puede ir de colOrigen, filaOrigen a colDestino, filaDestino */
+        public boolean movimientoValido (int colOrigen, int filaOrigen, int colDestino, int filaDestino);
+    }
+
+    /**
+     * Hacemos que un conjunto de casillas parpadee un par de segundos.
+     * El conjunto se determina por un ojeto Validador
+     * @param colOrigen columna actual de la pieza
+     * @param filaOrigen fila actual de la pieza
+     * @param validador las casillas que cumplan la condición validador.movimientoValido() parpadearán
+     * @author Jesús Tomás
+     */
+    void resaltarCasilla(int colOrigen, int filaOrigen, Validador validador) {
         LinearLayout tabla = (LinearLayout) findViewById(R.id.tabla);
         for (int f = 1, iMax = tabla.getChildCount() - 1; f < iMax; f++) {
             //Para cada fila (de 0 a 9) obtenemos la vista
@@ -269,26 +301,16 @@ public class EjercicioBaseActivity extends AppCompatActivity {
             //Instance of es una comprobación para preguntar si un objeto es una instancia de una clase que le preguntemos
             //¿Es vista una instancia de LinearLayout?
             if (vista instanceof LinearLayout) {
-                LinearLayout fila = (LinearLayout) vista;
-                for (int c = 1, jMax = fila.getChildCount() - 1; c < jMax; c++) {
-                    View vista2 = (ImageView) fila.getChildAt(c);
-                    if (vista2 instanceof ImageView) {
-                        ImageView imagen = (ImageView) vista2;
-                        if (funcion(colOrigen, filaOrigen, c-1, f-1)) {
-
-                            //Crear Animación Parpadeo
-                            Animation fadeInAnimation = AnimationUtils.loadAnimation(this,R.anim.animacion_parpadeo_casilla);
-                            imagen.startAnimation(fadeInAnimation);
-
-                        }
+                LinearLayout linea = (LinearLayout) vista;
+                for (int c = 1, jMax = linea.getChildCount() - 1; c < jMax; c++) {
+                    ImageView imagen = (ImageView) linea.getChildAt(c);
+                    if (validador.movimientoValido(colOrigen, filaOrigen, c-1, 8-f)) { //8-f: Las filas se numera de abajo a arriba
+                        Animation fadeInAnimation = AnimationUtils.loadAnimation(this,R.anim.animacion_parpadeo_casilla);
+                        imagen.startAnimation(fadeInAnimation);
                     }
                 }
             }
         }
     }
 
-
 }
-
-
-
