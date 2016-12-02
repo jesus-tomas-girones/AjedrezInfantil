@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -274,8 +276,10 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                         ImageView imagen = (ImageView) vista2;
                         if (funcion(colOrigen, filaOrigen, c-1, f-1)) {
 
-                            //Todo: Crear una animación
-                            imagen.startAnimation(null); //
+                            //Crear Animación Parpadeo
+                            Animation fadeInAnimation = AnimationUtils.loadAnimation(this,R.anim.animacion_parpadea_casilla);
+                            imagen.startAnimation(fadeInAnimation);
+
                         }
                     }
                 }
