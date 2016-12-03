@@ -1,14 +1,18 @@
 package es.upv.mmoviles.ajedrez;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.ClipData;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,6 +35,11 @@ public class EjercicioBaseActivity extends AppCompatActivity {
         asignaListeners();
         avatar = (VistaAvatar) findViewById(R.id.vistaAvatar);
         avatar.setActividad(this);
+        //prueba parpadeo casilla
+        //resaltarCasilla(2, 4);
+        //resaltarCasilla(2, 3);
+        //resaltarCasilla(2, 2);
+        //resaltarCasilla(2, 1);
     }
 
     @Override
@@ -196,11 +205,11 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                         String destino = vistaDestino.getTag().toString();
                         int colDestino = destino.charAt(0) - 'A';
                         int filaDestino = destino.charAt(1) - '1';
-                        if (origen.charAt(0) == 'P'){ //Arrastramos una pieza de fuera al tablero
+                        if (origen.charAt(0) == 'P') { //Arrastramos una pieza de fuera al tablero
 
                             movimientoValido =
                                     (vistaDestino.getDrawable() == null) &&  //No hay una pieza ya colocada
-                                    onColocar(origen.charAt(1), colDestino, filaDestino); //La posición es correcta
+                                            onColocar(origen.charAt(1), colDestino, filaDestino); //La posición es correcta
                         } else {                      // Arrastramos una pieza del tablero al tablero
                             int colOrigen = origen.charAt(0) - 'A';
                             int filaOrigen = origen.charAt(1) - '1';
@@ -212,7 +221,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                             vistaDestino.setImageDrawable(vistaOrigen.getDrawable());
                         }
                         if ((vistaOrigen.getTag() != null) &&
-                            (vistaOrigen.getTag().toString().charAt(0) != 'P')) {
+                                (vistaOrigen.getTag().toString().charAt(0) != 'P')) {
                             vistaOrigen.setImageDrawable(null);
                         }
                         vistaDestino.invalidate();
@@ -244,7 +253,8 @@ public class EjercicioBaseActivity extends AppCompatActivity {
     /**
      * método ha de ser sobreescrito por los descencientes para comprobar que se ha
      * producido una colocación de pieza desde fuera y para validarla
-     * @param pieza  "T" -> Torre, "A" -> Alfil, ...
+     *
+     * @param pieza       "T" -> Torre, "A" -> Alfil, ...
      * @param colDestino  columna destino "A" -> 0, "B" ->1, ...
      * @param filaDestino fila destino "1" -> 0, "2" ->1, ...
      * @return true: validamos movimiento, false: lo anulamos
@@ -255,42 +265,50 @@ public class EjercicioBaseActivity extends AppCompatActivity {
 
     /**
      * hacemos que una determinada casilla parpadee un par de segundos
+     *
      * @param col  columna  "A" -> 0, "B" ->1, ...
      * @param fila fila "1" -> 0, "2" ->1, ...
      */
     void resaltarCasilla(int col, int fila) {
+
         ImageView imagen = getCasilla(col, fila);
-        Animation fadeInAnimation = AnimationUtils.loadAnimation(this,R.anim.animacion_parpadeo_casilla);
-        imagen.startAnimation(fadeInAnimation);
+        parpadeoCasilla(imagen);
+
+
     }
 
     /**
      * nos devuelve la casilla situada en unas coordenadas
+     *
      * @param col  columna "A" -> 0, "B" ->1, ...
      * @param fila fila "1" -> 0, "2" ->1, ...
      * @return casilla
      */
     private ImageView getCasilla(int col, int fila) {
         LinearLayout tabla = (LinearLayout) findViewById(R.id.tabla);
-        LinearLayout linea = (LinearLayout)tabla.getChildAt(8-fila);  //Las filas se numera de abajo a arriba
-        return (ImageView) linea.getChildAt(col+1);  // Hay que sumar 1 por el borde
+        LinearLayout linea = (LinearLayout) tabla.getChildAt(8 - fila);  //Las filas se numera de abajo a arriba
+        return (ImageView) linea.getChildAt(col + 1);  // Hay que sumar 1 por el borde
     }
 
     /**
      * permite verificar si el movimiento de una pieza de ajedrez es válido
-     * @author  Jesús Tomás
+     *
+     * @author Jesús Tomás
      */
     public interface Validador {
-        /** nos indica si la pieza puede ir de colOrigen, filaOrigen a colDestino, filaDestino */
-        public boolean movimientoValido (int colOrigen, int filaOrigen, int colDestino, int filaDestino);
+        /**
+         * nos indica si la pieza puede ir de colOrigen, filaOrigen a colDestino, filaDestino
+         */
+        public boolean movimientoValido(int colOrigen, int filaOrigen, int colDestino, int filaDestino);
     }
 
     /**
      * Hacemos que un conjunto de casillas parpadee un par de segundos.
      * El conjunto se determina por un ojeto Validador
-     * @param colOrigen columna actual de la pieza
+     *
+     * @param colOrigen  columna actual de la pieza
      * @param filaOrigen fila actual de la pieza
-     * @param validador las casillas que cumplan la condición validador.movimientoValido() parpadearán
+     * @param validador  las casillas que cumplan la condición validador.movimientoValido() parpadearán
      * @author Jesús Tomás
      */
     void resaltarCasilla(int colOrigen, int filaOrigen, Validador validador) {
@@ -304,13 +322,31 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                 LinearLayout linea = (LinearLayout) vista;
                 for (int c = 1, jMax = linea.getChildCount() - 1; c < jMax; c++) {
                     ImageView imagen = (ImageView) linea.getChildAt(c);
-                    if (validador.movimientoValido(colOrigen, filaOrigen, c-1, 8-f)) { //8-f: Las filas se numera de abajo a arriba
-                        Animation fadeInAnimation = AnimationUtils.loadAnimation(this,R.anim.animacion_parpadeo_casilla);
-                        imagen.startAnimation(fadeInAnimation);
+                    if (validador.movimientoValido(colOrigen, filaOrigen, c - 1, 8 - f)) { //8-f: Las filas se numera de abajo a arriba
+                       parpadeoCasilla(imagen);
+
                     }
                 }
             }
         }
     }
 
+        void parpadeoCasilla(ImageView imagen){
+        int color = ((ColorDrawable) imagen.getBackground()).getColor();
+
+        if (color == -1) //ColorBlanco
+            imagen.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca);
+
+        else // color negro
+            imagen.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra);
+
+        AnimationDrawable animacionCasilla;
+        animacionCasilla = (AnimationDrawable) imagen.getBackground();
+        animacionCasilla.start();
+
+    }
+
+
 }
+
+
