@@ -37,6 +37,18 @@ public class MainActivity extends AppCompatActivity  {
         presentacion();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        avatar.reanudar();
+    }
+
+    @Override
+    public void onPause() {
+        avatar.pausar();
+        super.onPause();
+    }
+
     public void presentacion() {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
