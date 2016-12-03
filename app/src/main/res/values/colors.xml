@@ -10,5 +10,7 @@
     <color name="textoMarco">#000000</color>
     <color name="fondoPantalla">#7CD1EC</color>
     <color name="gris">#E6E6E6</color>
+    <color name="parpadeoCuadriculaNegra">#02700b</color>
+    <color name="parpadeoCuadriculaBlanca">#9ffca6</color>
 
 </resources>
