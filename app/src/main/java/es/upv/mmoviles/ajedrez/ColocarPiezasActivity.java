@@ -53,27 +53,33 @@ public class ColocarPiezasActivity extends EjercicioBaseActivity {
             switch (pieza){
                 case 'P':
                     //avatar.habla(R.raw.colocar_piezas_mal_peon); //Todo: (Jesús) Grabar audio
-                    // resaltarCasilla(0, 0, boolean _funcion -> fila==1)
+                    resaltarCasilla(0, 0, //(c1,f1,c2,f2)-> f2==1   //Poner como Lambda en Java 8
+                            new Validador() {
+                                @Override
+                                public boolean movimientoValido(int colOrigen, int filaOrigen, int colDestino, int filaDestino) {
+                                    return filaDestino==1;
+                                }
+                            });
                     break;
                 case 'T':
                     //avatar.habla(R.raw.colocar_piezas_mal_torre); //Todo: (Jesús) Grabar audio
-                    // resaltarCasilla(0,0); resaltarCasilla(7,0);
+                    resaltarCasilla(0,0); resaltarCasilla(7,0);
                     break;
                 case 'C':
                     //avatar.habla(R.raw.colocar_piezas_mal_caballo); //Todo: (Jesús) Grabar audio
-                    // resaltarCasilla(1,0); resaltarCasilla(6,0);
+                    resaltarCasilla(1,0); resaltarCasilla(6,0);
                     break;
                 case 'A':
                     //avatar.habla(R.raw.colocar_piezas_mal_alfil); //Todo: (Jesús) Grabar audio
-                    // resaltarCasilla(2,0); resaltarCasilla(5,0);
+                    resaltarCasilla(2,0); resaltarCasilla(5,0);
                     break;
                 case 'D':
                     //avatar.habla(R.raw.colocar_piezas_mal_dama); //Todo: (Jesús) Grabar audio
-                    // resaltarCasilla(3,0);
+                    resaltarCasilla(3,0);
                     break;
                 case 'R':
                     //avatar.habla(R.raw.colocar_piezas_mal_rey); //Todo: (Jesús) Grabar audio
-                    // resaltarCasilla(4,0);
+                    resaltarCasilla(4,0);
             }
         }
         return salida;
