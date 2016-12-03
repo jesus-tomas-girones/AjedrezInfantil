@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.audiofx.Visualizer;
 import android.net.Uri;
@@ -33,9 +34,11 @@ public class VistaAvatar extends FrameLayout {
     private long ultimaActualizacion;
     private long ultimoParpadeo;
     private Random random;
-    private static int PERIODO_ACTUALIZACION = 50;
+    private final int PERIODO_ACTUALIZACION = 50;
     private int PERIODO_PARPADEO = 6 * 1000;
     private DireccionMirada direccionMirada;
+    private int amplitudMaxima;
+    private final int UMBRAL_MOVER_BOCA = 10; // % respecto a amplitudMaxima
 
     public enum DireccionMirada {
         LEFT_TOP, LEFT_CENTER, LEFT_BOTTOM,
@@ -43,14 +46,6 @@ public class VistaAvatar extends FrameLayout {
         CENTER_TOP, CENTER, CENTER_BOTTOM,
         CLOSED_EYES
     }
-/*    private OnMovimientoListener onMovimientoListener;
-
-    public interface OnMovimientoListener {
-        boolean onMovimiento(String origen, String destino);
-    }
-    public void setOnMovimientoListener(OnMovimientoListener escuchador) {
-        onMovimientoListener = escuchador;
-    } */
 
     public VistaAvatar(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -73,6 +68,7 @@ public class VistaAvatar extends FrameLayout {
 
     public void setActividad(Activity activity) {
         this.activity = activity;
+        activity.setVolumeControlStream(AudioManager.STREAM_MUSIC);
         arrancaThread();
     }
 
@@ -259,6 +255,7 @@ public class VistaAvatar extends FrameLayout {
         visualizerVoz = new Visualizer(mediaPlayerVoz.getAudioSessionId());
         visualizerVoz.setEnabled(false);
         visualizerVoz.setCaptureSize(Visualizer.getCaptureSizeRange()[0]);
+        amplitudMaxima =0;
     }
 
     private void actualizaOjos() {
@@ -274,16 +271,45 @@ public class VistaAvatar extends FrameLayout {
         if (visualizerVoz != null && visualizerVoz.getEnabled()) {
             byte[] bytes = new byte[visualizerVoz.getCaptureSize()];
             if (visualizerVoz.getWaveForm(bytes) != Visualizer.SUCCESS) return;
-            int valor;
-            int min=255;
-            for(int i=0;i<bytes.length-1;i++) {
-                valor=Math.abs(bytes[i]);
-                min=Math.min(min, valor);
+            int valor, amplitud, numeroMuestrasAudibles=0, amplitudAcumulada=0;
+            for(int i=0; i<bytes.length; i++) {
+                valor = 0xff & bytes[i];
+                //Log.d("AjedrezInfantil", "VistaAvatar: valor=" + valor);
+                if (valor == 0){
+                    amplitud = 0;
+                }
+                else if (valor <= 128){
+                    amplitud = 128 - valor;
+                }
+                else {
+                    amplitud = valor - 128;
+                }
+                if (amplitud > 0){
+                    amplitudAcumulada += amplitud;
+                    numeroMuestrasAudibles++;
+                }
+                amplitudMaxima = Math.max(amplitudMaxima, amplitud);
             }
-            if (min>=127)
+            float amplitudMedia=0;
+            if (numeroMuestrasAudibles>0){
+                amplitudMedia=((float) amplitudAcumulada) / numeroMuestrasAudibles;
+            }
+            float amplitudMediaRelativa=0;
+            if (amplitudMaxima > 0) {
+                amplitudMediaRelativa = (amplitudMedia / amplitudMaxima) * 100;
+            }
+            if (amplitudMediaRelativa < UMBRAL_MOVER_BOCA) {
                 cierraBoca();
-            else
+                /*Log.d("AjedrezInfantil", "VistaAvatar: amplitudMedia=" + amplitudMedia
+                        + " amplitudMediaRelativa=" + amplitudMediaRelativa
+                        + " amplitudMaxima=" + amplitudMaxima);*/
+            }
+            else {
                 mueveBoca();
+                /*Log.d("AjedrezInfantil", "VistaAvatar: amplitudMedia=" + amplitudMedia
+                        + " amplitudMediaRelativa=" + amplitudMediaRelativa
+                        + " amplitudMaxima=" + amplitudMaxima + "***");*/
+            }
         }
         else cierraBoca();
     }
@@ -303,11 +329,13 @@ public class VistaAvatar extends FrameLayout {
     }
 
     public void pausar(){
-       if (thread!=null) thread.pausar();
+        if (thread!=null) thread.pausar();
+        if (activity!=null) activity.setVolumeControlStream(AudioManager.USE_DEFAULT_STREAM_TYPE);
     }
 
     public void reanudar(){
         if (thread!=null) thread.reanudar();
+        if (activity!=null) activity.setVolumeControlStream(AudioManager.STREAM_MUSIC);
     }
 
     class ThreadAvatar extends Thread {
