@@ -21,6 +21,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import static es.upv.mmoviles.ajedrez.R.color.cuadriculaBlanca;
+
 /**
  * Created by Jesús Tomás on 21/11/2016.
  */
@@ -35,11 +37,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
         asignaListeners();
         avatar = (VistaAvatar) findViewById(R.id.vistaAvatar);
         avatar.setActividad(this);
-        //prueba parpadeo casilla
-        //resaltarCasilla(2, 4);
-        //resaltarCasilla(2, 3);
-        //resaltarCasilla(2, 2);
-        //resaltarCasilla(2, 1);
+
     }
 
     @Override
@@ -323,7 +321,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                 for (int c = 1, jMax = linea.getChildCount() - 1; c < jMax; c++) {
                     ImageView imagen = (ImageView) linea.getChildAt(c);
                     if (validador.movimientoValido(colOrigen, filaOrigen, c - 1, 8 - f)) { //8-f: Las filas se numera de abajo a arriba
-                       parpadeoCasilla(imagen);
+                        parpadeoCasilla(imagen);
 
                     }
                 }
@@ -331,13 +329,12 @@ public class EjercicioBaseActivity extends AppCompatActivity {
         }
     }
 
-        void parpadeoCasilla(ImageView imagen){
-        int color = ((ColorDrawable) imagen.getBackground()).getColor();
+    void parpadeoCasilla(ImageView imagen) {
 
-        if (color == -1) //ColorBlanco
+        if (imagen.getBackground().getConstantState()== getResources().getDrawable(R.color.cuadriculaBlanca).getConstantState())
             imagen.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca);
 
-        else // color negro
+        else if (imagen.getBackground().getConstantState() == getResources().getDrawable(R.color.cuadriculaNegra).getConstantState())
             imagen.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra);
 
         AnimationDrawable animacionCasilla;
@@ -345,7 +342,6 @@ public class EjercicioBaseActivity extends AppCompatActivity {
         animacionCasilla.start();
 
     }
-
 
 }
 
