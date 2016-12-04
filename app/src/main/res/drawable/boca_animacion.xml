@@ -5,23 +5,44 @@
     android:layout_height="match_parent">
     <item
         android:drawable="@drawable/boca_cerrada1"
-        android:duration="100" />
-    <item
-        android:drawable="@drawable/boca_a"
-        android:duration="100" />
+        android:duration="10" />
     <item
         android:drawable="@drawable/boca_abierta"
         android:duration="100" />
     <item
+        android:drawable="@drawable/boca_cerrada1"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/boca_a"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/boca_cerrada1"
+        android:duration="50" />
+    <item
         android:drawable="@drawable/boca_dientes"
         android:duration="100" />
     <item
+        android:drawable="@drawable/boca_cerrada1"
+        android:duration="50" />
+    <item
         android:drawable="@drawable/boca_semiabierta"
         android:duration="100" />
+    <item
+        android:drawable="@drawable/boca_cerrada1"
+        android:duration="50" />
     <item
         android:drawable="@drawable/boca_e"
         android:duration="100" />
     <item
+        android:drawable="@drawable/boca_cerrada1"
+        android:duration="50" />
+    <item
         android:drawable="@drawable/boca_semiabierta"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/boca_cerrada1"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/boca_lengua"
         android:duration="100" />
 </animation-list>

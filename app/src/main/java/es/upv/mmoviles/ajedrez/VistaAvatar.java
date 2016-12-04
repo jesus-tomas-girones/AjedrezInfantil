@@ -39,6 +39,7 @@ public class VistaAvatar extends FrameLayout {
     private DireccionMirada direccionMirada;
     private int amplitudMaxima;
     private final int UMBRAL_MOVER_BOCA = 10; // % respecto a amplitudMaxima
+    private boolean bocaParada;
 
     public enum DireccionMirada {
         LEFT_TOP, LEFT_CENTER, LEFT_BOTTOM,
@@ -115,6 +116,18 @@ public class VistaAvatar extends FrameLayout {
                 animationDrawableBoca.start();
             }
         });
+        bocaParada=false;
+    }
+
+    public void paraBoca() {
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                AnimationDrawable animationDrawableBoca = (AnimationDrawable) imageViewBoca.getDrawable();
+                animationDrawableBoca.stop();
+            }
+        });
+        bocaParada=true;
     }
 
     public void cierraBoca() {
@@ -126,6 +139,7 @@ public class VistaAvatar extends FrameLayout {
                 animationDrawableBoca.selectDrawable(0);
             }
         });
+        bocaParada=true;
     }
 
     public void setMiradas(HashMap<DireccionMirada, Drawable> miradas) {
@@ -244,6 +258,10 @@ public class VistaAvatar extends FrameLayout {
     }
 
     private void sincronizaBoca(){
+        visualizerVoz = new Visualizer(mediaPlayerVoz.getAudioSessionId());
+        visualizerVoz.setEnabled(false);
+        visualizerVoz.setCaptureSize(Visualizer.getCaptureSizeRange()[0]);
+        amplitudMaxima = 0;
         this.mediaPlayerVoz.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             public void onCompletion(MediaPlayer mediaPlayer) {
                 visualizerVoz.setEnabled(false);
@@ -252,10 +270,6 @@ public class VistaAvatar extends FrameLayout {
                 }
             }
         });
-        visualizerVoz = new Visualizer(mediaPlayerVoz.getAudioSessionId());
-        visualizerVoz.setEnabled(false);
-        visualizerVoz.setCaptureSize(Visualizer.getCaptureSizeRange()[0]);
-        amplitudMaxima =0;
     }
 
     private void actualizaOjos() {
@@ -299,7 +313,12 @@ public class VistaAvatar extends FrameLayout {
                 amplitudMediaRelativa = (amplitudMedia / amplitudMaxima) * 100;
             }
             if (amplitudMediaRelativa < UMBRAL_MOVER_BOCA) {
-                cierraBoca();
+                if (bocaParada) {
+                    cierraBoca();
+                }
+                else {
+                    paraBoca();
+                }
                 /*Log.d("AjedrezInfantil", "VistaAvatar: amplitudMedia=" + amplitudMedia
                         + " amplitudMediaRelativa=" + amplitudMediaRelativa
                         + " amplitudMaxima=" + amplitudMaxima);*/
