@@ -3,6 +3,7 @@ package es.upv.mmoviles.ajedrez;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -10,28 +11,35 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity  {
     private VistaAvatar avatar;
     private final int REQUEST_RECORD_AUDIO = 0;
 
-    // ESTO ES UNA PRUEBA
-
-    //Todo: (Raúl) Solicitar permiso grabación audio
-
-    //Todo: Poner avatar a la izquierda y botones a la derecha con Capítulo 1, capítulo 2, ...
-
     //Todo: Crear actividad Capitulo 1: avatar a la izquierda y botones a la derecha. Botones: verVideo, Ejercicio coordenadas, Ejercicio Colocar fichas,
 
     //Todo: Crear actividad ver video
-
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         setContentView(R.layout.activity_main);
+
+        Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/BalooPaaji-Regular.ttf");
+        // Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/BungeeShade-Regular.ttf");
+        // Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/HoltwoodOneSC.ttf");
+        Button boton1 = (Button) findViewById(R.id.boton1);
+        boton1.setTypeface(fuente);
+        Button boton2 = (Button) findViewById(R.id.boton2);
+        boton2.setTypeface(fuente);
+        Button boton3 = (Button) findViewById(R.id.boton3);
+        boton3.setTypeface(fuente);
+        Button boton4 = (Button) findViewById(R.id.boton4);
+        boton4.setTypeface(fuente);
+
         avatar = (VistaAvatar) findViewById(R.id.vistaAvatar);
         avatar.setActividad(this);
         presentacion();
