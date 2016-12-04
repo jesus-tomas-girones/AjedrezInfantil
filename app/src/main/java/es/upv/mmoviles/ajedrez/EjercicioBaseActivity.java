@@ -321,7 +321,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                 for (int c = 1, jMax = linea.getChildCount() - 1; c < jMax; c++) {
                     ImageView imagen = (ImageView) linea.getChildAt(c);
                     if (validador.movimientoValido(colOrigen, filaOrigen, c - 1, 8 - f)) { //8-f: Las filas se numera de abajo a arriba
-                        parpadeoCasilla(imagen);
+                       parpadeoCasilla(imagen);
 
                     }
                 }
@@ -338,7 +338,9 @@ public class EjercicioBaseActivity extends AppCompatActivity {
             imagen.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra);
 
         AnimationDrawable animacionCasilla;
+
         animacionCasilla = (AnimationDrawable) imagen.getBackground();
+        animacionCasilla.stop();
         animacionCasilla.start();
 
     }
