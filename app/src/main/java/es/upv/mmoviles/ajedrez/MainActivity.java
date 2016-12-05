@@ -18,10 +18,6 @@ public class MainActivity extends AppCompatActivity  {
     private VistaAvatar avatar;
     private final int REQUEST_RECORD_AUDIO = 0;
 
-    //Todo: Crear actividad Capitulo 1: avatar a la izquierda y botones a la derecha. Botones: verVideo, Ejercicio coordenadas, Ejercicio Colocar fichas,
-
-    //Todo: Crear actividad ver video
-
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
