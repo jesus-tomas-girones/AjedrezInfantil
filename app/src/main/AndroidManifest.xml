@@ -28,6 +28,10 @@
             android:screenOrientation="landscape" />
         <activity android:name="es.upv.mmoviles.ajedrez.MoverDamaActivity"
             android:screenOrientation="landscape" />
+        <activity android:name="es.upv.mmoviles.ajedrez.Capitulo1"
+            android:screenOrientation="landscape"/>
+        <activity android:name="es.upv.mmoviles.ajedrez.VerVideo"
+            android:screenOrientation="landscape"/>
     </application>
 
 
