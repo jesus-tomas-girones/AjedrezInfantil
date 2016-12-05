@@ -10,39 +10,42 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity  {
+/**
+ * Created by usuwi on 05/12/2016.
+ */
+
+public class Capitulo1 extends AppCompatActivity {
+
     private VistaAvatar avatar;
     private final int REQUEST_RECORD_AUDIO = 0;
-
-    //Todo: Crear actividad Capitulo 1: avatar a la izquierda y botones a la derecha. Botones: verVideo, Ejercicio coordenadas, Ejercicio Colocar fichas,
 
     //Todo: Crear actividad ver video
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        Log.d("Capitulo1", "hasta aquí llega");
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.capitulo1);
 
         Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/BalooPaaji-Regular.ttf");
         // Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/BungeeShade-Regular.ttf");
         // Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/HoltwoodOneSC.ttf");
-        Button boton1 = (Button) findViewById(R.id.boton1);
+        Button boton1 = (Button) findViewById(R.id.boton5);
         boton1.setTypeface(fuente);
-        Button boton2 = (Button) findViewById(R.id.boton2);
+        Button boton2 = (Button) findViewById(R.id.boton6);
         boton2.setTypeface(fuente);
-        Button boton3 = (Button) findViewById(R.id.boton3);
+        Button boton3 = (Button) findViewById(R.id.boton7);
         boton3.setTypeface(fuente);
-        Button boton4 = (Button) findViewById(R.id.boton4);
-        boton4.setTypeface(fuente);
 
-        avatar = (VistaAvatar) findViewById(R.id.vistaAvatar);
+        avatar = (VistaAvatar) findViewById(R.id.vistaAvatar1);
         avatar.setActividad(this);
-        presentacion();
+       // presentacion();
     }
 
     @Override
@@ -57,16 +60,16 @@ public class MainActivity extends AppCompatActivity  {
         super.onPause();
     }
 
-    public void presentacion() {
+   /* public void presentacion() {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
             avatar.habla(R.raw.presentacion);
         } else {
             solicitarPermisoRecordAudio();
         }
-    }
+    }*/
 
-    public void boton1(View v) { startActivity(new Intent(this, Capitulo1.class)); }
+    public void boton1(View v) { startActivity(new Intent(this, VerVideo.class)); }
 
     public void boton2(View v) {
         startActivity(new Intent(this, TareaA1Activity.class));
@@ -76,10 +79,8 @@ public class MainActivity extends AppCompatActivity  {
         startActivity(new Intent(this, ColocarPiezasActivity.class));
     }
 
-    public void boton4(View v) {
-        startActivity(new Intent(this, MoverDamaActivity.class));
-    }
 
+/*
     void solicitarPermisoRecordAudio() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                 Manifest.permission.RECORD_AUDIO)) {
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity  {
             snackbar.setAction("OK", new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{
+                    ActivityCompat.requestPermissions(Capitulo1.this, new String[]{
                             Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO);
                 }
             }).show();
@@ -115,6 +116,8 @@ public class MainActivity extends AppCompatActivity  {
                 finish();
             }
         }
-    }
+    }*/
+
+
 
 }
