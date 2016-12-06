@@ -40,12 +40,17 @@ public class VistaAvatar extends FrameLayout {
     private int amplitudMaxima;
     private final int UMBRAL_MOVER_BOCA = 10; // % respecto a amplitudMaxima
     private boolean bocaParada;
+    private OnAvatarHabla onAvatarHabla;
 
     public enum DireccionMirada {
         LEFT_TOP, LEFT_CENTER, LEFT_BOTTOM,
         RIGHT_TOP, RIGHT_CENTER, RIGHT_BOTTOM,
         CENTER_TOP, CENTER, CENTER_BOTTOM,
         CLOSED_EYES
+    }
+
+    public interface OnAvatarHabla{
+        void onTerminaHabla();
     }
 
     public VistaAvatar(Context context, AttributeSet attrs) {
@@ -217,15 +222,10 @@ public class VistaAvatar extends FrameLayout {
         return mediaPlayerVoz;
     }
 
-    public interface OnAvatarHabla{
-        void onTerminaHabla();
-    }
-
-    private OnAvatarHabla onAvatarHabla;
-
     public void habla(int idRecurso) {
         habla(idRecurso, null);
     }
+
     public void habla(int idRecurso, OnAvatarHabla escuchador) {
         onAvatarHabla = escuchador;
         try {
