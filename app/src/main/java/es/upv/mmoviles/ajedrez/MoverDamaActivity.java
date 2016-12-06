@@ -26,24 +26,13 @@ public class MoverDamaActivity extends EjercicioBaseActivity {
         ImageView C3 = (ImageView) findViewById(R.id.C3);
         C3.setImageResource(R.drawable.dama_blanca);
         avatar = getAvatar();
-        avatar.habla(R.raw.mover_dama_presentacion);
+        avatar.habla(R.raw.mover_dama_presentacion, new VistaAvatar.OnAvatarHabla() {
+            @Override
+            public void onTerminaHabla() {
+                avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.TIC_TAC);
+            }
+        });
     }
-
-/*    public void presentacion() {
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
-            avatar.habla(R.raw.presentacion, new VistaAvatar.OnAvatarHabla() {
-                @Override
-                public void onTerminaHabla() {
-                    finish();
-                }
-            });
-        } else {
-            solicitarPermisoRecordAudio();
-        }
-    }*/
-
-
 
 /*    boolean movimientoDama(int colOrigen, int filaOrigen, int colDestino, int filaDestino) {
       return (filaOrigen == filaDestino) || (colOrigen == colDestino) || //misma fila o columna
@@ -55,8 +44,15 @@ public class MoverDamaActivity extends EjercicioBaseActivity {
         boolean movimientoCorrecto = validadorDama.movimientoValido(colOrigen, filaOrigen, colDestino, filaDestino);
         if (movimientoCorrecto) {
             contadorMovimientos++;
-            avatar.habla(R.raw.mover_dama_bien); //Todo: (Jesús) Cambiar nombre mover_dama_bien -> bien_intenta_otra_vez
+            avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.CORRECTO);
+            avatar.habla(R.raw.mover_dama_bien, new VistaAvatar.OnAvatarHabla() {
+                @Override
+                public void onTerminaHabla() {
+                    avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.TIC_TAC);
+                }
+            }); //Todo: (Jesús) Cambiar nombre mover_dama_bien -> bien_intenta_otra_vez
             if (contadorMovimientos > 3) {
+                avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.APLAUSOS);
                 avatar.habla(R.raw.mover_dama_superado, new VistaAvatar.OnAvatarHabla() { //Todo: (Jesús) Cambiar nombre mover_dama_superado -> ejercicio_superado
                     @Override
                     public void onTerminaHabla() {
@@ -66,45 +62,15 @@ public class MoverDamaActivity extends EjercicioBaseActivity {
             }
         } else {
             //contadorErrores++;
-            avatar.habla(R.raw.mover_dama_mal);
+            avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.INCORRECTO);
+            avatar.habla(R.raw.mover_dama_mal, new VistaAvatar.OnAvatarHabla() {
+                @Override
+                public void onTerminaHabla() {
+                    avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.TIC_TAC);
+                }
+            });
             resaltarCasilla(colOrigen, filaOrigen, validadorDama);
         }
         return movimientoCorrecto;
     }
-
-/*    void solicitarPermisoRecordAudio() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                Manifest.permission.RECORD_AUDIO)) {
-            Snackbar snackbar = Snackbar.make(avatar, "Sin el permiso grabación de audio,\n"
-                    + "no puedo mostrarte el avatar hablando.", Snackbar.LENGTH_INDEFINITE);
-            View snackbarView = snackbar.getView();
-            TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
-            textView.setMaxLines(2);
-            snackbar.setAction("OK", new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    ActivityCompat.requestPermissions(MoverDamaActivity.this, new String[]{
-                            Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO);
-                }
-            }).show();
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == REQUEST_RECORD_AUDIO) {
-            if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                presentacion();
-            } else {
-                Snackbar snackbar = Snackbar.make(avatar, "Sin el permiso grabación de audio,\n"
-                        + "no puedo mostrarte el avatar hablando.", Snackbar.LENGTH_LONG);
-                View snackbarView = snackbar.getView();
-                TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
-                textView.setMaxLines(2);
-                snackbar.show();
-            }
-        }
-    }*/
 }

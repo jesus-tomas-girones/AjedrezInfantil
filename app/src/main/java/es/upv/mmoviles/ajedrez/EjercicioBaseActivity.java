@@ -1,7 +1,5 @@
 package es.upv.mmoviles.ajedrez;
 
-import android.animation.AnimatorInflater;
-import android.animation.AnimatorSet;
 import android.content.ClipData;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -11,19 +9,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-
-import static es.upv.mmoviles.ajedrez.R.color.cuadriculaBlanca;
 
 /**
  * Created by Jesús Tomás on 21/11/2016.
@@ -207,13 +198,13 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                         int filaDestino = destino.charAt(1) - '1';
                         if (origen.charAt(0) == 'P') { //Arrastramos una pieza de fuera al tablero
 
-                            movimientoValido =
-                                    (vistaDestino.getDrawable() == null) &&  //No hay una pieza ya colocada
-                                            onColocar(origen.charAt(1), colDestino, filaDestino); //La posición es correcta
+                            movimientoValido = (vistaDestino.getDrawable() == null) &&  //No hay una pieza ya colocada
+                                    onColocar(origen.charAt(1), colDestino, filaDestino); //La posición es correcta
                         } else {                      // Arrastramos una pieza del tablero al tablero
                             int colOrigen = origen.charAt(0) - 'A';
                             int filaOrigen = origen.charAt(1) - '1';
-                            movimientoValido = onMovimiento(colOrigen, filaOrigen, colDestino, filaDestino);
+                            movimientoValido = (vistaOrigen.getDrawable() != null)  //Estamos moviendo una ficha
+                                    && onMovimiento(colOrigen, filaOrigen, colDestino, filaDestino);
                         }
                     }
                     if (movimientoValido && (vistaOrigen != vistaDestino)) {
@@ -323,7 +314,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                 for (int c = 1, jMax = linea.getChildCount() - 1; c < jMax; c++) {
                     ImageView imagen = (ImageView) linea.getChildAt(c);
                     if (validador.movimientoValido(colOrigen, filaOrigen, c - 1, 8 - f)) { //8-f: Las filas se numera de abajo a arriba
-                       parpadeoCasilla(imagen);
+                        parpadeoCasilla(imagen);
 
                     }
                 }
@@ -371,7 +362,6 @@ public class EjercicioBaseActivity extends AppCompatActivity {
     boolean esCuadriculaBlanca(ImageView imageview) {
         return (!esCuadriculaNegra(imageview));
     }
-
 
 
 }
