@@ -27,10 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private int volumenMusica;
     private final int REQUEST_RECORD_AUDIO = 0;
 
-    //Todo: Crear actividad Capitulo 1: avatar a la izquierda y botones a la derecha. Botones: verVideo, Ejercicio coordenadas, Ejercicio Colocar fichas,
-
-    //Todo: Crear actividad ver video
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,9 +139,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void boton1(View v) {
-        startActivity(new Intent(this, EjercicioBaseActivity.class));
-    }
+    public void boton1(View v) { startActivity(new Intent(this, Capitulo1.class)); }
 
     public void boton2(View v) {
         startActivity(new Intent(this, TareaA1Activity.class));

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:background="@color/fondoPrincipal"
-    tools:context="es.upv.mmoviles.ajedrez.MainActivity">
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/capitulo1"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="horizontal"
+android:background="@color/fondoPrincipal"
+tools:context="es.upv.mmoviles.ajedrez.MainActivity">
 
-    <es.upv.mmoviles.ajedrez.VistaAvatar
-        android:id="@+id/vistaAvatar"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
+<es.upv.mmoviles.ajedrez.VistaAvatar
+    android:id="@+id/vistaAvatar1"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"/>
 
     <RelativeLayout
         android:layout_width="0dp"
@@ -33,36 +33,29 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/boton1"
+                    android:id="@+id/boton5"
                     style="@style/boton.1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Capítulo 1, parte 1"
-                    android:onClick="boton1" />
+                    android:onClick="boton1"
+                    android:text="Ver vídeo" />
 
                 <Button
-                    android:id="@+id/boton2"
+                    android:id="@+id/boton6"
                     style="@style/boton.2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="boton2"
-                    android:text="Capítulo 1, parte 2" />
+                    android:text="Ejercicio 1: Posiciones tablero" />
 
                 <Button
-                    android:id="@+id/boton3"
+                    android:id="@+id/boton7"
                     style="@style/boton.1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="boton3"
-                    android:text="Capítulo 2, parte 1" />
+                    android:text="Ejercicio 2: Colocar piezas" />
 
-                <Button
-                    android:id="@+id/boton4"
-                    style="@style/boton.2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="boton4"
-                    android:text="Capítulo 2, parte 2" />
 
             </LinearLayout>
         </ScrollView>
