@@ -6,7 +6,7 @@
         <item>"Lección 2"</item>
         <item>"Lección 3"</item>
     </string-array>
-    <string-array name="lecciones_valores">
+    <string-array name="leccionesValores">
         <item>presentacion.mp3</item>
         <item>leccion1.mp3</item>
         <item>leccion2.mp3</item>
@@ -17,9 +17,19 @@
         <item>"izquierda"</item>
         <item>"derecha"</item>
     </string-array>
-    <string-array name="miradas_valores">
+    <string-array name="miradasValores">
         <item>CENTER</item>
         <item>LEFT_CENTER</item>
         <item>RIGHT_CENTER</item>
+    </string-array>
+    <string-array name="efectosSonido">
+        <item>"incorrecto"</item>
+        <item>"correcto"</item>
+        <item>"aplausos"</item>
+    </string-array>
+    <string-array name="efectosSonidoValores">
+        <item>CORRECTO</item>
+        <item>INCORRECTO</item>
+        <item>APLAUSOS</item>
     </string-array>
 </resources>

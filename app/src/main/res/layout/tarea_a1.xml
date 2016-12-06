@@ -3,62 +3,68 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#1DA2E5">
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="left">
 
         <Button
             android:text="Levanta las cejas"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="1"
             android:id="@+id/levantaCejas"
-            android:onClick="levantaCejas"
-            android:layout_weight="1"/>
+            android:onClick="levantaCejas"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:layout_weight="1">
             <TextView
                 android:text="Mira:"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"/>
             <Spinner
                 android:entries="@array/miradas"
-                android:entryValues="@array/miradas_valores"
+                android:entryValues="@array/miradasValores"
+                android:gravity="left"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/spiner_miradas" />
+                android:layout_height="match_parent"
+                android:id="@+id/spiner_miradas"/>
         </LinearLayout>
 
         <Button
             android:text="Parpadea"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="1"
             android:id="@+id/parpadea"
-            android:onClick="parpadea"
-            android:layout_weight="1"/>
+            android:onClick="parpadea"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:layout_weight="1">
             <TextView
                 android:text="Habla:"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"/>
             <Spinner
                 android:entries="@array/lecciones"
-                android:entryValues="@array/lecciones_valores"
+                android:entryValues="@array/leccionesValores"
+                android:gravity="left"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:id="@+id/spinner_lecciones" />
         </LinearLayout>
 
@@ -66,23 +72,57 @@
             android:text="Habla"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="1"
             android:id="@+id/habla"
-            android:onClick="habla"
-            android:layout_weight="1" />
+            android:onClick="habla"/>
 
         <Button
             android:text="Calla"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="1"
             android:id="@+id/calla"
-            android:onClick="calla"
-            android:layout_weight="1"/>
+            android:onClick="calla"/>
+
+        <ToggleButton
+            android:text="TicTac"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/toggleTicTac"
+            android:textOff="Tic Tac OFF"
+            android:textOn="Tic Tac ON" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:text="Reproduce"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/reproduceEfectoSonido"
+                android:onClick="reproduceEfectoSonido" />
+
+            <Spinner
+                android:entries="@array/efectosSonido"
+                android:entryValues="@array/efectosSonidoValores"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/spinerEfectosSonido"
+                android:layout_gravity="center"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <es.upv.mmoviles.ajedrez.VistaAvatar
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:id="@+id/vistaAvatar"/>
+        android:id="@+id/vistaAvatar"
+        android:layout_weight="2"/>
 
 </LinearLayout>

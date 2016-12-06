@@ -9,8 +9,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 /**
  * Created by raulvibo on 28/10/2016.
@@ -50,6 +52,17 @@ public class TareaA1Activity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        ToggleButton toggleTicTac = (ToggleButton) findViewById(R.id.toggleTicTac);
+        toggleTicTac.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.TIC_TAC);
+                } else {
+                    avatar.paraEfectoSonido(VistaAvatar.EfectoSonido.TIC_TAC);
+                }
+            }
+        });
     }
 
     @Override
@@ -70,6 +83,14 @@ public class TareaA1Activity extends AppCompatActivity {
 
     public void calla(View view) {
         avatar.calla();
+    }
+
+    public void reproduceEfectoSonido(View view){
+        Spinner spinnerEfectosSonido = (Spinner) findViewById(R.id.spinerEfectosSonido);
+        String opcion = spinnerEfectosSonido.getSelectedItem().toString();
+        if (opcion.equals("incorrecto")) avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.INCORRECTO);
+        else if (opcion.equals("correcto")) avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.CORRECTO);
+        else if (opcion.equals("aplausos")) avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.APLAUSOS);
     }
 
     public void levantaCejas(View view) {

@@ -6,6 +6,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.media.audiofx.Visualizer;
 import android.net.Uri;
 import android.util.AttributeSet;
@@ -41,6 +42,10 @@ public class VistaAvatar extends FrameLayout {
     private final int UMBRAL_MOVER_BOCA = 10; // % respecto a amplitudMaxima
     private boolean bocaParada;
     private OnAvatarHabla onAvatarHabla;
+    private SoundPool soundPool;
+    private int idTicTac, idIncorrecto, idCorrecto, idAplausos;
+    private int idStreamTicTac;
+    private HashMap<EfectoSonido, Integer> hashMapEfectosSonido;
 
     public enum DireccionMirada {
         LEFT_TOP, LEFT_CENTER, LEFT_BOTTOM,
@@ -49,7 +54,11 @@ public class VistaAvatar extends FrameLayout {
         CLOSED_EYES
     }
 
-    public interface OnAvatarHabla{
+    public enum EfectoSonido {
+        TIC_TAC, INCORRECTO, CORRECTO, APLAUSOS
+    }
+
+    public interface OnAvatarHabla {
         void onTerminaHabla();
     }
 
@@ -69,13 +78,28 @@ public class VistaAvatar extends FrameLayout {
         setMiradas(miradas);
 
         mediaPlayerVoz = new MediaPlayer();
+
         random = new Random(System.currentTimeMillis());
     }
 
     public void setActividad(Activity activity) {
         this.activity = activity;
         activity.setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        inicializaEfectosSonido();
         arrancaThread();
+    }
+
+    private void inicializaEfectosSonido(){
+        soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
+        hashMapEfectosSonido = new HashMap<EfectoSonido, Integer>();
+        Integer integerIdTicTac = soundPool.load(activity, R.raw.tic_tac, 0);
+        Integer integerIdIncorrecto = soundPool.load(activity, R.raw.incorrecto, 0);
+        Integer integerIdCorrecto = soundPool.load(activity, R.raw.correcto, 0);
+        Integer integerIdAplausos = soundPool.load(activity, R.raw.aplausos, 0);
+        hashMapEfectosSonido.put(EfectoSonido.TIC_TAC, integerIdTicTac);
+        hashMapEfectosSonido.put(EfectoSonido.INCORRECTO, integerIdIncorrecto);
+        hashMapEfectosSonido.put(EfectoSonido.CORRECTO, integerIdCorrecto);
+        hashMapEfectosSonido.put(EfectoSonido.APLAUSOS, integerIdAplausos);
     }
 
     private void arrancaThread() {
@@ -121,7 +145,7 @@ public class VistaAvatar extends FrameLayout {
                 animationDrawableBoca.start();
             }
         });
-        bocaParada=false;
+        bocaParada = false;
     }
 
     public void paraBoca() {
@@ -132,7 +156,7 @@ public class VistaAvatar extends FrameLayout {
                 animationDrawableBoca.stop();
             }
         });
-        bocaParada=true;
+        bocaParada = true;
     }
 
     public void cierraBoca() {
@@ -144,7 +168,7 @@ public class VistaAvatar extends FrameLayout {
                 animationDrawableBoca.selectDrawable(0);
             }
         });
-        bocaParada=true;
+        bocaParada = true;
     }
 
     public void setMiradas(HashMap<DireccionMirada, Drawable> miradas) {
@@ -218,6 +242,34 @@ public class VistaAvatar extends FrameLayout {
         }
     }
 
+    public int reproduceEfectoSonido(EfectoSonido efectoSonido) {
+        Integer idInteger = hashMapEfectosSonido.get(efectoSonido);
+        int idStream = 0;
+        switch (efectoSonido) {
+            case TIC_TAC:
+                idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, -1, 1);
+                idStreamTicTac = idStream;
+                break;
+            case INCORRECTO:
+                idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, 0, 1);
+                break;
+            case CORRECTO:
+                idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, 0, 1);
+                break;
+            case APLAUSOS:
+                idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, 0, 1);
+                break;
+        }
+        return idStream;
+    }
+
+    public void paraEfectoSonido(EfectoSonido efectoSonido) {
+        switch (efectoSonido) {
+            case TIC_TAC:
+                soundPool.stop(idStreamTicTac);
+        }
+    }
+
     public MediaPlayer getMediaPlayerVoz() {
         return mediaPlayerVoz;
     }
@@ -235,13 +287,13 @@ public class VistaAvatar extends FrameLayout {
             mediaPlayerVoz.prepare();
             sincronizaBoca();
             habla();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             Log.e("AjedrezEjercicioBase", e.toString());
         }
     }
 
     public void habla() {
+        paraEfectoSonido(EfectoSonido.TIC_TAC);
         if (mediaPlayerVoz != null) mediaPlayerVoz.start();
         if (visualizerVoz != null) visualizerVoz.setEnabled(true);
     }
@@ -257,7 +309,7 @@ public class VistaAvatar extends FrameLayout {
         sincronizaBoca();
     }
 
-    private void sincronizaBoca(){
+    private void sincronizaBoca() {
         visualizerVoz = new Visualizer(mediaPlayerVoz.getAudioSessionId());
         visualizerVoz.setEnabled(false);
         visualizerVoz.setCaptureSize(Visualizer.getCaptureSizeRange()[0]);
@@ -265,7 +317,7 @@ public class VistaAvatar extends FrameLayout {
         this.mediaPlayerVoz.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             public void onCompletion(MediaPlayer mediaPlayer) {
                 visualizerVoz.setEnabled(false);
-                if (onAvatarHabla!=null) {
+                if (onAvatarHabla != null) {
                     onAvatarHabla.onTerminaHabla();
                 }
             }
@@ -285,52 +337,47 @@ public class VistaAvatar extends FrameLayout {
         if (visualizerVoz != null && visualizerVoz.getEnabled()) {
             byte[] bytes = new byte[visualizerVoz.getCaptureSize()];
             if (visualizerVoz.getWaveForm(bytes) != Visualizer.SUCCESS) return;
-            int valor, amplitud, numeroMuestrasAudibles=0, amplitudAcumulada=0;
-            for(int i=0; i<bytes.length; i++) {
+            int valor, amplitud, numeroMuestrasAudibles = 0, amplitudAcumulada = 0;
+            for (int i = 0; i < bytes.length; i++) {
                 valor = 0xff & bytes[i];
                 //Log.d("AjedrezInfantil", "VistaAvatar: valor=" + valor);
-                if (valor == 0){
+                if (valor == 0) {
                     amplitud = 0;
-                }
-                else if (valor <= 128){
+                } else if (valor <= 128) {
                     amplitud = 128 - valor;
-                }
-                else {
+                } else {
                     amplitud = valor - 128;
                 }
-                if (amplitud > 0){
+                if (amplitud > 0) {
                     amplitudAcumulada += amplitud;
                     numeroMuestrasAudibles++;
                 }
                 amplitudMaxima = Math.max(amplitudMaxima, amplitud);
             }
-            float amplitudMedia=0;
-            if (numeroMuestrasAudibles>0){
-                amplitudMedia=((float) amplitudAcumulada) / numeroMuestrasAudibles;
+            float amplitudMedia = 0;
+            if (numeroMuestrasAudibles > 0) {
+                amplitudMedia = ((float) amplitudAcumulada) / numeroMuestrasAudibles;
             }
-            float amplitudMediaRelativa=0;
+            float amplitudMediaRelativa = 0;
             if (amplitudMaxima > 0) {
                 amplitudMediaRelativa = (amplitudMedia / amplitudMaxima) * 100;
             }
             if (amplitudMediaRelativa < UMBRAL_MOVER_BOCA) {
                 if (bocaParada) {
                     cierraBoca();
-                }
-                else {
+                } else {
                     paraBoca();
                 }
                 /*Log.d("AjedrezInfantil", "VistaAvatar: amplitudMedia=" + amplitudMedia
                         + " amplitudMediaRelativa=" + amplitudMediaRelativa
                         + " amplitudMaxima=" + amplitudMaxima);*/
-            }
-            else {
+            } else {
                 mueveBoca();
                 /*Log.d("AjedrezInfantil", "VistaAvatar: amplitudMedia=" + amplitudMedia
                         + " amplitudMediaRelativa=" + amplitudMediaRelativa
                         + " amplitudMaxima=" + amplitudMaxima + "***");*/
             }
-        }
-        else cierraBoca();
+        } else cierraBoca();
     }
 
     private void actualizaAvatar() {
@@ -347,14 +394,14 @@ public class VistaAvatar extends FrameLayout {
         return thread;
     }
 
-    public void pausar(){
-        if (thread!=null) thread.pausar();
-        if (activity!=null) activity.setVolumeControlStream(AudioManager.USE_DEFAULT_STREAM_TYPE);
+    public void pausar() {
+        if (thread != null) thread.pausar();
+        if (activity != null) activity.setVolumeControlStream(AudioManager.USE_DEFAULT_STREAM_TYPE);
     }
 
-    public void reanudar(){
-        if (thread!=null) thread.reanudar();
-        if (activity!=null) activity.setVolumeControlStream(AudioManager.STREAM_MUSIC);
+    public void reanudar() {
+        if (thread != null) thread.reanudar();
+        if (activity != null) activity.setVolumeControlStream(AudioManager.STREAM_MUSIC);
     }
 
     class ThreadAvatar extends Thread {
