@@ -270,6 +270,14 @@ public class VistaAvatar extends FrameLayout {
         }
     }
 
+    public void pausaEfectosSonido(){
+        soundPool.autoPause();
+    }
+
+    public void continuaEfectosSonido(){
+        soundPool.autoResume();
+    }
+
     public MediaPlayer getMediaPlayerVoz() {
         return mediaPlayerVoz;
     }
@@ -409,11 +417,14 @@ public class VistaAvatar extends FrameLayout {
 
         public synchronized void pausar() {
             pausa = true;
+            pausaEfectosSonido();
             calla();
         }
 
         public synchronized void reanudar() {
             pausa = false;
+            continuaEfectosSonido();
+            habla();
             notify();
         }
 
