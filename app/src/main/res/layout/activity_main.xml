@@ -37,7 +37,7 @@
                     style="@style/boton.1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Capítulo 1, parte 1"
+                    android:text="@string/capitulo1_parte1"
                     android:onClick="boton1" />
 
                 <Button
@@ -46,7 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="boton2"
-                    android:text="Capítulo 1, parte 2" />
+                    android:text="@string/capitulo1_parte2" />
 
                 <Button
                     android:id="@+id/boton3"
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="boton3"
-                    android:text="Capítulo 2, parte 1" />
+                    android:text="@string/capitulo2_parte1" />
 
                 <Button
                     android:id="@+id/boton4"
@@ -62,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="boton4"
-                    android:text="Capítulo 2, parte 2" />
+                    android:text="@string/capitulo2_parte2" />
 
             </LinearLayout>
         </ScrollView>
