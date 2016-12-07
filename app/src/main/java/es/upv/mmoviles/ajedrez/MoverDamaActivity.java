@@ -15,8 +15,11 @@ public class MoverDamaActivity extends EjercicioBaseActivity {
     private Validador validadorDama = new Validador() {
         @Override
         public boolean movimientoValido(int colOrigen, int filaOrigen, int colDestino, int filaDestino) {
-            return (filaOrigen == filaDestino) || (colOrigen == colDestino) || //misma fila o columna
-                    (Math.abs(filaOrigen - filaDestino) == Math.abs(colOrigen - colDestino)); //misma diagonal
+            boolean diferenteCasilla = (colOrigen != colDestino) || (filaOrigen != filaDestino);
+            boolean mismaColumna = (colOrigen == colDestino);
+            boolean mismaFila = (filaOrigen == filaDestino);
+            boolean mismaDiagonal = (Math.abs(filaOrigen - filaDestino) == Math.abs(colOrigen - colDestino));
+            return (diferenteCasilla && (mismaColumna || mismaFila || mismaDiagonal));
         }
     };
 
