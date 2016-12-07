@@ -197,7 +197,6 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                         int colDestino = destino.charAt(0) - 'A';
                         int filaDestino = destino.charAt(1) - '1';
                         if (origen.charAt(0) == 'P') { //Arrastramos una pieza de fuera al tablero
-
                             movimientoValido = (vistaDestino.getDrawable() == null) &&  //No hay una pieza ya colocada
                                     onColocar(origen.charAt(1), colDestino, filaDestino); //La posición es correcta
                         } else {                      // Arrastramos una pieza del tablero al tablero
@@ -209,7 +208,8 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                     }
                     if (movimientoValido && (vistaOrigen != vistaDestino)) {
                         if (vistaOrigen.getDrawable() != null) {
-                            vistaDestino.setImageDrawable(vistaOrigen.getDrawable());
+                            Drawable clone = vistaOrigen.getDrawable().getConstantState().newDrawable(); // Clonamos el Drawable para que las piezas se comporten independientemente.
+                            vistaDestino.setImageDrawable(clone);
                         }
                         if ((vistaOrigen.getTag() != null) &&
                                 (vistaOrigen.getTag().toString().charAt(0) != 'P')) {
@@ -219,7 +219,6 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                     }
                 case DragEvent.ACTION_DRAG_ENDED:
                     //Log.i("Script", "- ACTION_DRAG_ENDED");
-                    //vistaDestino.invalidate();
                 default:
                     break;
             }

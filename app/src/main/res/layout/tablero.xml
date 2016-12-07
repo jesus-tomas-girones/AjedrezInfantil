@@ -30,7 +30,8 @@
                android:layout_margin="2dp"
                android:background="@drawable/boton_pieza"
                android:tag="PTorre"
-               app:srcCompat="@drawable/torre_blanca" />
+               app:srcCompat="@drawable/torre_blanca"
+               android:scaleType="fitXY"/>
         </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
         <es.upv.mmoviles.ajedrez.SquaredLinearLayout
             android:layout_width="match_parent"
@@ -44,7 +45,8 @@
                 android:layout_margin="2dp"
                 android:background="@drawable/boton_pieza"
                 android:tag="PAlfil"
-                app:srcCompat="@drawable/alfil_blanco" />
+                app:srcCompat="@drawable/alfil_blanco"
+                android:scaleType="fitXY"/>
         </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
         <es.upv.mmoviles.ajedrez.SquaredLinearLayout
             android:layout_width="match_parent"
@@ -58,7 +60,8 @@
                 android:layout_margin="2dp"
                 android:background="@drawable/boton_pieza"
                 android:tag="PDama"
-                app:srcCompat="@drawable/dama_blanca" />
+                app:srcCompat="@drawable/dama_blanca"
+                android:scaleType="fitXY"/>
         </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
         <es.upv.mmoviles.ajedrez.SquaredLinearLayout
             android:layout_width="match_parent"
@@ -72,7 +75,8 @@
                 android:layout_margin="3dp"
                 android:background="@drawable/boton_pieza"
                 android:tag="PCaballo"
-                app:srcCompat="@drawable/caballo_blanco" />
+                app:srcCompat="@drawable/caballo_blanco"
+                android:scaleType="fitXY"/>
         </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
         <es.upv.mmoviles.ajedrez.SquaredLinearLayout
             android:layout_width="match_parent"
@@ -86,7 +90,8 @@
                 android:layout_margin="3dp"
                 android:background="@drawable/boton_pieza"
                 android:tag="PPeon"
-                app:srcCompat="@drawable/peon_blanco" />
+                app:srcCompat="@drawable/peon_blanco"
+                android:scaleType="fitXY"/>
         </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
         <es.upv.mmoviles.ajedrez.SquaredLinearLayout
             android:layout_width="match_parent"
@@ -100,7 +105,8 @@
                 android:layout_margin="3dp"
                 android:background="@drawable/boton_pieza"
                 android:tag="PRey"
-                app:srcCompat="@drawable/rey_blanco" />
+                app:srcCompat="@drawable/rey_blanco"
+                android:scaleType="fitXY"/>
         </es.upv.mmoviles.ajedrez.SquaredLinearLayout>
     </LinearLayout>
 
