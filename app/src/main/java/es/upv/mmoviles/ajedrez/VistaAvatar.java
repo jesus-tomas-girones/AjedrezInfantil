@@ -43,7 +43,6 @@ public class VistaAvatar extends FrameLayout {
     private boolean bocaParada;
     private OnAvatarHabla onAvatarHabla;
     private SoundPool soundPool;
-    private int idTicTac, idIncorrecto, idCorrecto, idAplausos;
     private int idStreamTicTac;
     private HashMap<EfectoSonido, Integer> hashMapEfectosSonido;
 
@@ -70,16 +69,19 @@ public class VistaAvatar extends FrameLayout {
         imageViewOjos = (ImageView) findViewById(R.id.imageViewOjos);
         imageViewBoca = (ImageView) findViewById(R.id.imageViewBoca);
 
-        HashMap<VistaAvatar.DireccionMirada, Drawable> miradas = new HashMap<VistaAvatar.DireccionMirada, Drawable>();
-        miradas.put(VistaAvatar.DireccionMirada.LEFT_CENTER, getResources().getDrawable(R.drawable.mirada_left_center));
-        miradas.put(VistaAvatar.DireccionMirada.CENTER, getResources().getDrawable(R.drawable.mirada_center));
-        miradas.put(VistaAvatar.DireccionMirada.RIGHT_CENTER, getResources().getDrawable(R.drawable.mirada_right_center));
-        miradas.put(VistaAvatar.DireccionMirada.CLOSED_EYES, getResources().getDrawable(R.drawable.ojos_cerrados));
-        setMiradas(miradas);
+        hashMapMiradas = new HashMap<VistaAvatar.DireccionMirada, Drawable>();
+        hashMapMiradas.put(VistaAvatar.DireccionMirada.LEFT_CENTER, getResources().getDrawable(R.drawable.mirada_left_center));
+        hashMapMiradas.put(VistaAvatar.DireccionMirada.CENTER, getResources().getDrawable(R.drawable.mirada_center));
+        hashMapMiradas.put(VistaAvatar.DireccionMirada.RIGHT_CENTER, getResources().getDrawable(R.drawable.mirada_right_center));
+        hashMapMiradas.put(VistaAvatar.DireccionMirada.CLOSED_EYES, getResources().getDrawable(R.drawable.ojos_cerrados));
 
         mediaPlayerVoz = new MediaPlayer();
 
         random = new Random(System.currentTimeMillis());
+    }
+
+    public void reinicia(){
+        if (mediaPlayerVoz!=null) mediaPlayerVoz.release();
     }
 
     public void setActividad(Activity activity) {
@@ -171,16 +173,6 @@ public class VistaAvatar extends FrameLayout {
         bocaParada = true;
     }
 
-    public void setMiradas(HashMap<DireccionMirada, Drawable> miradas) {
-        synchronized (imageViewOjos) {
-            this.hashMapMiradas = miradas;
-        }
-    }
-
-    public Drawable getMirada(DireccionMirada direccionMirada) {
-        return hashMapMiradas.get(direccionMirada);
-    }
-
     public void setMirada(final DireccionMirada direccionMirada) {
         activity.runOnUiThread(new Runnable() {
             @Override
@@ -198,48 +190,6 @@ public class VistaAvatar extends FrameLayout {
                 animationDrawableOjos.start();
             }
         });
-    }
-
-    public DireccionMirada getDireccionMirada() {
-        return direccionMirada;
-    }
-
-    public void setDireccionMirada(DireccionMirada direccionMirada) {
-        this.direccionMirada = direccionMirada;
-    }
-
-    public ImageView getImageViewCuerpo() {
-        return imageViewCara;
-    }
-
-    public void setImageViewCara(ImageView imageViewCara) {
-        this.imageViewCara = imageViewCara;
-    }
-
-    public ImageView getImageViewBoca() {
-        return imageViewBoca;
-    }
-
-    public ImageView getImageViewCejas() {
-        return imageViewCejas;
-    }
-
-    public void setImageViewCejas(ImageView imageViewCejas) {
-        this.imageViewCejas = imageViewCejas;
-    }
-
-    public void setImageViewBoca(ImageView imageViewBoca) {
-        this.imageViewBoca = imageViewBoca;
-    }
-
-    public ImageView getImageViewOjos() {
-        return imageViewOjos;
-    }
-
-    public void setImageViewOjos(ImageView imageViewOjos) {
-        synchronized (imageViewOjos) {
-            this.imageViewOjos = imageViewOjos;
-        }
     }
 
     public int reproduceEfectoSonido(EfectoSonido efectoSonido) {
@@ -278,10 +228,6 @@ public class VistaAvatar extends FrameLayout {
         soundPool.autoResume();
     }
 
-    public MediaPlayer getMediaPlayerVoz() {
-        return mediaPlayerVoz;
-    }
-
     public void habla(int idRecurso) {
         habla(idRecurso, null);
     }
@@ -310,11 +256,6 @@ public class VistaAvatar extends FrameLayout {
         if (mediaPlayerVoz != null) mediaPlayerVoz.pause();
         if (visualizerVoz != null) visualizerVoz.setEnabled(false);
         cierraBoca();
-    }
-
-    public void setMediaPlayerVoz(MediaPlayer mediaPlayerVoz) {
-        this.mediaPlayerVoz = mediaPlayerVoz;
-        sincronizaBoca();
     }
 
     private void sincronizaBoca() {
@@ -424,7 +365,6 @@ public class VistaAvatar extends FrameLayout {
         public synchronized void reanudar() {
             pausa = false;
             continuaEfectosSonido();
-            habla();
             notify();
         }
 
