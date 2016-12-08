@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -22,15 +23,17 @@ import android.widget.LinearLayout;
 
 public class EjercicioBaseActivity extends AppCompatActivity {
     private VistaAvatar avatar;
+    private CountDownTimer cuentaAtras;
+    private int TIEMPO_CUENTA_ATRAS = 4500; // milisegundos
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tablero);
         asignaListeners();
+        configuraCuentaAtras(TIEMPO_CUENTA_ATRAS);
         avatar = (VistaAvatar) findViewById(R.id.vistaAvatar);
         avatar.setActividad(this);
-
     }
 
     @Override
@@ -41,6 +44,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
 
     @Override
     public void onPause() {
+        cancelaCuentaAtras();
         avatar.pausar();
         super.onPause();
     }
@@ -48,6 +52,28 @@ public class EjercicioBaseActivity extends AppCompatActivity {
     public VistaAvatar getAvatar() {
         return avatar;
     }
+
+    private void configuraCuentaAtras(long millisUntilFinished){
+        cuentaAtras = new CountDownTimer(millisUntilFinished, millisUntilFinished) {
+            @Override
+            public void onTick(long millisUntilFinished) {}
+
+            @Override
+            public void onFinish() {
+                onFinalCuentaAtras();
+            }
+        };
+    }
+
+    public void empiezaCuentaAtras(){
+        cuentaAtras.start();
+    }
+
+    public void cancelaCuentaAtras(){
+        cuentaAtras.cancel();
+    }
+
+    protected void onFinalCuentaAtras(){}
 
     void asignaListeners() {
         MiTouchListener touchListener = new MiTouchListener();
