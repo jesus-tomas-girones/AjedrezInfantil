@@ -11,5 +11,4 @@
     <item android:drawable="@color/cuadriculaBlanca" android:duration="500" />
     <item android:drawable="@color/parpadeoCuadriculaBlanca" android:duration="500"/>
     <item android:drawable="@color/cuadriculaBlanca" android:duration="500" />
-
 </animation-list>

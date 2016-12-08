@@ -19,8 +19,19 @@ import android.widget.LinearLayout;
 
 /**
  * Created by Jesús Tomás on 21/11/2016.
+ *
+ * Actividad que se usa como base para crear los ejercicios.
+ * Esta actividad usa el layout tablero.xml que contiene el avatar a la izquierda
+ * y el tablero a la derecha. También puede mostrarse una columna con las piezas,
+ * que se usará en el ejercicio colocar piezas.
+ * Se programa Drag and Drop entre las casillas del tablero y desde la
+ * columna de piezas al tablero.
+ * Los métodos onMovimiento() y onColocar() han de ser sobre escritos para disponer
+ * de manejadores que se activan al mover una pieza o al colocar desde la columnas de
+ * piezas.
+ * Los métodos resaltarCasilla() hacen que una casilla parpadee unos segundos
+ * @author Jesús Tomás
  */
-
 public class EjercicioBaseActivity extends AppCompatActivity {
     private VistaAvatar avatar;
     private CountDownTimer cuentaAtras;
@@ -96,7 +107,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
             if (vista instanceof LinearLayout) {
                 LinearLayout fila = (LinearLayout) vista;
                 for (int j = 1, jMax = fila.getChildCount() - 1; j < jMax; j++) {
-                    View vista2 = (ImageView) fila.getChildAt(j);
+                    View vista2 = fila.getChildAt(j);
                     if (vista2 instanceof ImageView) {
                         ImageView imagen = (ImageView) vista2;
                         //A cada casilla le damos la opción de poder clickar en ella con la imagen para arrastrarla a otra casilla
@@ -148,7 +159,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
         private static Drawable shadow;
 
         // Defines the constructor for myDragShadowBuilder
-        public MiDragShadowBuilder(View v) {
+        MiDragShadowBuilder(View v) {
 
             // Stores the View parameter passed to myDragShadowBuilder.
             super(v);
@@ -285,12 +296,9 @@ public class EjercicioBaseActivity extends AppCompatActivity {
      * @param col  columna  "A" -> 0, "B" ->1, ...
      * @param fila fila "1" -> 0, "2" ->1, ...
      */
-    void resaltarCasilla(int col, int fila) {
-
+    protected void resaltarCasilla(int col, int fila) {
         ImageView imagen = getCasilla(col, fila);
-        parpadeoCasilla(imagen);
-
-
+        resaltarCasilla(imagen);
     }
 
     /**
@@ -311,11 +319,11 @@ public class EjercicioBaseActivity extends AppCompatActivity {
      *
      * @author Jesús Tomás
      */
-    public interface Validador {
+    interface Validador {
         /**
          * nos indica si la pieza puede ir de colOrigen, filaOrigen a colDestino, filaDestino
          */
-        public boolean movimientoValido(int colOrigen, int filaOrigen, int colDestino, int filaDestino);
+        boolean movimientoValido(int colOrigen, int filaOrigen, int colDestino, int filaDestino);
     }
 
     /**
@@ -327,7 +335,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
      * @param validador  las casillas que cumplan la condición validador.movimientoValido() parpadearán
      * @author Jesús Tomás
      */
-    void resaltarCasilla(int colOrigen, int filaOrigen, Validador validador) {
+    protected void resaltarCasilla(int colOrigen, int filaOrigen, Validador validador) {
         LinearLayout tabla = (LinearLayout) findViewById(R.id.tabla);
         for (int f = 1, iMax = tabla.getChildCount() - 1; f < iMax; f++) {
             //Para cada fila (de 0 a 9) obtenemos la vista
@@ -339,7 +347,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                 for (int c = 1, jMax = linea.getChildCount() - 1; c < jMax; c++) {
                     ImageView imagen = (ImageView) linea.getChildAt(c);
                     if (validador.movimientoValido(colOrigen, filaOrigen, c - 1, 8 - f)) { //8-f: Las filas se numera de abajo a arriba
-                        parpadeoCasilla(imagen);
+                        resaltarCasilla(imagen);
 
                     }
                 }
@@ -347,7 +355,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
         }
     }
 
-   /*void parpadeoCasilla(ImageView imagen) {
+   /*void resaltarCasilla(ImageView imagen) {
 
         if (imagen.getBackground().getConstantState()== ResourcesCompat.getDrawable(getResources(),R.color.cuadriculaBlanca, null).getConstantState())
             imagen.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca);
@@ -363,31 +371,34 @@ public class EjercicioBaseActivity extends AppCompatActivity {
 
     }*/
 
-    void parpadeoCasilla(ImageView imagen) {
-
-        if (esCuadriculaBlanca(imagen))
-            imagen.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca);
-
-        else if (esCuadriculaNegra(imagen))
-            imagen.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra);
-
+    /**
+     * Hacemos que una casillas parpadee un par de segundos.
+     * Se utilzan dos drawables de tipo AnimationList (uno para casillas blancas y otro para negras)
+     *
+     * @param casilla vista de tipo ImageView correspondiente a la casilla resaltar
+     * @author Usua
+     */
+    protected void resaltarCasilla(ImageView casilla) {
+        if (esCuadriculaNegra(casilla))
+            casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra);
+        else //if (esCuadriculaBlanca(casilla))
+            casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca);
         AnimationDrawable animacionCasilla;
-        animacionCasilla = (AnimationDrawable) imagen.getBackground();
+        animacionCasilla = (AnimationDrawable) casilla.getBackground();
         animacionCasilla.stop();
         animacionCasilla.start();
     }
 
-    boolean esCuadriculaNegra(ImageView imageview) {
+    protected boolean esCuadriculaNegra(ImageView imageview) {
         String tag = imageview.getTag().toString();
         int col = tag.charAt(0) - 'A';
         int fila = tag.charAt(1) - '1';
         return (((col + fila) % 2) == 0);
     }
 
-    boolean esCuadriculaBlanca(ImageView imageview) {
+/*    boolean esCuadriculaBlanca(ImageView imageview) {
         return (!esCuadriculaNegra(imageview));
-    }
-
+    }*/
 
 }
 
