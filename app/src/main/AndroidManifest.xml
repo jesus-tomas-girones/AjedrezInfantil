@@ -35,6 +35,11 @@
             android:screenOrientation="landscape"/>
         <activity android:name="es.upv.mmoviles.ajedrez.VerVideo"
             android:screenOrientation="landscape"/>
+        <activity android:name="es.upv.mmoviles.ajedrez.AcercaDeActivity"
+            android:theme="@style/DialogCustom"
+            android:label="@string/acercadeLabel"/>
+
+
     </application>
 
 

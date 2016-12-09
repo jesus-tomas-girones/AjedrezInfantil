@@ -13,6 +13,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -44,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         boton3.setTypeface(fuente);
         Button boton4 = (Button) findViewById(R.id.boton4);
         boton4.setTypeface(fuente);
+
+        ImageView ajustes = (ImageView) findViewById(R.id.ajustes);
+        ImageView acercaDe = (ImageView) findViewById(R.id.info);
+
+
 
         mediaPlayerMusica = MediaPlayer.create(this, musica);
         mediaPlayerMusica.setLooping(true);
@@ -152,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
     public void boton4(View v) {
         startActivity(new Intent(this, MoverDamaActivity.class));
     }
+
+    public void acercaDe(View v){ startActivity( new Intent (this, AcercaDeActivity.class));}
 
     void solicitarPermisoRecordAudio() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,

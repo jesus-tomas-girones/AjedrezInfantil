@@ -76,5 +76,10 @@
         <item name="android:textColor">@color/botonFondo2</item>
         <item name="android:background">@drawable/boton1</item>
     </style>
+    <style name="DialogCustom" parent="@android:style/Theme.Dialog">
+        <item name="android:textColor">@color/textoDialog</item>
+        <item name="android:background">@color/fondoDialog</item>
+        <item name="android:textSize">@dimen/textsize_botones</item>
+    </style>
 
 </resources>

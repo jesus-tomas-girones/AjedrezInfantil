@@ -4,4 +4,6 @@
     <string name="capitulo1_parte2">Capítulo 1, parte 2</string>
     <string name="capitulo2_parte1">Capítulo 2, parte 1</string>
     <string name="capitulo2_parte2">Capítulo 2, parte 2</string>
+    <string name="acercade">Esta App ha sido desarrollada por alumnos y el profesor del Máster en Desarrollo de Aplicaciones Móviles en colaboración con...</string>
+    <string name="acercadeLabel">Acerca de...</string>
 </resources>
