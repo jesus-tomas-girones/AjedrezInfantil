@@ -19,7 +19,7 @@ public class ColocarPiezasActivity extends EjercicioBaseActivity {
         LinearLayout piezas = (LinearLayout)findViewById(R.id.piezas);
         piezas.setVisibility(View.VISIBLE);
         avatar = getAvatar();
-        //avatar.habla(R.raw.colocar_piezas_presentacion); //Todo: (Jesús) Grabar audio
+        avatar.habla(R.raw.colocar_piezas_presentacion);
     }
 
     @Override
@@ -42,9 +42,9 @@ public class ColocarPiezasActivity extends EjercicioBaseActivity {
         if (salida) {
             aciertos++;
             if (aciertos < 16) {
-                avatar.habla(R.raw.mover_dama_bien); //Todo: (Jesús) Cambiar nombre mover_dama_bien -> ejercicio_bien
+                avatar.habla(R.raw.colocar_piezas_bien);
             } else {
-                avatar.habla(R.raw.mover_dama_superado,
+                avatar.habla(R.raw.ok_superado,
                         new VistaAvatar.OnAvatarHabla() {
                             @Override public void onTerminaHabla() { finish();   }
                 });
@@ -52,7 +52,7 @@ public class ColocarPiezasActivity extends EjercicioBaseActivity {
         } else {
             switch (pieza){
                 case 'P':
-                    //avatar.habla(R.raw.colocar_piezas_mal_peon); //Todo: (Jesús) Grabar audio
+                    avatar.habla(R.raw.colocar_piezas_mal_peon);
                     resaltarCasilla(0, 0, //(c1,f1,c2,f2)-> f2==1   //Poner como Lambda en Java 8
                             new Validador() {
                                 @Override
@@ -62,23 +62,23 @@ public class ColocarPiezasActivity extends EjercicioBaseActivity {
                             });
                     break;
                 case 'T':
-                    //avatar.habla(R.raw.colocar_piezas_mal_torre); //Todo: (Jesús) Grabar audio
+                    avatar.habla(R.raw.colocar_piezas_mal_torre);
                     resaltarCasilla(0,0); resaltarCasilla(7,0);
                     break;
                 case 'C':
-                    //avatar.habla(R.raw.colocar_piezas_mal_caballo); //Todo: (Jesús) Grabar audio
+                    avatar.habla(R.raw.colocar_piezas_mal_caballo);
                     resaltarCasilla(1,0); resaltarCasilla(6,0);
                     break;
                 case 'A':
-                    //avatar.habla(R.raw.colocar_piezas_mal_alfil); //Todo: (Jesús) Grabar audio
+                    avatar.habla(R.raw.colocar_piezas_mal_alfil);
                     resaltarCasilla(2,0); resaltarCasilla(5,0);
                     break;
                 case 'D':
-                    //avatar.habla(R.raw.colocar_piezas_mal_dama); //Todo: (Jesús) Grabar audio
+                    avatar.habla(R.raw.colocar_piezas_mal_dama);
                     resaltarCasilla(3,0);
                     break;
                 case 'R':
-                    //avatar.habla(R.raw.colocar_piezas_mal_rey); //Todo: (Jesús) Grabar audio
+                    avatar.habla(R.raw.colocar_piezas_mal_rey);
                     resaltarCasilla(4,0);
             }
         }

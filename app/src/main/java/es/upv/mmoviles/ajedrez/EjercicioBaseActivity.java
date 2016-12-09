@@ -35,7 +35,7 @@ import android.widget.LinearLayout;
 public class EjercicioBaseActivity extends AppCompatActivity {
     private VistaAvatar avatar;
     private CountDownTimer cuentaAtras;
-    private int TIEMPO_CUENTA_ATRAS = 4500; // milisegundos
+    private int TIEMPO_CUENTA_ATRAS = 8000; // milisegundos
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

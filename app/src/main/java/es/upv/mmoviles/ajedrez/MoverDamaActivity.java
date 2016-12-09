@@ -62,7 +62,7 @@ public class MoverDamaActivity extends EjercicioBaseActivity {
             avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.CORRECTO);
             if (contadorMovimientos > 3) {
                 avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.APLAUSOS);
-                avatar.habla(R.raw.mover_dama_superado, new VistaAvatar.OnAvatarHabla() { //Todo: (Jesús) Cambiar nombre mover_dama_superado -> ejercicio_superado
+                avatar.habla(R.raw.ok_superado, new VistaAvatar.OnAvatarHabla() {
                     @Override
                     public void onTerminaHabla() {
                         finish();
@@ -70,13 +70,13 @@ public class MoverDamaActivity extends EjercicioBaseActivity {
                 });
             }
             else {
-                avatar.habla(R.raw.mover_dama_bien, new VistaAvatar.OnAvatarHabla() {
+                avatar.habla(R.raw.ok_intenta_otra_vez, new VistaAvatar.OnAvatarHabla() {
                     @Override
                     public void onTerminaHabla() {
                         avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.TIC_TAC);
                         empiezaCuentaAtras();
                     }
-                }); //Todo: (Jesús) Cambiar nombre mover_dama_bien -> bien_intenta_otra_vez
+                });
             }
         } else {
             //contadorErrores++;
