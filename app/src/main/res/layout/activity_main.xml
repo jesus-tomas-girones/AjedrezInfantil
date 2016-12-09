@@ -42,7 +42,7 @@
 
                 <Button
                     android:id="@+id/boton2"
-                    style="@style/boton.2"
+                    style="@style/boton.1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="boton2"
@@ -50,7 +50,7 @@
 
                 <Button
                     android:id="@+id/boton3"
-                    style="@style/boton.1"
+                    style="@style/boton.2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="boton3"
