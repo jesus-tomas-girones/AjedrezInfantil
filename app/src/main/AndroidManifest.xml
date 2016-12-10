@@ -38,9 +38,7 @@
         <activity android:name="es.upv.mmoviles.ajedrez.AcercaDeActivity"
             android:theme="@style/DialogCustom"
             android:label="@string/acercadeLabel"/>
-
-
+        <activity android:name="es.upv.mmoviles.ajedrez.Preferencias"
+            android:screenOrientation="landscape"/>
     </application>
-
-
 </manifest>

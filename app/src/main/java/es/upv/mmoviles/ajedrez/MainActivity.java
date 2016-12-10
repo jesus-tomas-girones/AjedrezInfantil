@@ -161,6 +161,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void acercaDe(View v){ startActivity( new Intent (this, AcercaDeActivity.class));}
 
+    public void ajustes(View v){startActivity(new Intent (this, Preferencias.class));}
+
     void solicitarPermisoRecordAudio() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                 Manifest.permission.RECORD_AUDIO)) {
