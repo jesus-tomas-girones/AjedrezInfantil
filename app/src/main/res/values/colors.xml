@@ -17,6 +17,5 @@
     <color name="botonFondo2">#FFB134</color>
     <color name="botonMarco">#FFFFFF</color>
     <color name="textoDialog">#FFFFFF</color>
-    <color name="fondoLabelAcercaDe">#683C12</color>
-    <color name="fondoDialog">#1DA2E5</color>
+    <color name="fondoDialog">#7CD1EC</color>
 </resources>
