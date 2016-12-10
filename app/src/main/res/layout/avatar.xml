@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/frameAvatar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:src="@drawable/cuerpo_rey_blanco" />
+        app:srcCompat="@drawable/cuerpo_rey_blanco" />
 
     <ImageView
         android:id="@+id/imageViewCejas"
@@ -19,7 +20,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:src="@drawable/cejas_animacion" />
+        app:srcCompat="@drawable/cejas_animacion" />
 
     <ImageView
         android:id="@+id/imageViewOjos"
@@ -27,7 +28,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:src="@drawable/ojos_parpadeo" />
+        app:srcCompat="@drawable/ojos_parpadeo" />
 
     <ImageView
         android:id="@+id/imageViewBoca"
@@ -35,6 +36,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:src="@drawable/boca_animacion" />
+        app:srcCompat="@drawable/boca_animacion" />
 
 </FrameLayout>

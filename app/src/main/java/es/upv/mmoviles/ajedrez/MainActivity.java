@@ -11,16 +11,21 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static es.upv.mmoviles.ajedrez.R.raw.musica;
 
 public class MainActivity extends AppCompatActivity {
+    static {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
     private Handler handler;
     private Runnable runnable;
     private VistaAvatar avatar;

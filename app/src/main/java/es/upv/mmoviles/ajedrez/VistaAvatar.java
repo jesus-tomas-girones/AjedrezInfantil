@@ -1,6 +1,5 @@
 package es.upv.mmoviles.ajedrez;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
@@ -9,6 +8,7 @@ import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.media.audiofx.Visualizer;
 import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,7 +23,7 @@ import java.util.Random;
  */
 
 public class VistaAvatar extends FrameLayout {
-    private Activity activity;
+    private AppCompatActivity activity;
     private ThreadAvatar thread;
     private ImageView imageViewCara;
     private ImageView imageViewCejas;
@@ -68,15 +68,7 @@ public class VistaAvatar extends FrameLayout {
         imageViewCejas = (ImageView) findViewById(R.id.imageViewCejas);
         imageViewOjos = (ImageView) findViewById(R.id.imageViewOjos);
         imageViewBoca = (ImageView) findViewById(R.id.imageViewBoca);
-
-        hashMapMiradas = new HashMap<VistaAvatar.DireccionMirada, Drawable>();
-        hashMapMiradas.put(VistaAvatar.DireccionMirada.LEFT_CENTER, getResources().getDrawable(R.drawable.mirada_left_center));
-        hashMapMiradas.put(VistaAvatar.DireccionMirada.CENTER, getResources().getDrawable(R.drawable.mirada_center));
-        hashMapMiradas.put(VistaAvatar.DireccionMirada.RIGHT_CENTER, getResources().getDrawable(R.drawable.mirada_right_center));
-        hashMapMiradas.put(VistaAvatar.DireccionMirada.CLOSED_EYES, getResources().getDrawable(R.drawable.ojos_cerrados));
-
         mediaPlayerVoz = new MediaPlayer();
-
         random = new Random(System.currentTimeMillis());
     }
 
@@ -84,11 +76,20 @@ public class VistaAvatar extends FrameLayout {
         if (mediaPlayerVoz!=null) mediaPlayerVoz.release();
     }
 
-    public void setActividad(Activity activity) {
+    public void setActividad(AppCompatActivity activity) {
         this.activity = activity;
+        inicializaHashMapMiradas();
         activity.setVolumeControlStream(AudioManager.STREAM_MUSIC);
         inicializaEfectosSonido();
         arrancaThread();
+    }
+
+    private void inicializaHashMapMiradas(){
+        hashMapMiradas = new HashMap<VistaAvatar.DireccionMirada, Drawable>();
+        hashMapMiradas.put(VistaAvatar.DireccionMirada.LEFT_CENTER, getResources().getDrawable(R.drawable.mirada_left_center));
+        hashMapMiradas.put(VistaAvatar.DireccionMirada.CENTER, getResources().getDrawable(R.drawable.mirada_center));
+        hashMapMiradas.put(VistaAvatar.DireccionMirada.RIGHT_CENTER, getResources().getDrawable(R.drawable.mirada_right_center));
+        hashMapMiradas.put(VistaAvatar.DireccionMirada.CLOSED_EYES, getResources().getDrawable(R.drawable.ojos_cerrados));
     }
 
     private void inicializaEfectosSonido(){
