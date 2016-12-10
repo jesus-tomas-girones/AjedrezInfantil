@@ -79,7 +79,7 @@
     <style name="DialogCustom" parent="@android:style/Theme.Dialog">
         <item name="android:textColor">@color/textoDialog</item>
         <item name="android:background">@color/fondoDialog</item>
-        <item name="android:textSize">@dimen/textsize_botones</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 </resources>

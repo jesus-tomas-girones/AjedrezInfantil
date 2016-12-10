@@ -17,7 +17,15 @@ public class AcercaDeActivity extends Activity {
 
         Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/BalooPaaji-Regular.ttf");
         TextView acercaDeDialog = (TextView)findViewById(R.id.acercade);
-        acercaDeDialog.setTypeface(fuente);
+        //acercaDeDialog.setTypeface(fuente);
+        TextView tituloCreditosApp = (TextView)findViewById(R.id.tituloCreditosApp);
+        //tituloCreditosApp.setTypeface(fuente);
+        TextView textoCreditosApp = (TextView)findViewById(R.id.textoCreditosApp);
+        //textoCreditosApp.setTypeface(fuente);
+        TextView tituloCreditosVideo = (TextView)findViewById(R.id.tituloCreditosVideo);
+        //tituloCreditosVideo.setTypeface(fuente);
+        TextView textoCreditosVideo = (TextView)findViewById(R.id.textoCreditosVideo);
+        //textoCreditosVideo.setTypeface(fuente);
 
     }
 }

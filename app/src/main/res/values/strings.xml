@@ -4,6 +4,51 @@
     <string name="capitulo1_parte2">Capítulo 1, parte 2</string>
     <string name="capitulo2_parte1">Capítulo 2, parte 1</string>
     <string name="capitulo2_parte2">Capítulo 2, parte 2</string>
-    <string name="acercade">Esta App ha sido desarrollada por alumnos y el profesor del Máster en Desarrollo de Aplicaciones Móviles en colaboración con...</string>
-    <string name="acercadeLabel">Acerca de...</string>
+    <string name="acercadeLabel"> Acerca de...</string>
+    <string name="acercade">Esta Aplicación ha sido desarrollada por alumnos y profesores del Máster en Desarrollo de Aplicaciones Móviles de la Universidad Politécnica de Valencia (www.androidcurso.com).
+    Pretende ser un complemento a los vídeos “Aprende con Rey” (https://www.youtube.com/channel/UCanJ4GFmSQTnaD3z_95rQFg)\n
+    </string>
+    <string name="tituloCreditosApp">Aplicación\n</string>
+    <string name="textoCreditosApp">
+
+        PROGRAMACIÓN\n
+
+        Raúl Villar Boronat\n
+        Usua Madina Iñigo\n
+        Alonso González Nestal\n
+        Jesús Tomás Gironés\n\n
+
+        DISEÑO GRÁFICO\n
+        Raúl Estévez Montero\n\n
+
+        IDEA ORIGINAL\n
+        Jaime Lloret Mauri\n\n
+
+        GUIÓN\n
+        Jesús Tomás Gironés\n\n
+
+        DIRECCIÓN\n
+        Jesús Tomás Gironés\n\n
+    </string>
+    <string name="tituloCreditosVideo">Video\n</string>
+    <string name="textoCreditosVideo">
+        GUIÓN\n
+        Raúl Estévez Montero\n\n
+
+        IDEA ORIGINAL\n
+        Jaime Lloret Mauri\n\n
+
+        DISEÑO\n
+        Raúl Estévez Montero y FreePik\n\n
+
+        ANIMACIÓN\n
+        Rául Estévez Montero\n\n
+
+        VOCES\n
+        Ignacio Navarro y Silvia Montes\n\n
+
+        SUPERVISIÓN\n
+        Jaime Lloret Mauri\n\n
+    </string>
+
 </resources>
