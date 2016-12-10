@@ -38,8 +38,8 @@
                 android:adjustViewBounds="false"
                 android:scaleType="fitCenter"
                 android:layout_marginRight="5dp"
-                android:scaleX="1.5"
-                android:scaleY="1.5"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
                 android:padding="10dp"
                 android:onClick="ajustes" />
 
@@ -53,8 +53,8 @@
                 android:scaleType="fitCenter"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
-                android:scaleX="1.5"
-                android:scaleY="1.5"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
                 android:padding="10dp"
                 android:onClick="acercaDe"/>
         </LinearLayout>
