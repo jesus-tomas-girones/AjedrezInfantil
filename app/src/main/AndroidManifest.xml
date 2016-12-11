@@ -10,6 +10,7 @@
 
     <uses-sdk tools:overrideLibrary="com.scand.svg"/>
     <application
+        android:fullBackupContent="true"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -35,6 +36,9 @@
             android:screenOrientation="landscape"/>
         <activity android:name="es.upv.mmoviles.ajedrez.VerVideo"
             android:screenOrientation="landscape"/>
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.SenalarCasillas"
+            android:screenOrientation="landscape" />
         <activity android:name="es.upv.mmoviles.ajedrez.AcercaDeActivity"
             android:theme="@style/DialogCustom"
             android:label="@string/acercadeLabel"/>
