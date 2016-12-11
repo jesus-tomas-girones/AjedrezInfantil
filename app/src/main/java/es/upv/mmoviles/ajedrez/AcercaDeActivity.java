@@ -68,8 +68,6 @@ public class AcercaDeActivity extends Activity {
         TextView textoCreditosAppDireccion = (TextView)findViewById(R.id.textoCreditosAppDireccion);
         textoCreditosAppDireccion.setTypeface(fuente2);
 
-
-
         TextView tituloCreditosVideo = (TextView)findViewById(R.id.tituloCreditosVideo);
         tituloCreditosVideo.setTypeface(fuente1);
 
@@ -102,9 +100,6 @@ public class AcercaDeActivity extends Activity {
         tituloCreditosVideoSupervision.setTypeface(fuente);
         TextView  textoCreditosVideoSupervision= (TextView)findViewById(R.id.textoCreditosVideoSuperVision);
         textoCreditosVideoSupervision.setTypeface(fuente2);
-
-
-
 
 
     }

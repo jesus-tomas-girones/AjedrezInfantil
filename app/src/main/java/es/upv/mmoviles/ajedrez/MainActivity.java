@@ -167,9 +167,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, ColocarPiezasActivity.class));
     }
 
-    public void boton4(View v) {
-        startActivity(new Intent(this, MoverDamaActivity.class));
-    }
+    public void boton4(View v) { startActivity(new Intent(this, MoverDamaActivity.class)); }
 
     public void acercaDe(View v){ startActivity(new Intent(this, AcercaDeActivity.class));}
 
