@@ -43,6 +43,7 @@ public class VistaAvatar extends FrameLayout {
     private final int UMBRAL_MOVER_BOCA = 10; // % respecto a amplitudMaxima
     private boolean bocaParada;
     private OnAvatarHabla onAvatarHabla;
+    private boolean sonidosActivados;
     private SoundPool soundPool;
     private int idStreamTicTac;
     private HashMap<EfectoSonido, Integer> hashMapEfectosSonido;
@@ -62,9 +63,9 @@ public class VistaAvatar extends FrameLayout {
         ANIMACION_CORRECTO, ANIMACION_APLAUSOS
     }
 
-    public void lanzaAnimacion (Animacion animacion){
+    public void lanzaAnimacion(Animacion animacion) {
         AnimatedVectorDrawableCompat animatedVectorDrawableCompat;
-        switch(animacion){
+        switch (animacion) {
             case ANIMACION_CORRECTO:
                 animatedVectorDrawableCompat = AnimatedVectorDrawableCompat.create(activity, R.drawable.estrellas_animacion_correcto);
                 imageViewCara.setBackgroundDrawable(animatedVectorDrawableCompat);
@@ -93,8 +94,8 @@ public class VistaAvatar extends FrameLayout {
         random = new Random(System.currentTimeMillis());
     }
 
-    public void reinicia(){
-        if (mediaPlayerVoz!=null) mediaPlayerVoz.release();
+    public void reinicia() {
+        if (mediaPlayerVoz != null) mediaPlayerVoz.release();
     }
 
     public void setActividad(AppCompatActivity activity) {
@@ -105,7 +106,7 @@ public class VistaAvatar extends FrameLayout {
         arrancaThread();
     }
 
-    private void inicializaHashMapMiradas(){
+    private void inicializaHashMapMiradas() {
         hashMapMiradas = new HashMap<VistaAvatar.DireccionMirada, Drawable>();
         hashMapMiradas.put(VistaAvatar.DireccionMirada.LEFT_CENTER, getResources().getDrawable(R.drawable.mirada_left_center));
         hashMapMiradas.put(VistaAvatar.DireccionMirada.CENTER, getResources().getDrawable(R.drawable.mirada_center));
@@ -113,7 +114,7 @@ public class VistaAvatar extends FrameLayout {
         hashMapMiradas.put(VistaAvatar.DireccionMirada.CLOSED_EYES, getResources().getDrawable(R.drawable.ojos_cerrados));
     }
 
-    private void inicializaEfectosSonido(){
+    private void inicializaEfectosSonido() {
         soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
         hashMapEfectosSonido = new HashMap<EfectoSonido, Integer>();
         Integer integerIdTicTac = soundPool.load(activity, R.raw.tic_tac, 0);
@@ -214,25 +215,34 @@ public class VistaAvatar extends FrameLayout {
         });
     }
 
-    public int reproduceEfectoSonido(EfectoSonido efectoSonido) {
-        Integer idInteger = hashMapEfectosSonido.get(efectoSonido);
-        int idStream = 0;
-        switch (efectoSonido) {
-            case TIC_TAC:
-                idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, -1, 1);
-                idStreamTicTac = idStream;
-                break;
-            case INCORRECTO:
-                idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, 0, 1);
-                break;
-            case CORRECTO:
-                idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, 0, 1);
-                break;
-            case APLAUSOS:
-                idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, 0, 1);
-                break;
+    public boolean isSonidosActivados() {
+        return sonidosActivados;
+    }
+
+    public void setSonidosActivados(boolean sonidosActivados) {
+        this.sonidosActivados = sonidosActivados;
+    }
+
+    public void reproduceEfectoSonido(EfectoSonido efectoSonido) {
+        if (sonidosActivados) {
+            Integer idInteger = hashMapEfectosSonido.get(efectoSonido);
+            int idStream = 0;
+            switch (efectoSonido) {
+                case TIC_TAC:
+                    idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, -1, 1);
+                    idStreamTicTac = idStream;
+                    break;
+                case INCORRECTO:
+                    idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, 0, 1);
+                    break;
+                case CORRECTO:
+                    idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, 0, 1);
+                    break;
+                case APLAUSOS:
+                    idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, 0, 1);
+                    break;
+            }
         }
-        return idStream;
     }
 
     public void paraEfectoSonido(EfectoSonido efectoSonido) {
@@ -242,11 +252,11 @@ public class VistaAvatar extends FrameLayout {
         }
     }
 
-    public void pausaEfectosSonido(){
+    public void pausaEfectosSonido() {
         soundPool.autoPause();
     }
 
-    public void continuaEfectosSonido(){
+    public void continuaEfectosSonido() {
         soundPool.autoResume();
     }
 

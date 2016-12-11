@@ -1,6 +1,7 @@
 package es.upv.mmoviles.ajedrez;
 
 import android.content.ClipData;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -10,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -50,6 +52,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
+        leerPreferencias();
         avatar.reanudar();
     }
 
@@ -58,6 +61,11 @@ public class EjercicioBaseActivity extends AppCompatActivity {
         cancelaCuentaAtras();
         avatar.pausar();
         super.onPause();
+    }
+
+    private void leerPreferencias(){
+        SharedPreferences preferencias = PreferenceManager.getDefaultSharedPreferences(this);
+        avatar.setSonidosActivados(preferencias.getBoolean("sonidos", true));
     }
 
     public VistaAvatar getAvatar() {

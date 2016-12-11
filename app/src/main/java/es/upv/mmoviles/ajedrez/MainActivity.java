@@ -2,11 +2,13 @@ package es.upv.mmoviles.ajedrez;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -31,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
     private VistaAvatar avatar;
     private MediaPlayer mediaPlayerMusica;
     private int volumenMusica;
-    private final int REQUEST_RECORD_AUDIO = 0;
+    private boolean musicaActivada;
+    private final int SOLICITUD_GRABAR_AUDIO = 0;
+    private final int RETRASO_PRESENTACION = 3000; // Milisegundos que pasan hasta que empieza
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,26 +58,25 @@ public class MainActivity extends AppCompatActivity {
         ImageView ajustes = (ImageView) findViewById(R.id.ajustes);
         ImageView acercaDe = (ImageView) findViewById(R.id.info);
 
-
-
         mediaPlayerMusica = MediaPlayer.create(this, musica);
         mediaPlayerMusica.setLooping(true);
 
         avatar = (VistaAvatar) findViewById(R.id.vistaAvatar);
         avatar.setActividad(this);
+        leerPreferencias();
         presentacion();
     }
 
     @Override
     public void onRestart() {
         super.onRestart();
-        modificaVolumenMusica(0, 100, 0, 30);
+        modificaVolumenMusica(0, 100, 0, (RETRASO_PRESENTACION/100));
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        mediaPlayerMusica.start();
+        leerPreferencias();
         avatar.reanudar();
     }
 
@@ -136,15 +139,19 @@ public class MainActivity extends AppCompatActivity {
                     avatar.habla(R.raw.presentacion, new VistaAvatar.OnAvatarHabla() {
                         @Override
                         public void onTerminaHabla() {
-                            if (!mediaPlayerMusica.isPlaying())
+                            if (musicaActivada) {
                                 mediaPlayerMusica.start();
-                            modificaVolumenMusica(0, 100, 0, 30);
+                                modificaVolumenMusica(0, 100, 0, 30);
+                            }
                         }
                     });
                 }
             };
-            handler.postDelayed(runnable, 3000);
-            modificaVolumenMusica(100, 0, 0, 30);
+            handler.postDelayed(runnable, RETRASO_PRESENTACION);
+            if (musicaActivada) {
+                mediaPlayerMusica.start();
+                modificaVolumenMusica(100, 0, 0, (RETRASO_PRESENTACION / 100));
+            }
         } else {
             solicitarPermisoRecordAudio();
         }
@@ -164,9 +171,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, MoverDamaActivity.class));
     }
 
-    public void acercaDe(View v){ startActivity( new Intent (this, AcercaDeActivity.class));}
+    public void acercaDe(View v){ startActivity(new Intent(this, AcercaDeActivity.class));}
 
-    public void ajustes(View v){startActivity(new Intent (this, Preferencias.class));}
+    public void ajustes(View v){ startActivity(new Intent(this, Preferencias.class));}
 
     void solicitarPermisoRecordAudio() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
@@ -180,17 +187,17 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     ActivityCompat.requestPermissions(MainActivity.this, new String[]{
-                            Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO);
+                            Manifest.permission.RECORD_AUDIO}, SOLICITUD_GRABAR_AUDIO);
                 }
             }).show();
         } else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, SOLICITUD_GRABAR_AUDIO);
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == REQUEST_RECORD_AUDIO) {
+        if (requestCode == SOLICITUD_GRABAR_AUDIO) {
             if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 presentacion();
             } else {
@@ -204,4 +211,18 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void leerPreferencias(){
+        SharedPreferences preferencias = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean musicaActivada = preferencias.getBoolean("musica", true);
+        if (musicaActivada) {
+            mediaPlayerMusica.start();
+            if (!this.musicaActivada){
+                this.musicaActivada=musicaActivada;
+                modificaVolumenMusica(0, 100, 0, 30);
+            }
+        }
+        avatar.setSonidosActivados(preferencias.getBoolean("sonidos", true));
+    }
+
 }
