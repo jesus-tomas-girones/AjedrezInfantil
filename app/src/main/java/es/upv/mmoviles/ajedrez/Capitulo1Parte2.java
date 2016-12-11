@@ -1,16 +1,10 @@
 package es.upv.mmoviles.ajedrez;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,26 +13,32 @@ import android.widget.TextView;
  * Created by usuwi on 05/12/2016.
  */
 
-public class Capitulo1 extends AppCompatActivity {
+public class Capitulo1Parte2 extends AppCompatActivity {
 
     private VistaAvatar avatar;
-    private final int REQUEST_RECORD_AUDIO = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
-        setContentView(R.layout.capitulo1);
+        setContentView(R.layout.capitulo1_parte2);
 
         Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/BalooPaaji-Regular.ttf");
         // Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/BungeeShade-Regular.ttf");
         // Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/HoltwoodOneSC.ttf");
-        Button boton1 = (Button) findViewById(R.id.boton5);
-        boton1.setTypeface(fuente);
-        Button boton2 = (Button) findViewById(R.id.boton6);
-        boton2.setTypeface(fuente);
-        Button boton3 = (Button) findViewById(R.id.boton7);
-        boton3.setTypeface(fuente);
+        Typeface fuente1 = Typeface.createFromAsset(getAssets(),"fonts/Gorditas-Bold.ttf");
+        Button boton8 = (Button) findViewById(R.id.boton8);
+        boton8.setTypeface(fuente);
+        Button boton9 = (Button) findViewById(R.id.boton9);
+        boton9.setTypeface(fuente);
+        Button boton10 = (Button) findViewById(R.id.boton10);
+        boton10.setTypeface(fuente);
+        Button boton11 = (Button) findViewById(R.id.boton11);
+        boton11.setTypeface(fuente);
+
+
+        TextView textoCapitulo12 = (TextView)findViewById(R.id.textoCapitulo12);
+        textoCapitulo12.setTypeface(fuente1);
 
         avatar = (VistaAvatar) findViewById(R.id.vistaAvatar1);
         avatar.setActividad(this);
@@ -57,18 +57,22 @@ public class Capitulo1 extends AppCompatActivity {
         super.onPause();
     }
 
-    public void boton1(View v) {
-        Intent i = new Intent(Capitulo1.this, VerVideo.class);
-        i.putExtra("video_id", "s3O7FQWVLv0");
+    public void boton8(View v) {
+        Intent i = new Intent(Capitulo1Parte2.this, VerVideo.class);
+        i.putExtra("video_id", "_XAzOaFtxCk");
         startActivity(i);
     }
 
-    public void boton2(View v) {
-        startActivity(new Intent(this, TareaA1Activity.class));
+    public void boton9(View v) {
+        startActivity(new Intent(this, MoverTorreActivity.class));
     }
 
-    public void boton3(View v) {
-        startActivity(new Intent(this, ColocarPiezasActivity.class));
+    public void boton10(View v) {
+        startActivity(new Intent(this, MoverAlfilActivity.class));
+    }
+
+    public void boton11(View v) {
+        startActivity(new Intent(this, MoverDamaActivity.class));
     }
 
 }

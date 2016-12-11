@@ -40,7 +40,7 @@
                 android:layout_marginRight="5dp"
                 android:scaleX="1.2"
                 android:scaleY="1.2"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:onClick="ajustes" />
 
             <ImageView
@@ -55,7 +55,7 @@
                 android:layout_marginRight="10dp"
                 android:scaleX="1.2"
                 android:scaleY="1.2"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:onClick="acercaDe"/>
         </LinearLayout>
 
@@ -79,7 +79,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="boton1"
-                    android:text="@string/capitulo1_parte1" />
+                    android:text="@string/capitulo1_parte1"
+                    android:elevation="1dp" />
 
                 <Button
                     android:id="@+id/boton2"
@@ -87,7 +88,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="boton2"
-                    android:text="@string/capitulo1_parte2" />
+                    android:text="@string/capitulo1_parte2"
+                    android:elevation="1dp" />
 
                 <Button
                     android:id="@+id/boton3"

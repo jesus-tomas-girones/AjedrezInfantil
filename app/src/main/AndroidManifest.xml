@@ -3,42 +3,67 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="es.upv.mmoviles.ajedrez">
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
-    <uses-sdk tools:overrideLibrary="com.scand.svg"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-sdk tools:overrideLibrary="com.scand.svg" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
-        android:largeHeap="true">
-        <activity android:name="es.upv.mmoviles.ajedrez.MainActivity"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.MainActivity"
             android:screenOrientation="landscape">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="es.upv.mmoviles.ajedrez.EjercicioBaseActivity"
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.EjercicioBaseActivity"
             android:screenOrientation="landscape" />
-        <activity android:name="es.upv.mmoviles.ajedrez.TareaA1Activity"
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.TareaA1Activity"
             android:screenOrientation="landscape" />
-        <activity android:name="es.upv.mmoviles.ajedrez.ColocarPiezasActivity"
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.ColocarPiezasActivity"
             android:screenOrientation="landscape" />
-        <activity android:name="es.upv.mmoviles.ajedrez.MoverDamaActivity"
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.MoverDamaActivity"
             android:screenOrientation="landscape" />
-        <activity android:name="es.upv.mmoviles.ajedrez.Capitulo1"
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.Capitulo1"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.VerVideo"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.AcercaDeActivity"
+            android:label="@string/acercadeLabel"
+            android:theme="@style/DialogCustom" />
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.Preferencias"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.Capitulo1Parte1"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.Capitulo1Parte2"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.MoverAlfilActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="es.upv.mmoviles.ajedrez.MoverTorreActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".Capitulo2Parte1"
             android:screenOrientation="landscape"/>
-        <activity android:name="es.upv.mmoviles.ajedrez.VerVideo"
-            android:screenOrientation="landscape"/>
-        <activity android:name="es.upv.mmoviles.ajedrez.AcercaDeActivity"
-            android:theme="@style/DialogCustom"
-            android:label="@string/acercadeLabel"/>
-        <activity android:name="es.upv.mmoviles.ajedrez.Preferencias"
-            android:screenOrientation="landscape"/>
+
     </application>
 </manifest>

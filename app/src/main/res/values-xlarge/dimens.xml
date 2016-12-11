@@ -10,5 +10,5 @@
     <dimen name="textsize_botones">36sp</dimen>
     <dimen name="grosor_marco_botones">8dp</dimen>
     <dimen name="radio_marco_botones">60dp</dimen>
-    <dimen name="tamañoIconos">48dp</dimen>
+    <dimen name="textSizeTituloCapitulos">52sp</dimen>
 </resources>
