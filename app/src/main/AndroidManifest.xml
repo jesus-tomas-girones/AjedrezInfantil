@@ -38,9 +38,6 @@
             android:name="es.upv.mmoviles.ajedrez.MoverDamaActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name="es.upv.mmoviles.ajedrez.Capitulo1"
-            android:screenOrientation="landscape" />
-        <activity
             android:name="es.upv.mmoviles.ajedrez.VerVideo"
             android:screenOrientation="landscape" />
         <activity
@@ -56,14 +53,19 @@
         <activity
             android:name="es.upv.mmoviles.ajedrez.Capitulo1Parte2"
             android:screenOrientation="landscape" />
+        <activity android:name=".Capitulo2Parte1"
+            android:screenOrientation="landscape"/>
         <activity
             android:name="es.upv.mmoviles.ajedrez.MoverAlfilActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name="es.upv.mmoviles.ajedrez.MoverTorreActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".Capitulo2Parte1"
-            android:screenOrientation="landscape"/>
+        <activity android:name="es.upv.mmoviles.ajedrez.MoverReyActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name="es.upv.mmoviles.ajedrez.MoverCaballoActivity"
+            android:screenOrientation="landscape" />
+
 
     </application>
 </manifest>
