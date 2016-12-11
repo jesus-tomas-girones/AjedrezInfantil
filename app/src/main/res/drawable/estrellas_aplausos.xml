@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportHeight="200"
+    android:viewportWidth="200">
+    <group
+        android:name="estrella_nordeste"
+        android:scaleX="0"
+        android:scaleY="0"
+        android:pivotX="100"
+        android:pivotY="100"
+        android:rotation="-45">
+        <path
+            android:fillColor="@color/estrellaMarco"
+            android:pathData="M70 90 L90 90 L100 70 L110 90 L130 90 L115 105 L120 130 L100 115 L80 130 L85 105 Z"
+            android:strokeColor="@color/estrellaFondo1"
+            android:strokeWidth="4" />
+    </group>
+    <group
+        android:name="estrella_este"
+        android:scaleX="0"
+        android:scaleY="0"
+        android:pivotX="100"
+        android:pivotY="100"
+        android:rotation="90">
+        <path
+            android:fillColor="@color/estrellaFondo1"
+            android:pathData="M70 90 L90 90 L100 70 L110 90 L130 90 L115 105 L120 130 L100 115 L80 130 L85 105 Z"
+            android:strokeColor="@color/estrellaMarco"
+            android:strokeWidth="4" />
+    </group>
+    <group
+        android:name="estrella_sudeste"
+        android:scaleX="0"
+        android:scaleY="0"
+        android:pivotX="100"
+        android:pivotY="100"
+        android:rotation="135">
+        <path
+            android:fillColor="@color/estrellaMarco"
+            android:pathData="M70 90 L90 90 L100 70 L110 90 L130 90 L115 105 L120 130 L100 115 L80 130 L85 105 Z"
+            android:strokeColor="@color/estrellaFondo2"
+            android:strokeWidth="4" />
+    </group>
+    <group
+        android:name="estrella_suroeste"
+        android:scaleX="0"
+        android:scaleY="0"
+        android:pivotX="100"
+        android:pivotY="100"
+        android:rotation="-135">
+        <path
+            android:fillColor="@color/estrellaMarco"
+            android:pathData="M70 90 L90 90 L100 70 L110 90 L130 90 L115 105 L120 130 L100 115 L80 130 L85 105 Z"
+            android:strokeColor="@color/estrellaFondo1"
+            android:strokeWidth="4" />
+    </group>
+    <group
+        android:name="estrella_oeste"
+        android:scaleX="0"
+        android:scaleY="0"
+        android:pivotX="100"
+        android:pivotY="100"
+        android:rotation="-90">
+        <path
+            android:fillColor="@color/estrellaFondo2"
+            android:pathData="M70 90 L90 90 L100 70 L110 90 L130 90 L115 105 L120 130 L100 115 L80 130 L85 105 Z"
+            android:strokeColor="@color/estrellaMarco"
+            android:strokeWidth="4" />
+    </group>
+    <group
+        android:name="estrella_noroeste"
+        android:scaleX="0"
+        android:scaleY="0"
+        android:pivotX="100"
+        android:pivotY="100"
+        android:rotation="45">
+        <path
+            android:fillColor="@color/estrellaMarco"
+            android:pathData="M70 90 L90 90 L100 70 L110 90 L130 90 L115 105 L120 130 L100 115 L80 130 L85 105 Z"
+            android:strokeColor="@color/estrellaFondo2"
+            android:strokeWidth="4" />
+    </group>
+</vector>

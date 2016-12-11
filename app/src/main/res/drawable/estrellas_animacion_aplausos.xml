@@ -1,0 +1,57 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/estrellas_aplausos" >
+    <target
+        android:name="estrella_nordeste"
+        android:animation="@animator/aparecer_desaparecer" />
+    <target
+        android:name="estrella_nordeste"
+        android:animation="@animator/rotacion" />
+    <target
+        android:name="estrella_nordeste"
+        android:animation="@animator/desplazamiento_nordeste" />
+    <target
+        android:name="estrella_este"
+        android:animation="@animator/aparecer_desaparecer" />
+    <target
+        android:name="estrella_este"
+        android:animation="@animator/rotacion" />
+    <target
+        android:name="estrella_este"
+        android:animation="@animator/desplazamiento_este" />
+    <target
+        android:name="estrella_sudeste"
+        android:animation="@animator/aparecer_desaparecer" />
+    <target
+        android:name="estrella_sudeste"
+        android:animation="@animator/rotacion" />
+    <target
+        android:name="estrella_sudeste"
+        android:animation="@animator/desplazamiento_sudeste" />
+    <target
+        android:name="estrella_suroeste"
+        android:animation="@animator/aparecer_desaparecer" />
+    <target
+        android:name="estrella_suroeste"
+        android:animation="@animator/rotacion" />
+    <target
+        android:name="estrella_suroeste"
+        android:animation="@animator/desplazamiento_suroeste" />
+    <target
+        android:name="estrella_oeste"
+        android:animation="@animator/aparecer_desaparecer" />
+    <target
+        android:name="estrella_oeste"
+        android:animation="@animator/rotacion" />
+    <target
+        android:name="estrella_oeste"
+        android:animation="@animator/desplazamiento_oeste" />
+    <target
+        android:name="estrella_noroeste"
+        android:animation="@animator/aparecer_desaparecer" />
+    <target
+        android:name="estrella_noroeste"
+        android:animation="@animator/rotacion" />
+    <target
+        android:name="estrella_noroeste"
+        android:animation="@animator/desplazamiento_noroeste" />
+</animated-vector>

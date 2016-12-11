@@ -56,6 +56,7 @@ public abstract class MoverPiezaActivity extends EjercicioBaseActivity {
             contadorMovimientos++;
             avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.CORRECTO);
             if (contadorMovimientos > 3) {
+                avatar.lanzaAnimacion(VistaAvatar.Animacion.ANIMACION_APLAUSOS);
                 avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.APLAUSOS);
                 avatar.habla(R.raw.ok_superado, new VistaAvatar.OnAvatarHabla() {
                     @Override
@@ -65,6 +66,7 @@ public abstract class MoverPiezaActivity extends EjercicioBaseActivity {
                 });
             }
             else {
+                avatar.lanzaAnimacion(VistaAvatar.Animacion.ANIMACION_CORRECTO);
                 avatar.habla(R.raw.ok_intenta_otra_vez, new VistaAvatar.OnAvatarHabla() {
                     @Override
                     public void onTerminaHabla() {

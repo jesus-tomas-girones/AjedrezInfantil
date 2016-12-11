@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.media.audiofx.Visualizer;
 import android.net.Uri;
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -55,6 +56,26 @@ public class VistaAvatar extends FrameLayout {
 
     public enum EfectoSonido {
         TIC_TAC, INCORRECTO, CORRECTO, APLAUSOS
+    }
+
+    public enum Animacion {
+        ANIMACION_CORRECTO, ANIMACION_APLAUSOS
+    }
+
+    public void lanzaAnimacion (Animacion animacion){
+        AnimatedVectorDrawableCompat animatedVectorDrawableCompat;
+        switch(animacion){
+            case ANIMACION_CORRECTO:
+                animatedVectorDrawableCompat = AnimatedVectorDrawableCompat.create(activity, R.drawable.estrellas_animacion_correcto);
+                imageViewCara.setBackgroundDrawable(animatedVectorDrawableCompat);
+                animatedVectorDrawableCompat.start();
+                break;
+            case ANIMACION_APLAUSOS:
+                animatedVectorDrawableCompat = AnimatedVectorDrawableCompat.create(activity, R.drawable.estrellas_animacion_aplausos);
+                imageViewCara.setBackgroundDrawable(animatedVectorDrawableCompat);
+                animatedVectorDrawableCompat.start();
+                break;
+        }
     }
 
     public interface OnAvatarHabla {

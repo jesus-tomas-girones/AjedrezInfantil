@@ -18,4 +18,7 @@
     <color name="botonMarco">#FFFFFF</color>
     <color name="textoDialog">#FFFFFF</color>
     <color name="fondoDialog">#7CD1EC</color>
+    <color name="estrellaFondo1">#FFB134</color>
+    <color name="estrellaFondo2">#1DA2E5</color>
+    <color name="estrellaMarco">#FFFFFF</color>
 </resources>

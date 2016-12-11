@@ -1,0 +1,27 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/estrellas_correcto" >
+    <target
+        android:name="estrella_nordeste"
+        android:animation="@animator/aparecer_desaparecer" />
+    <target
+        android:name="estrella_nordeste"
+        android:animation="@animator/desplazamiento_nordeste" />
+    <target
+        android:name="estrella_sudeste"
+        android:animation="@animator/aparecer_desaparecer" />
+    <target
+        android:name="estrella_sudeste"
+        android:animation="@animator/desplazamiento_sudeste" />
+    <target
+        android:name="estrella_suroeste"
+        android:animation="@animator/aparecer_desaparecer" />
+    <target
+        android:name="estrella_suroeste"
+        android:animation="@animator/desplazamiento_suroeste" />
+    <target
+        android:name="estrella_noroeste"
+        android:animation="@animator/aparecer_desaparecer" />
+    <target
+        android:name="estrella_noroeste"
+        android:animation="@animator/desplazamiento_noroeste" />
+</animated-vector>
