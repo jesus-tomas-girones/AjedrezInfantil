@@ -5,10 +5,12 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="borde_exterior">2dp</dimen>
     <dimen name="borde_interior">1dp</dimen>
-    <dimen name="tamaño_textoBorde">10dp</dimen> <!--Todo: (Usua) tamaño_textoBorde para Tabletas-->
+    <dimen name="tamaño_textoBorde">10dp</dimen>
     <item name="grosor_marco" format="float" type="dimen">0.5</item>
-    <dimen name="textsize_botones">24sp</dimen>
+    <dimen name="textsize_botones">14sp</dimen>
     <dimen name="grosor_marco_botones">4dp</dimen>
     <dimen name="radio_marco_botones">30dp</dimen>
     <dimen name="tamañoIconos">24dp</dimen>
+    <dimen name="textSizeTituloCapitulos">18sp</dimen>
+
 </resources>

@@ -157,19 +157,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void boton1(View v) { startActivity(new Intent(this, Capitulo1.class)); }
+    public void boton1(View v) { startActivity(new Intent(this, Capitulo1Parte1.class)); }
 
-    public void boton2(View v) {
-        startActivity(new Intent(this, TareaA1Activity.class));
+    public void boton2(View v) { startActivity(new Intent(this, Capitulo1Parte2.class));
     }
 
     public void boton3(View v) {
-        startActivity(new Intent(this, ColocarPiezasActivity.class));
+        startActivity(new Intent(this, Capitulo2Parte1.class));
     }
 
-    public void boton4(View v) {
-        startActivity(new Intent(this, MoverDamaActivity.class));
-    }
+    public void boton4(View v) { startActivity(new Intent(this, MoverDamaActivity.class)); }
 
     public void acercaDe(View v){ startActivity(new Intent(this, AcercaDeActivity.class));}
 

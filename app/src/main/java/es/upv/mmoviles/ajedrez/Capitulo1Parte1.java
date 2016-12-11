@@ -1,16 +1,10 @@
 package es.upv.mmoviles.ajedrez;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,26 +13,29 @@ import android.widget.TextView;
  * Created by usuwi on 05/12/2016.
  */
 
-public class Capitulo1 extends AppCompatActivity {
+public class Capitulo1Parte1 extends AppCompatActivity {
 
     private VistaAvatar avatar;
-    private final int REQUEST_RECORD_AUDIO = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
-        setContentView(R.layout.capitulo1);
+        setContentView(R.layout.capitulo1_parte1);
 
         Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/BalooPaaji-Regular.ttf");
         // Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/BungeeShade-Regular.ttf");
         // Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/HoltwoodOneSC.ttf");
+        Typeface fuente1 = Typeface.createFromAsset(getAssets(),"fonts/Gorditas-Bold.ttf");
         Button boton1 = (Button) findViewById(R.id.boton5);
         boton1.setTypeface(fuente);
         Button boton2 = (Button) findViewById(R.id.boton6);
         boton2.setTypeface(fuente);
         Button boton3 = (Button) findViewById(R.id.boton7);
         boton3.setTypeface(fuente);
+
+        TextView textoCapitulo1 = (TextView)findViewById(R.id.textoCapitulo1);
+        textoCapitulo1.setTypeface(fuente1);
 
         avatar = (VistaAvatar) findViewById(R.id.vistaAvatar1);
         avatar.setActividad(this);
@@ -58,7 +55,7 @@ public class Capitulo1 extends AppCompatActivity {
     }
 
     public void boton1(View v) {
-        Intent i = new Intent(Capitulo1.this, VerVideo.class);
+        Intent i = new Intent(Capitulo1Parte1.this, VerVideo.class);
         i.putExtra("video_id", "s3O7FQWVLv0");
         startActivity(i);
     }

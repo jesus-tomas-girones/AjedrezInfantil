@@ -39,4 +39,23 @@
     <string name="textoCreditosVideoVoces">Ignacio Navarro y Silvia Montes\n</string>
     <string name="tituloCreditosVideoSuperVision">SuperVisión</string>
     <string name="textoCreditosVideoSupervision">Jaime Lloret Mauri\n</string>
+
+
+    <string name="verVideo">Ver video</string>
+
+    <string name="ej1Capitulo1Parte1">Ejercicio 1: Coordenadas del tablero</string>
+    <string name="ej2Capitulo1Parte1">Ejercicio 2: Colocar piezas</string>
+
+
+    <string name="ej1Capitulo1Parte2">Ejercicio 1: Mover torre</string>
+    <string name="ej2Capitulo1Parte2">Ejercicio 2: Mover caballo</string>
+    <string name="ej3Capitulo1Parte2">Ejercicio 3: Mover alfil</string>
+    <string name="ej4Capitulo1Parte2">Ejercicio 4: Mover peones</string>
+    <string name="ej5Capitulo1Parte2">Ejercicio 6: Mover dama</string>
+    <string name="ej6Capitulo1Parte2">Ejercicio 7: Mover rey</string>
+
+    <string name="ej1Capitulo2Parte1">Ejercicio 1: Valor piezas</string>
+    <string name="ej2Capitulo2Parte1">Ejercicio 2: Colocar piezas</string>
+    <string name="ej3Capitulo2Parte1">Ejercicio 3: Mover rey en jaque</string>
+
     </resources>

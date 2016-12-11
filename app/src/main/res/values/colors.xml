@@ -13,8 +13,8 @@
     <color name="parpadeoCuadriculaNegra">#02700b</color>
     <color name="parpadeoCuadriculaBlanca">#9ffca6</color>
     <color name="fondoPrincipal">#7CD1EC</color>
-    <color name="botonFondo1">#1DA2E5</color>
-    <color name="botonFondo2">#FFB134</color>
+    <color name="botonFondo1">#1da2e5</color>
+    <color name="botonFondo2">#ffb134</color>
     <color name="botonMarco">#FFFFFF</color>
     <color name="textoDialog">#FFFFFF</color>
     <color name="fondoDialog">#7CD1EC</color>
@@ -23,4 +23,6 @@
     <color name="estrellaMarco">#FFFFFF</color>
     <color name="tituloCreditos">#fb8c00</color>
     <color name="tituloCreditosAppSecundarios">#ffb300</color>
+    <color name="tituloCapitulo1">#028dd3</color>
+    <color name="tituloCapitulo2">#ff9e05</color>
 </resources>
