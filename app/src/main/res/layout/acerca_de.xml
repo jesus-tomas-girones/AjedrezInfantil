@@ -25,13 +25,38 @@
                 android:id="@+id/acercade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:text="@string/acercade"
-                android:textSize="16sp"
-                android:gravity="center|fill"
+                android:textSize="18sp"
                 android:textAlignment="center">
 
             </TextView>
+
+            <TextView
+                android:text="@string/linkAndroidCurso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linkAndroidCurso"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="@string/acercade2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/acercade2"
+                android:gravity="center|fill"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="@string/linkCanal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linkCanal"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tituloCreditosApp"
@@ -40,38 +65,219 @@
                 android:text="@string/tituloCreditosApp"
                 android:textAllCaps="true"
                 android:textStyle="normal|bold|italic"
-                android:textSize="18sp"
+                android:textSize="36sp"
                 android:textAlignment="center"
-                android:textColor="@android:color/holo_orange_dark" />
+                android:textColor="@color/tituloCreditos" />
+
+            <TextView
+                android:text="@string/tituloCreditosAppProgramacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tituloCreditosAppProgramacion"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:text="@string/textoCreditosProgramacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textoCreditosAppProgramacion"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="@string/tituloCreditosAppDiseño"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tituloCreditosAppDiseño"
+                android:textAlignment="center"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textSize="24sp" />
+
+            <TextView
+                android:text="@string/textoCreditosAppDiseño"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textoCreditosAppDiseño"
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textoCreditosApp"
+                android:id="@+id/tituloCreditosAppIdea"
+                android:text="@string/tituloCreditosAppIdea"
                 android:textAlignment="center"
-                android:textSize="16sp"
-                android:text="@string/textoCreditosApp"
-                android:textAllCaps="false" />
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textSize="24sp" />
+
+            <TextView
+                android:text="@string/textoCreditosAppIdea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textoCreditosAppIdea"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="@string/tituloCreditosAppGuion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tituloCreditosAppGuion"
+                android:textAlignment="center"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textSize="24sp" />
+
+            <TextView
+                android:text="@string/textoCreditosAppGuion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textoCreditosAppGuion"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="@string/tituloCreditosAppDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tituloCreditosAppDireccion"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:text="@string/textoCreditosAppDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textoCreditosAppDireccion"
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tituloCreditosVideo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="36sp"
                 android:text="@string/tituloCreditosVideo"
                 android:textAlignment="center"
                 android:textStyle="normal|bold|italic"
                 android:textAllCaps="true"
-                android:textColor="@android:color/holo_orange_dark" />
+                android:textColor="@color/tituloCreditos" />
 
             <TextView
-                android:text="@string/textoCreditosVideo"
+                android:text="@string/tituloCreditosVideoGuion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textoCreditosVideo"
-                android:fontFamily="sans-serif"
-                android:textAlignment="center"
-                android:textSize="16sp" />
+                android:id="@+id/tituloCreditosVideoGuion"
+                android:textSize="24sp"
+                android:textAllCaps="true"
+                android:textStyle="normal|bold"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="@string/textoCreditosVideoGuion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textoCreditosVideoGuion"
+                android:textSize="18sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="@string/tituloCreditosVideoIdea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tituloCreditosVideoIdea"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="@string/textoCreditosVideoIdea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textoCreditosVideoIdea"
+                android:textSize="18sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="@string/tituloCreditosVideoDiseño"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tituloCreditosVideoDiseño"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="@string/textoCreditosVideoDiseño"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textoCreditosVideoDiseño"
+                android:textSize="18sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="@string/tituloCreditosVideoAnimacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tituloCreditosVideoAnimacion"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="@string/textoCreditosVideoAnimacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textoCreditosVideoAnimacion"
+                android:textSize="18sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="@string/tituloCreditosVideoVoces"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tituloCreditosVideoVoces"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="@string/textoCreditosVideoVoces"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textoCreditosVideoVoces"
+                android:textSize="18sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="@string/tituloCreditosVideoSuperVision"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tituloCreditosVideoSuperVision"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="@string/textoCreditosVideoSupervision"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textoCreditosVideoSuperVision"
+                android:textSize="18sp"
+                android:textAlignment="center" />
+
         </LinearLayout>
     </ScrollView>
 

@@ -21,4 +21,6 @@
     <color name="estrellaFondo1">#FFB134</color>
     <color name="estrellaFondo2">#1DA2E5</color>
     <color name="estrellaMarco">#FFFFFF</color>
+    <color name="tituloCreditos">#fb8c00</color>
+    <color name="tituloCreditosAppSecundarios">#ffb300</color>
 </resources>

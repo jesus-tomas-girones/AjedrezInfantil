@@ -5,50 +5,38 @@
     <string name="capitulo2_parte1">Capítulo 2, parte 1</string>
     <string name="capitulo2_parte2">Capítulo 2, parte 2</string>
     <string name="acercadeLabel"> Acerca de...</string>
-    <string name="acercade">Esta Aplicación ha sido desarrollada por alumnos y profesores del Máster en Desarrollo de Aplicaciones Móviles de la Universidad Politécnica de Valencia (www.androidcurso.com).
-    Pretende ser un complemento a los vídeos “Aprende con Rey” (https://www.youtube.com/channel/UCanJ4GFmSQTnaD3z_95rQFg)\n
-    </string>
-    <string name="tituloCreditosApp">Aplicación\n</string>
-    <string name="textoCreditosApp">
-
-        PROGRAMACIÓN\n
-
+    <string name="acercade">Esta Aplicación ha sido desarrollada por alumnos y profesores del Máster en Desarrollo de Aplicaciones Móviles
+        de la Universidad Politécnica de Valencia</string>
+    <string name="linkAndroidCurso"><a href="http://www.androidcurso.com/">(wwww.androidcurso.com).</a></string>
+    <string name="acercade2">Pretende ser un complemento a los vídeos “Aprende con Rey”</string>
+    <string name="linkCanal"><a href="https://www.youtube.com/channel/UCanJ4GFmSQTnaD3z_95rQFg">https://www.youtube.com/channel/UCanJ4GFmSQTnaD3z_95rQFg\n</a></string>
+    <string name="tituloCreditosApp">Aplicación</string>
+    <string name="tituloCreditosAppProgramacion">Programación</string>
+    <string name="textoCreditosProgramacion">
         Raúl Villar Boronat\n
         Usua Madina Iñigo\n
         Alonso González Nestal\n
-        Jesús Tomás Gironés\n\n
+        Jesús Tomás Gironés\n</string>
+    <string name="tituloCreditosAppDiseño"> Diseño Gráfico</string>
+    <string name="textoCreditosAppDiseño">Raúl Estévez Montero\n</string>
+    <string name="tituloCreditosAppIdea">Idea Original</string>
+    <string name="textoCreditosAppIdea">Jaime Lloret Mauri\n</string>
+    <string name="tituloCreditosAppGuion">Guión</string>
+    <string name="textoCreditosAppGuion">Jesús Tomás Gironés\n</string>
+    <string name="tituloCreditosAppDireccion">Dirección</string>
+    <string name="textoCreditosAppDireccion">Jesús Tomás Gironés\n</string>
 
-        DISEÑO GRÁFICO\n
-        Raúl Estévez Montero\n\n
-
-        IDEA ORIGINAL\n
-        Jaime Lloret Mauri\n\n
-
-        GUIÓN\n
-        Jesús Tomás Gironés\n\n
-
-        DIRECCIÓN\n
-        Jesús Tomás Gironés\n\n
-    </string>
-    <string name="tituloCreditosVideo">Video\n</string>
-    <string name="textoCreditosVideo">
-        GUIÓN\n
-        Raúl Estévez Montero\n\n
-
-        IDEA ORIGINAL\n
-        Jaime Lloret Mauri\n\n
-
-        DISEÑO\n
-        Raúl Estévez Montero y FreePik\n\n
-
-        ANIMACIÓN\n
-        Rául Estévez Montero\n\n
-
-        VOCES\n
-        Ignacio Navarro y Silvia Montes\n\n
-
-        SUPERVISIÓN\n
-        Jaime Lloret Mauri\n\n
-    </string>
-
-</resources>
+    <string name="tituloCreditosVideo">Video</string>
+    <string name="tituloCreditosVideoGuion">Guión</string>
+    <string name="textoCreditosVideoGuion">Raúl Estévez Montero\n</string>
+    <string name="tituloCreditosVideoIdea">Idea Original</string>
+    <string name="textoCreditosVideoIdea">Jaime Lloret Mauri\n</string>
+    <string name="tituloCreditosVideoDiseño">Diseño</string>
+    <string name="textoCreditosVideoDiseño">Raúl Estévez Montero y FreePik\n</string>
+    <string name="tituloCreditosVideoAnimacion">Animación</string>
+    <string name="textoCreditosVideoAnimacion">Raúl Estévez Montero\n</string>
+    <string name="tituloCreditosVideoVoces">Voces</string>
+    <string name="textoCreditosVideoVoces">Ignacio Navarro y Silvia Montes\n</string>
+    <string name="tituloCreditosVideoSuperVision">SuperVisión</string>
+    <string name="textoCreditosVideoSupervision">Jaime Lloret Mauri\n</string>
+    </resources>
