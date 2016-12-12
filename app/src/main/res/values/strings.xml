@@ -26,7 +26,7 @@
     <string name="tituloCreditosAppDireccion">Dirección</string>
     <string name="textoCreditosAppDireccion">Jesús Tomás Gironés\n</string>
 
-    <string name="tituloCreditosVideo">Video</string>
+    <string name="tituloCreditosVideo">Videos</string>
     <string name="tituloCreditosVideoGuion">Guión</string>
     <string name="textoCreditosVideoGuion">Raúl Estévez Montero\n</string>
     <string name="tituloCreditosVideoIdea">Idea Original</string>
@@ -43,19 +43,19 @@
 
     <string name="verVideo">Ver video</string>
 
-    <string name="ej1Capitulo1Parte1">Ejercicio 1: Coordenadas del tablero</string>
-    <string name="ej2Capitulo1Parte1">Ejercicio 2: Colocar piezas</string>
+    <string name="ej1Capitulo1Parte1">Ejercicio: Coordenadas del tablero</string>
+    <string name="ej2Capitulo1Parte1">Ejercicio: Colocar piezas</string>
 
 
-    <string name="ej1Capitulo1Parte2">Ejercicio 1: Mover torre</string>
-    <string name="ej2Capitulo1Parte2">Ejercicio 2: Mover caballo</string>
-    <string name="ej3Capitulo1Parte2">Ejercicio 3: Mover alfil</string>
-    <string name="ej4Capitulo1Parte2">Ejercicio 4: Mover peones</string>
-    <string name="ej5Capitulo1Parte2">Ejercicio 6: Mover dama</string>
-    <string name="ej6Capitulo1Parte2">Ejercicio 7: Mover rey</string>
+    <string name="ej1Capitulo1Parte2">Ejercicio: Mover torre</string>
+    <string name="ej2Capitulo1Parte2">Ejercicio: Mover alfil</string>
+    <string name="ej3Capitulo1Parte2">Ejercicio: Mover dama</string>
+    <string name="ej4Capitulo1Parte2">Ejercicio: Mover caballo</string>
+    <string name="ej5Capitulo1Parte2">Ejercicio: Mover peón</string>
+    <string name="ej6Capitulo1Parte2">Ejercicio: Mover rey</string>
 
-    <string name="ej1Capitulo2Parte1">Ejercicio 1: Valor piezas</string>
-    <string name="ej2Capitulo2Parte1">Ejercicio 2: Colocar piezas</string>
-    <string name="ej3Capitulo2Parte1">Ejercicio 3: Mover rey en jaque</string>
+    <string name="ej1Capitulo2Parte1">Ejercicio: Valor piezas</string>
+    <string name="ej2Capitulo2Parte1">Ejercicio: Colocar piezas</string>
+    <string name="ej3Capitulo2Parte1">Ejercicio: Mover rey en jaque</string>
 
     </resources>

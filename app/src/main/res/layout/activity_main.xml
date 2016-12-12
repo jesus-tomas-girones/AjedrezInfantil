@@ -99,13 +99,13 @@
                     android:onClick="boton3"
                     android:text="@string/capitulo2_parte1" />
 
-                <Button
+                <!--Button
                     android:id="@+id/boton4"
                     style="@style/boton.2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="boton4"
-                    android:text="@string/capitulo2_parte2" />
+                    android:text="@string/capitulo2_parte2" /-->
 
             </LinearLayout>
         </ScrollView>

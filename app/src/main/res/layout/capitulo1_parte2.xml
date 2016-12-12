@@ -58,37 +58,53 @@
 
                 <Button
                     android:id="@+id/boton8"
-                    style="@style/boton.1"
+                    style="@style/boton.2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/verVideo"
                     android:onClick="boton8" />
-
                 <Button
                     android:id="@+id/boton9"
                     style="@style/boton.1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="boton9"
+                    android:onClick="botonMoverTorre"
                     android:text="@string/ej1Capitulo1Parte2" />
-
                 <Button
                     android:id="@+id/boton10"
                     style="@style/boton.1"
                     android:text="@string/ej2Capitulo1Parte2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="boton10"/>
-
+                    android:onClick="botonMoverAlfil"/>
                 <Button
                     android:id="@+id/boton11"
                     style="@style/boton.1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="boton11"
+                    android:onClick="botonMoverDama"
                     android:text="@string/ej3Capitulo1Parte2"/>
-
-
+                <Button
+                    android:id="@+id/boton12"
+                    style="@style/boton.1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="botonMoverCaballo"
+                    android:text="@string/ej4Capitulo1Parte2"/>
+                <Button
+                    android:id="@+id/boton13"
+                    style="@style/boton.1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="botonMoverPeon"
+                    android:text="@string/ej5Capitulo1Parte2"/>
+                <Button
+                    android:id="@+id/boton14"
+                    style="@style/boton.1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="botonMoverRey"
+                    android:text="@string/ej6Capitulo1Parte2"/>
             </LinearLayout>
         </ScrollView>
 

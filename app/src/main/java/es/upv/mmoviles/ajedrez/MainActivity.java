@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
         boton2.setTypeface(fuente);
         Button boton3 = (Button) findViewById(R.id.boton3);
         boton3.setTypeface(fuente);
-        Button boton4 = (Button) findViewById(R.id.boton4);
-        boton4.setTypeface(fuente);
+        //Button boton4 = (Button) findViewById(R.id.boton4);
+        //boton4.setTypeface(fuente);
 
         ImageView ajustes = (ImageView) findViewById(R.id.ajustes);
         ImageView acercaDe = (ImageView) findViewById(R.id.info);

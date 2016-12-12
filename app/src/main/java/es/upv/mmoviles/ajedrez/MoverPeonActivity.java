@@ -6,20 +6,19 @@ import android.os.Bundle;
  * Created by Jesús Tomás on 11/12/2016.
  */
 
-public class MoverReyActivity extends MoverPiezaActivity {
-    private Validador validadorRey = new Validador() {
+public class MoverPeonActivity extends MoverPiezaActivity {
+    private Validador validadorPeon = new Validador() {
         @Override
         public boolean movimientoValido(int colOrigen, int filaOrigen, int colDestino, int filaDestino) {
             boolean diferenteCasilla = (colOrigen != colDestino) || (filaOrigen != filaDestino);
-            boolean distanciaUno =  (Math.abs(filaOrigen - filaDestino) <=1)
-                                 && (Math.abs(colOrigen - colDestino)<=1);
-            return (diferenteCasilla && distanciaUno);
+            boolean avanzaUno =  (filaDestino==filaOrigen+1) && (colDestino==colOrigen);
+            return (diferenteCasilla && avanzaUno);
         }
     };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        inicializa(validadorRey, R.drawable.rey_blanco, R.raw.mover_dama_presentacion);
+        inicializa(validadorPeon, R.drawable.peon_blanco, R.raw.mover_dama_presentacion);
         super.onCreate(savedInstanceState);
     }
 }

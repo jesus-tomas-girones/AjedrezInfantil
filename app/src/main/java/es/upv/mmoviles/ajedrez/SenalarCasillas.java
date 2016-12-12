@@ -12,6 +12,9 @@ import java.util.Random;
 
 public class SenalarCasillas extends EjercicioBaseActivity {
 
+    final static int recursos[] = {R.raw.senyala_casilla_b4,R.raw.senyala_casilla_c8 };
+    final static String coordenadas[] = {"B4","C8" };
+
     private VistaAvatar avatar;
     private int aciertos = 0, numeroaleatorio;
     private MediaPlayer mpA3, mpB4, mpC8, mpD1, mpE3, mpF2, mpG6, mpH5, mpAcertado, mpFallado;
@@ -24,14 +27,14 @@ public class SenalarCasillas extends EjercicioBaseActivity {
         //piezas.setVisibility(View.VISIBLE);
         avatar = getAvatar();
 
-        mpA3 = MediaPlayer.create(this, R.raw.senyala_casilla_A3);
-        mpB4 = MediaPlayer.create(this, R.raw.senyala_casilla_B4);
-        mpC8 = MediaPlayer.create(this, R.raw.senyala_casilla_C8);
-        mpD1 = MediaPlayer.create(this, R.raw.senyala_casilla_D1);
-        mpE3 = MediaPlayer.create(this, R.raw.senyala_casilla_E3);
-        mpF2 = MediaPlayer.create(this, R.raw.senyala_casilla_F2);
-        mpG6 = MediaPlayer.create(this, R.raw.senyala_casilla_G6);
-        mpH5 = MediaPlayer.create(this, R.raw.senyala_casilla_H5);
+        mpA3 = MediaPlayer.create(this, R.raw.senyala_casilla_a3);
+        mpB4 = MediaPlayer.create(this, R.raw.senyala_casilla_b4);
+        mpC8 = MediaPlayer.create(this, R.raw.senyala_casilla_c8);
+        mpD1 = MediaPlayer.create(this, R.raw.senyala_casilla_d1);
+        mpE3 = MediaPlayer.create(this, R.raw.senyala_casilla_e3);
+        mpF2 = MediaPlayer.create(this, R.raw.senyala_casilla_f2);
+        mpG6 = MediaPlayer.create(this, R.raw.senyala_casilla_g6);
+        mpH5 = MediaPlayer.create(this, R.raw.senyala_casilla_h5);
         mpAcertado = MediaPlayer.create(this, R.raw.ok_has_acertado);
         mpFallado = MediaPlayer.create(this, R.raw.mal_intenta_otra_vez);
         aleatorio = new Random();

@@ -8,7 +8,6 @@ import android.os.Bundle;
 
 public class MoverTorreActivity extends MoverPiezaActivity {
 
-
     private Validador validadorTorre = new Validador() {
         @Override
         public boolean movimientoValido(int colOrigen, int filaOrigen, int colDestino, int filaDestino) {

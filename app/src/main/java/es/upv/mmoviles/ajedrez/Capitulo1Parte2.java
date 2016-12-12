@@ -35,6 +35,12 @@ public class Capitulo1Parte2 extends AppCompatActivity {
         boton10.setTypeface(fuente);
         Button boton11 = (Button) findViewById(R.id.boton11);
         boton11.setTypeface(fuente);
+        Button boton12 = (Button) findViewById(R.id.boton12);
+        boton12.setTypeface(fuente);
+        Button boton13 = (Button) findViewById(R.id.boton13);
+        boton13.setTypeface(fuente);
+        Button boton14 = (Button) findViewById(R.id.boton14);
+        boton14.setTypeface(fuente);
 
 
         TextView textoCapitulo12 = (TextView)findViewById(R.id.textoCapitulo12);
@@ -63,16 +69,28 @@ public class Capitulo1Parte2 extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void boton9(View v) {
+    public void botonMoverTorre(View v) {
         startActivity(new Intent(this, MoverTorreActivity.class));
     }
 
-    public void boton10(View v) {
+    public void botonMoverAlfil(View v) {
         startActivity(new Intent(this, MoverAlfilActivity.class));
     }
 
-    public void boton11(View v) {
+    public void botonMoverDama(View v) {
         startActivity(new Intent(this, MoverDamaActivity.class));
+    }
+
+    public void botonMoverCaballo(View v) {
+        startActivity(new Intent(this, MoverCaballoActivity.class));
+    }
+
+    public void botonMoverPeon(View v) {
+        startActivity(new Intent(this, MoverPeonActivity.class));
+    }
+
+    public void botonMoverRey(View v) {
+        startActivity(new Intent(this, MoverReyActivity.class));
     }
 
 }
