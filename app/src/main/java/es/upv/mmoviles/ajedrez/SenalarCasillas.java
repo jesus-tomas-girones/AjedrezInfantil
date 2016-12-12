@@ -12,8 +12,8 @@ import java.util.Random;
 
 public class SenalarCasillas extends EjercicioBaseActivity {
 
-    final static int recursos[] = {R.raw.senyala_casilla_b4,R.raw.senyala_casilla_c8 };
-    final static String coordenadas[] = {"B4","C8" };
+    final static int recursos[] = {R.raw.senyala_casilla_a3,R.raw.senyala_casilla_b4, R.raw.senyala_casilla_c8, R.raw.senyala_casilla_d1, R.raw.senyala_casilla_e3, R.raw.senyala_casilla_f2, R.raw.senyala_casilla_g6, R.raw.senyala_casilla_h5 };
+    final static String coordenadas[] = {"A3","B4","C8","D1", "E3", "F2", "G6", "H5" };
 
     private VistaAvatar avatar;
     private int aciertos = 0, numeroaleatorio;
@@ -27,7 +27,7 @@ public class SenalarCasillas extends EjercicioBaseActivity {
         //piezas.setVisibility(View.VISIBLE);
         avatar = getAvatar();
 
-        mpA3 = MediaPlayer.create(this, R.raw.senyala_casilla_a3);
+        /*mpA3 = MediaPlayer.create(this, R.raw.senyala_casilla_a3);
         mpB4 = MediaPlayer.create(this, R.raw.senyala_casilla_b4);
         mpC8 = MediaPlayer.create(this, R.raw.senyala_casilla_c8);
         mpD1 = MediaPlayer.create(this, R.raw.senyala_casilla_d1);
@@ -36,45 +36,13 @@ public class SenalarCasillas extends EjercicioBaseActivity {
         mpG6 = MediaPlayer.create(this, R.raw.senyala_casilla_g6);
         mpH5 = MediaPlayer.create(this, R.raw.senyala_casilla_h5);
         mpAcertado = MediaPlayer.create(this, R.raw.ok_has_acertado);
-        mpFallado = MediaPlayer.create(this, R.raw.mal_intenta_otra_vez);
+        mpFallado = MediaPlayer.create(this, R.raw.mal_intenta_otra_vez);*/
         aleatorio = new Random();
-        //Genero un número aleatorio entre 1 y 8
-        numeroaleatorio = aleatorio.nextInt(8 - 1) + 1;
-        switch (numeroaleatorio) {
-            case 1:
-                mpA3.start();
-                break;
+        //Genero un número aleatorio entre 0 y 7
+        numeroaleatorio = aleatorio.nextInt(7 - 0) + 0;
 
-            case 2:
-                mpB4.start();
-                break;
+        avatar.habla(recursos[numeroaleatorio]);
 
-            case 3:
-                mpC8.start();
-                break;
-
-            case 4:
-                mpD1.start();
-                break;
-
-            case 5:
-                mpE3.start();
-                break;
-
-            case 6:
-                mpF2.start();
-                break;
-
-            case 7:
-                mpG6.start();
-                break;
-
-            case 8:
-                mpH5.start();
-                break;
-
-            default:
-        }
 
     }
 
@@ -93,29 +61,14 @@ public class SenalarCasillas extends EjercicioBaseActivity {
 
             Toast.makeText(getApplicationContext(), "Se ha pulsado la casilla " + casillaPulsada, Toast.LENGTH_SHORT).show();
 
-            if (casillaPulsada.equals("A3") && numeroaleatorio == 1)
-                mpAcertado.start();
-            if (casillaPulsada.equals("B4") && numeroaleatorio == 2)
-                mpAcertado.start();
-            if (casillaPulsada.equals("C8") && numeroaleatorio == 3)
-                mpAcertado.start();
-            if (casillaPulsada.equals("D1") && numeroaleatorio == 4)
-                mpAcertado.start();
-            if (casillaPulsada.equals("E3") && numeroaleatorio == 5)
-                mpAcertado.start();
-            if (casillaPulsada.equals("F2") && numeroaleatorio == 6)
-                mpAcertado.start();
-            if (casillaPulsada.equals("G6") && numeroaleatorio == 7)
-                mpAcertado.start();
-            if (casillaPulsada.equals("H5") && numeroaleatorio == 8)
-                mpAcertado.start();
+            if (casillaPulsada.equals(coordenadas[numeroaleatorio]))
+                avatar.habla(R.raw.ok_has_acertado);
 
 
-            if ((!casillaPulsada.equals("A3")) && (!casillaPulsada.equals("B4")) && (!casillaPulsada.equals("C8")) && (!casillaPulsada.equals("D1")) && (!casillaPulsada.equals("E3")) && (!casillaPulsada.equals("F2")) && (!casillaPulsada.equals("G6")) && (!casillaPulsada.equals("H5"))) {
-                mpFallado.start();
+            else avatar.habla(R.raw.mal_intenta_otra_vez);
             }
         }
-    }
+
 
 
     @Override

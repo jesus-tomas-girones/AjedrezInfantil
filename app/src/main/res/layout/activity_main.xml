@@ -21,57 +21,46 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="10dp">
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:gravity="center_vertical"
+            android:layout_marginTop="5dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <TextView
+                android:text="@string/textoTituloApp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_ajustes"
-                android:id="@+id/ajustes"
-                android:layout_weight="1"
-                android:adjustViewBounds="false"
-                android:scaleType="fitCenter"
-                android:layout_marginRight="5dp"
-                android:scaleX="1.2"
-                android:scaleY="1.2"
-                android:padding="5dp"
-                android:onClick="ajustes" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_pregunta"
-                android:id="@+id/info"
-                android:layout_weight="1"
-                android:adjustViewBounds="false"
-                android:scaleType="fitCenter"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="10dp"
-                android:scaleX="1.2"
-                android:scaleY="1.2"
-                android:padding="5dp"
-                android:onClick="acercaDe"/>
+                android:id="@+id/textoTituloApp"
+                android:textColor="@color/tituloCapitulo1"
+                android:textSize="@dimen/textSizeTituloCapitulos"
+                android:textStyle="normal|bold"
+                android:textAlignment="center"
+                android:padding="15dp"
+                android:textAllCaps="true" />
         </LinearLayout>
+
+
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_centerVertical="false"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingTop="5dp">
+            android:paddingTop="5dp"
+            android:layout_gravity="center_vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical|center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
 
                 <Button
                     android:id="@+id/boton1"
@@ -109,5 +98,43 @@
 
             </LinearLayout>
         </ScrollView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_ajustes"
+                android:id="@+id/ajustes"
+                android:layout_weight="1"
+                android:adjustViewBounds="false"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="5dp"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                android:padding="5dp"
+                android:onClick="ajustes" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_pregunta"
+                android:id="@+id/info"
+                android:layout_weight="1"
+                android:adjustViewBounds="false"
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                android:padding="5dp"
+                android:onClick="acercaDe"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

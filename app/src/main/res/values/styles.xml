@@ -59,12 +59,12 @@
 
     <style name="boton" parent="@android:style/Widget.Button">
         <item name="android:textSize">@dimen/textsize_botones</item>
-        <item name="android:layout_margin">10sp</item>
+        <item name="android:layout_margin">@dimen/botonLayoutMargin</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:paddingTop">10sp</item>
-        <item name="android:paddingBottom">10sp</item>
-        <item name="android:paddingLeft">30sp</item>
-        <item name="android:paddingRight">30sp</item>
+        <item name="android:paddingTop">@dimen/botonPaddingTop</item>
+        <item name="android:paddingBottom">@dimen/botonPaddingBottom</item>
+        <item name="android:paddingLeft">@dimen/botonPaddingLeft</item>
+        <item name="android:paddingRight">@dimen/botonPaddingRight</item>
     </style>
 
     <style name="boton.1" parent="@style/boton">
