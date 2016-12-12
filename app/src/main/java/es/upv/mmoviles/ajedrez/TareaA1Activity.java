@@ -88,9 +88,9 @@ public class TareaA1Activity extends AppCompatActivity {
     public void reproduceEfectoSonido(View view){
         Spinner spinnerEfectosSonido = (Spinner) findViewById(R.id.spinerEfectosSonido);
         String opcion = spinnerEfectosSonido.getSelectedItem().toString();
-        if (opcion.equals("incorrecto")) avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.INCORRECTO);
-        else if (opcion.equals("correcto")) avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.CORRECTO);
-        else if (opcion.equals("aplausos")) avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.APLAUSOS);
+        if (opcion.equals("incorrecto")) avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.MOVIMIENTO_INCORRECTO);
+        else if (opcion.equals("correcto")) avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.MOVIMIENTO_CORRECTO);
+        else if (opcion.equals("aplausos")) avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.EJERCICIO_SUPERADO);
     }
 
     public void levantaCejas(View view) {

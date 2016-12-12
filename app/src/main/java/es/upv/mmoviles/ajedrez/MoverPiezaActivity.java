@@ -57,11 +57,11 @@ public abstract class MoverPiezaActivity extends EjercicioBaseActivity {
         avatar.mueveOjos(VistaAvatar.MovimientoOjos.DERECHA);
         if (movimientoCorrecto) {
             contadorMovimientos++;
-            avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.CORRECTO);
+            avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.MOVIMIENTO_CORRECTO);
             avatar.mueveCejas(VistaAvatar.MovimientoCejas.ARQUEAR);
             if (contadorMovimientos > 3) {
-                avatar.lanzaAnimacion(VistaAvatar.Animacion.ANIMACION_APLAUSOS);
-                avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.APLAUSOS);
+                avatar.lanzaAnimacion(VistaAvatar.Animacion.EJERCICIO_SUPERADO);
+                avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.EJERCICIO_SUPERADO);
                 avatar.habla(R.raw.ok_superado, new VistaAvatar.OnAvatarHabla() {
                     @Override
                     public void onTerminaHabla() {
@@ -70,7 +70,7 @@ public abstract class MoverPiezaActivity extends EjercicioBaseActivity {
                 });
             }
             else {
-                avatar.lanzaAnimacion(VistaAvatar.Animacion.ANIMACION_CORRECTO);
+                avatar.lanzaAnimacion(VistaAvatar.Animacion.MOVIMIENTO_CORRECTO);
                 avatar.habla(R.raw.ok_intenta_otra_vez, new VistaAvatar.OnAvatarHabla() {
                     @Override
                     public void onTerminaHabla() {
@@ -81,7 +81,8 @@ public abstract class MoverPiezaActivity extends EjercicioBaseActivity {
             }
         } else {
             //contadorErrores++;
-            avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.INCORRECTO);
+            avatar.lanzaAnimacion(VistaAvatar.Animacion.MOVIMIENTO_INCORRECTO);
+            avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.MOVIMIENTO_INCORRECTO);
             avatar.mueveCejas(VistaAvatar.MovimientoCejas.FRUNCIR);
             avatar.habla(R.raw.mover_dama_mal, new VistaAvatar.OnAvatarHabla() {
                 @Override

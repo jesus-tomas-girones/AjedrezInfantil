@@ -25,4 +25,6 @@
     <color name="tituloCreditosAppSecundarios">#ffb300</color>
     <color name="tituloCapitulo1">#028dd3</color>
     <color name="tituloCapitulo2">#ff9e05</color>
+    <color name="movimientoIncorrecto">#ff7f7f</color>
+    <color name="movimientoCorrecto">#7fff7f</color>
 </resources>

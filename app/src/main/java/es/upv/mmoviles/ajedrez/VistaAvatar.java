@@ -46,11 +46,11 @@ public class VistaAvatar extends FrameLayout {
     private HashMap<EfectoSonido, Integer> hashMapEfectosSonido;
 
     public enum EfectoSonido {
-        TIC_TAC, INCORRECTO, CORRECTO, APLAUSOS
+        TIC_TAC, MOVIMIENTO_INCORRECTO, MOVIMIENTO_CORRECTO, EJERCICIO_SUPERADO
     }
 
     public enum Animacion {
-        ANIMACION_CORRECTO, ANIMACION_APLAUSOS
+        MOVIMIENTO_INCORRECTO, MOVIMIENTO_CORRECTO, EJERCICIO_SUPERADO
     }
 
     public enum MovimientoCejas {
@@ -95,13 +95,21 @@ public class VistaAvatar extends FrameLayout {
 
     public void lanzaAnimacion(Animacion animacion) {
         AnimatedVectorDrawableCompat animatedVectorDrawableCompat;
+        AnimationDrawable animationDrawable;
         switch (animacion) {
-            case ANIMACION_CORRECTO:
-                animatedVectorDrawableCompat = AnimatedVectorDrawableCompat.create(activity, R.drawable.estrellas_animacion_correcto);
-                imageViewCara.setBackgroundDrawable(animatedVectorDrawableCompat);
-                animatedVectorDrawableCompat.start();
+            case MOVIMIENTO_INCORRECTO:
+                imageViewCara.setBackgroundResource(R.drawable.animacion_movimiento_incorrecto);
+                animationDrawable = (AnimationDrawable) imageViewCara.getBackground();
+                animationDrawable.stop();
+                animationDrawable.start();
                 break;
-            case ANIMACION_APLAUSOS:
+            case MOVIMIENTO_CORRECTO:
+                imageViewCara.setBackgroundResource(R.drawable.animacion_movimiento_correcto);
+                animationDrawable = (AnimationDrawable) imageViewCara.getBackground();
+                animationDrawable.stop();
+                animationDrawable.start();
+                break;
+            case EJERCICIO_SUPERADO:
                 animatedVectorDrawableCompat = AnimatedVectorDrawableCompat.create(activity, R.drawable.estrellas_animacion_aplausos);
                 imageViewCara.setBackgroundDrawable(animatedVectorDrawableCompat);
                 animatedVectorDrawableCompat.start();
@@ -143,9 +151,9 @@ public class VistaAvatar extends FrameLayout {
         Integer integerIdCorrecto = soundPool.load(activity, R.raw.correcto, 0);
         Integer integerIdAplausos = soundPool.load(activity, R.raw.aplausos, 0);
         hashMapEfectosSonido.put(EfectoSonido.TIC_TAC, integerIdTicTac);
-        hashMapEfectosSonido.put(EfectoSonido.INCORRECTO, integerIdIncorrecto);
-        hashMapEfectosSonido.put(EfectoSonido.CORRECTO, integerIdCorrecto);
-        hashMapEfectosSonido.put(EfectoSonido.APLAUSOS, integerIdAplausos);
+        hashMapEfectosSonido.put(EfectoSonido.MOVIMIENTO_INCORRECTO, integerIdIncorrecto);
+        hashMapEfectosSonido.put(EfectoSonido.MOVIMIENTO_CORRECTO, integerIdCorrecto);
+        hashMapEfectosSonido.put(EfectoSonido.EJERCICIO_SUPERADO, integerIdAplausos);
     }
 
     private void arrancaThread() {
@@ -215,13 +223,13 @@ public class VistaAvatar extends FrameLayout {
                     idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, -1, 1);
                     idStreamTicTac = idStream;
                     break;
-                case INCORRECTO:
+                case MOVIMIENTO_INCORRECTO:
                     idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, 0, 1);
                     break;
-                case CORRECTO:
+                case MOVIMIENTO_CORRECTO:
                     idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, 0, 1);
                     break;
-                case APLAUSOS:
+                case EJERCICIO_SUPERADO:
                     idStream = soundPool.play(idInteger.intValue(), 1, 1, 1, 0, 1);
                     break;
             }
