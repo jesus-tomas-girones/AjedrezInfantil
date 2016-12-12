@@ -8,9 +8,16 @@
     <dimen name="tamaño_textoBorde">10dp</dimen>
     <item name="grosor_marco" format="float" type="dimen">0.5</item>
     <dimen name="textsize_botones">14sp</dimen>
+    <dimen name="botonPaddingTop">0sp</dimen>
+    <dimen name="botonPaddingBottom">0sp</dimen>
+    <dimen name="botonPaddingRight">30sp</dimen>
+    <dimen name="botonPaddingLeft">30sp</dimen>
+    <dimen name="botonLayoutMargin">2dp</dimen>
     <dimen name="grosor_marco_botones">4dp</dimen>
     <dimen name="radio_marco_botones">30dp</dimen>
     <dimen name="tamañoIconos">24dp</dimen>
     <dimen name="textSizeTituloCapitulos">18sp</dimen>
+
+
 
 </resources>
