@@ -67,5 +67,7 @@
             android:screenOrientation="landscape" />
         <activity android:name="es.upv.mmoviles.ajedrez.MoverPeonActivity"
             android:screenOrientation="landscape" />
+        <activity android:name="es.upv.mmoviles.ajedrez.SenalarCasillas"
+            android:screenOrientation="landscape" />
     </application>
 </manifest>
