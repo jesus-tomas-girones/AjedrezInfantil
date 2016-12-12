@@ -94,7 +94,7 @@ public class TareaA1Activity extends AppCompatActivity {
     }
 
     public void levantaCejas(View view) {
-        avatar.levantaCejas();
+        avatar.mueveCejas(VistaAvatar.MovimientoCejas.FRUNCIR);
     }
 
     public void parpadea(View view) {

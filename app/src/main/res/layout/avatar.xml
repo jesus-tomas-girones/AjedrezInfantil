@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        app:srcCompat="@drawable/cejas_animacion" />
+        app:srcCompat="@drawable/cejas_arriba" />
 
     <ImageView
         android:id="@+id/imageViewOjos"

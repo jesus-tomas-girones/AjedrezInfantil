@@ -63,6 +63,24 @@ public class VistaAvatar extends FrameLayout {
         ANIMACION_CORRECTO, ANIMACION_APLAUSOS
     }
 
+    public enum MovimientoCejas {
+        FRUNCIR, ARQUEAR
+    }
+
+    public void mueveCejas(MovimientoCejas movimientoCejas) {
+        AnimationDrawable animationDrawable;
+        switch (movimientoCejas) {
+            case FRUNCIR:
+                imageViewCejas.setImageResource(R.drawable.cejas_animacion_fruncir);
+                break;
+            case ARQUEAR:
+                imageViewCejas.setImageResource(R.drawable.cejas_animacion_arquear);
+                break;
+        }
+        animationDrawable = (AnimationDrawable) imageViewCejas.getDrawable();
+        animationDrawable.start();
+    }
+
     public void lanzaAnimacion(Animacion animacion) {
         AnimatedVectorDrawableCompat animatedVectorDrawableCompat;
         switch (animacion) {
@@ -136,17 +154,6 @@ public class VistaAvatar extends FrameLayout {
 
     public HashMap<DireccionMirada, Drawable> getMiradas() {
         return hashMapMiradas;
-    }
-
-    public void levantaCejas() {
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                AnimationDrawable animationDrawableCejas = (AnimationDrawable) imageViewCejas.getDrawable();
-                animationDrawableCejas.stop();
-                animationDrawableCejas.start();
-            }
-        });
     }
 
     public void parpadea() {
