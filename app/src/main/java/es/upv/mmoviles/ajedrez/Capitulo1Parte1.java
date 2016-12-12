@@ -61,7 +61,7 @@ public class Capitulo1Parte1 extends AppCompatActivity {
     }
 
     public void boton2(View v) {
-        startActivity(new Intent(this, TareaA1Activity.class));
+        startActivity(new Intent(this, SenalarCasillas.class));
     }
 
     public void boton3(View v) {
