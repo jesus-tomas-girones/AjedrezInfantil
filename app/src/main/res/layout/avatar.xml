@@ -28,7 +28,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        app:srcCompat="@drawable/ojos_parpadeo" />
+        app:srcCompat="@drawable/ojos_centro" />
 
     <ImageView
         android:id="@+id/imageViewBoca"

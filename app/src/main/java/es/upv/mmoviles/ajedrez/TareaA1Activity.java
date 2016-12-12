@@ -119,11 +119,11 @@ public class TareaA1Activity extends AppCompatActivity {
         Spinner spinnerMiradas = (Spinner) findViewById(R.id.spiner_miradas);
         if (spinnerMiradas == null) return;
         String opcion = spinnerMiradas.getSelectedItem().toString();
-        if (opcion.equals("centro")) avatar.setMirada(VistaAvatar.DireccionMirada.CENTER);
+        if (opcion.equals("centro")) avatar.mueveOjos(VistaAvatar.MovimientoOjos.CENTRO);
         else if (opcion.equals("izquierda"))
-            avatar.setMirada(VistaAvatar.DireccionMirada.LEFT_CENTER);
+            avatar.mueveOjos(VistaAvatar.MovimientoOjos.IZQUIERDA);
         else if (opcion.equals("derecha"))
-            avatar.setMirada(VistaAvatar.DireccionMirada.RIGHT_CENTER);
+            avatar.mueveOjos(VistaAvatar.MovimientoOjos.DERECHA);
     }
 
     void solicitarPermisoRecordAudio() {

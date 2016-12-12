@@ -31,6 +31,7 @@ public abstract class MoverPiezaActivity extends EjercicioBaseActivity {
         avatar.habla(moverPiezaPresentacion, new VistaAvatar.OnAvatarHabla() {
             @Override
             public void onTerminaHabla() {
+                avatar.mueveOjos(VistaAvatar.MovimientoOjos.DERECHA);
                 avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.TIC_TAC);
                 empiezaCuentaAtras();
             }
@@ -42,6 +43,7 @@ public abstract class MoverPiezaActivity extends EjercicioBaseActivity {
         avatar.habla(moverPiezaPresentacion, new VistaAvatar.OnAvatarHabla() {
             @Override
             public void onTerminaHabla() {
+                avatar.mueveOjos(VistaAvatar.MovimientoOjos.DERECHA);
                 avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.TIC_TAC);
                 empiezaCuentaAtras();
             }
@@ -52,6 +54,7 @@ public abstract class MoverPiezaActivity extends EjercicioBaseActivity {
     protected boolean onMovimiento(int colOrigen, int filaOrigen, int colDestino, int filaDestino) {
         cancelaCuentaAtras();
         boolean movimientoCorrecto = validador.movimientoValido(colOrigen, filaOrigen, colDestino, filaDestino);
+        avatar.mueveOjos(VistaAvatar.MovimientoOjos.DERECHA);
         if (movimientoCorrecto) {
             contadorMovimientos++;
             avatar.reproduceEfectoSonido(VistaAvatar.EfectoSonido.CORRECTO);

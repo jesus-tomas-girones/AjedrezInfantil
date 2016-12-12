@@ -4,12 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <item
-        android:drawable="@drawable/cejas_arriba"
+        android:drawable="@drawable/ojos_cerrados"
         android:duration="200" />
     <item
-        android:drawable="@drawable/cejas_centro"
+        android:drawable="@drawable/ojos_izquierda"
         android:duration="1000" />
     <item
-        android:drawable="@drawable/cejas_arriba"
-        android:duration="250" />
+        android:drawable="@drawable/ojos_cerrados"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/ojos_centro"
+        android:duration="500" />
 </animation-list>

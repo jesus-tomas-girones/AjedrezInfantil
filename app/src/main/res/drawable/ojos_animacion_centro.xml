@@ -4,12 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <item
-        android:drawable="@drawable/mirada_center"
-        android:duration="150" />
-    <item
         android:drawable="@drawable/ojos_cerrados"
-        android:duration="150" />
+        android:duration="200" />
     <item
-        android:drawable="@drawable/mirada_center"
-        android:duration="150" />
+        android:drawable="@drawable/ojos_centro"
+        android:duration="1000" />
 </animation-list>

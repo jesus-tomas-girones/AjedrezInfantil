@@ -2,7 +2,6 @@ package es.upv.mmoviles.ajedrez;
 
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
@@ -30,7 +29,6 @@ public class VistaAvatar extends FrameLayout {
     private ImageView imageViewCejas;
     private ImageView imageViewOjos;
     private ImageView imageViewBoca;
-    private HashMap<DireccionMirada, Drawable> hashMapMiradas;
     private MediaPlayer mediaPlayerVoz;
     private Visualizer visualizerVoz;
     private long ultimaActualizacion;
@@ -38,7 +36,6 @@ public class VistaAvatar extends FrameLayout {
     private Random random;
     private final int PERIODO_ACTUALIZACION = 50;
     private int PERIODO_PARPADEO = 6 * 1000;
-    private DireccionMirada direccionMirada;
     private int amplitudMaxima;
     private final int UMBRAL_MOVER_BOCA = 10; // % respecto a amplitudMaxima
     private boolean bocaParada;
@@ -47,13 +44,6 @@ public class VistaAvatar extends FrameLayout {
     private SoundPool soundPool;
     private int idStreamTicTac;
     private HashMap<EfectoSonido, Integer> hashMapEfectosSonido;
-
-    public enum DireccionMirada {
-        LEFT_TOP, LEFT_CENTER, LEFT_BOTTOM,
-        RIGHT_TOP, RIGHT_CENTER, RIGHT_BOTTOM,
-        CENTER_TOP, CENTER, CENTER_BOTTOM,
-        CLOSED_EYES
-    }
 
     public enum EfectoSonido {
         TIC_TAC, INCORRECTO, CORRECTO, APLAUSOS
@@ -65,6 +55,28 @@ public class VistaAvatar extends FrameLayout {
 
     public enum MovimientoCejas {
         FRUNCIR, ARQUEAR
+    }
+
+    public enum MovimientoOjos {
+        IZQUIERDA, CENTRO, DERECHA
+    }
+
+    public void mueveOjos(MovimientoOjos movimientoOjos) {
+        AnimationDrawable animationDrawable;
+        switch (movimientoOjos) {
+            case IZQUIERDA:
+                imageViewOjos.setImageResource(R.drawable.ojos_animacion_izquierda);
+                break;
+            case CENTRO:
+                imageViewOjos.setImageResource(R.drawable.ojos_animacion_centro);
+                break;
+            case DERECHA:
+                imageViewOjos.setImageResource(R.drawable.ojos_animacion_derecha);
+                break;
+        }
+        animationDrawable = (AnimationDrawable) imageViewOjos.getDrawable();
+        animationDrawable.start();
+        ultimoParpadeo = System.currentTimeMillis();
     }
 
     public void mueveCejas(MovimientoCejas movimientoCejas) {
@@ -118,18 +130,9 @@ public class VistaAvatar extends FrameLayout {
 
     public void setActividad(AppCompatActivity activity) {
         this.activity = activity;
-        inicializaHashMapMiradas();
         activity.setVolumeControlStream(AudioManager.STREAM_MUSIC);
         inicializaEfectosSonido();
         arrancaThread();
-    }
-
-    private void inicializaHashMapMiradas() {
-        hashMapMiradas = new HashMap<VistaAvatar.DireccionMirada, Drawable>();
-        hashMapMiradas.put(VistaAvatar.DireccionMirada.LEFT_CENTER, getResources().getDrawable(R.drawable.mirada_left_center));
-        hashMapMiradas.put(VistaAvatar.DireccionMirada.CENTER, getResources().getDrawable(R.drawable.mirada_center));
-        hashMapMiradas.put(VistaAvatar.DireccionMirada.RIGHT_CENTER, getResources().getDrawable(R.drawable.mirada_right_center));
-        hashMapMiradas.put(VistaAvatar.DireccionMirada.CLOSED_EYES, getResources().getDrawable(R.drawable.ojos_cerrados));
     }
 
     private void inicializaEfectosSonido() {
@@ -152,21 +155,13 @@ public class VistaAvatar extends FrameLayout {
         ultimoParpadeo = System.currentTimeMillis();
     }
 
-    public HashMap<DireccionMirada, Drawable> getMiradas() {
-        return hashMapMiradas;
-    }
-
     public void parpadea() {
-        synchronized (imageViewOjos) {
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    AnimationDrawable animationDrawableOjos = (AnimationDrawable) imageViewOjos.getDrawable();
-                    animationDrawableOjos.stop();
-                    animationDrawableOjos.start();
-                }
-            });
-        }
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mueveOjos(MovimientoOjos.CENTRO);
+            }
+        });
     }
 
     public void mueveBoca() {
@@ -201,25 +196,6 @@ public class VistaAvatar extends FrameLayout {
             }
         });
         bocaParada = true;
-    }
-
-    public void setMirada(final DireccionMirada direccionMirada) {
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                AnimationDrawable animationDrawableOjos = new AnimationDrawable();
-                animationDrawableOjos.addFrame(hashMapMiradas.get(direccionMirada), 150);
-                animationDrawableOjos.addFrame(hashMapMiradas.get(DireccionMirada.CLOSED_EYES), 150);
-                animationDrawableOjos.addFrame(hashMapMiradas.get(direccionMirada), 150);
-                animationDrawableOjos.setOneShot(true);
-                synchronized (imageViewOjos) {
-                    imageViewOjos.setImageDrawable(animationDrawableOjos);
-                }
-                animationDrawableOjos = (AnimationDrawable) imageViewOjos.getDrawable();
-                animationDrawableOjos.stop();
-                animationDrawableOjos.start();
-            }
-        });
     }
 
     public boolean isSonidosActivados() {
