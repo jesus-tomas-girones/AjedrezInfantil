@@ -71,7 +71,8 @@
                     style="@style/boton.2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ej1Capitulo2Parte1" />
+                    android:text="@string/ej1Capitulo2Parte1"
+                    android:onClick="boton13"/>
 
                 <Button
                     android:id="@+id/boton14"

@@ -58,4 +58,21 @@
     <string name="ej2Capitulo2Parte1">Ejercicio: Colocar piezas</string>
     <string name="ej3Capitulo2Parte1">Ejercicio: Mover rey en jaque</string>
 
+    <string name="preguntaAlfiles">¿Cuántos alfiles tiene cada jugador?</string>
+    <string name="respOpc1Alfiles">1 alfil</string>
+    <string name="respOpc2Alfiles">2 alfiles</string>
+    <string name="respOpc3Alfiles">8 alfiles</string>
+
+    <string name="preguntaPeones">¿Cuántos peones tiene cada jugador?</string>
+    <string name="respOpc1Peones">4 peones</string>
+    <string name="respOpc2Peones">2 peones</string>
+    <string name="respOpc3Peones">8 peones</string>
+
+    <string name="preguntaReyes">¿Cuántos reyes tiene cada jugador?</string>
+    <string name="respOpc1Reyes">1 rey</string>
+    <string name="respOpc2Reyes">2 reyes</string>
+    <string name="respOpc3Reyes">8 reyes</string>
+
+
+
     </resources>

@@ -64,7 +64,7 @@ public class Capitulo2Parte1 extends AppCompatActivity {
     }
 
     public void boton13(View v) {
-        //startActivity(new Intent(this, ValorPiezas.class));
+        startActivity(new Intent(this, ValorPiezas.class));
     }
 
     public void boton14(View v) {

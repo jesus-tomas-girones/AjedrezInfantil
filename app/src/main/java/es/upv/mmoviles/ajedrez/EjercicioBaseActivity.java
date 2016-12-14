@@ -285,6 +285,10 @@ public class EjercicioBaseActivity extends AppCompatActivity {
         return true;
     }
 
+    protected boolean onPulsar(ImageView imgview) {
+        return true;
+    }
+
     /**
      * método ha de ser sobreescrito por los descencientes para comprobar que se ha
      * producido una colocación de pieza desde fuera y para validarla
