@@ -39,6 +39,10 @@ public class Capitulo2Parte1 extends AppCompatActivity {
 
         TextView textoCapitulo21 = (TextView)findViewById(R.id.textoCapitulo21);
         textoCapitulo21.setTypeface(fuente1);
+        TextView textoLeccion = (TextView)findViewById(R.id.textoLeccion);
+        textoLeccion.setTypeface(fuente);
+        TextView textoEjercicios = (TextView)findViewById(R.id.textoEjercicios);
+        textoEjercicios.setTypeface(fuente);
 
         avatar = (VistaAvatar) findViewById(R.id.vistaAvatar1);
         avatar.setActividad(this);
@@ -64,7 +68,7 @@ public class Capitulo2Parte1 extends AppCompatActivity {
     }
 
     public void boton13(View v) {
-        startActivity(new Intent(this, ValorPiezas.class));
+        //startActivity(new Intent(this, ValorPiezas.class));
     }
 
     public void boton14(View v) {

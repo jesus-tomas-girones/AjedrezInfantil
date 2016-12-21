@@ -36,6 +36,10 @@ public class Capitulo1Parte1 extends AppCompatActivity {
 
         TextView textoCapitulo1 = (TextView)findViewById(R.id.textoCapitulo1);
         textoCapitulo1.setTypeface(fuente1);
+        TextView textoLeccion = (TextView)findViewById(R.id.textoLeccion);
+        textoLeccion.setTypeface(fuente);
+        TextView textoEjercicios = (TextView)findViewById(R.id.textoEjercicios);
+        textoEjercicios.setTypeface(fuente);
 
         avatar = (VistaAvatar) findViewById(R.id.vistaAvatar1);
         avatar.setActividad(this);

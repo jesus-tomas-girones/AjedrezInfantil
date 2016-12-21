@@ -23,8 +23,8 @@
     <color name="estrellaMarco">#FFFFFF</color>
     <color name="tituloCreditos">#fb8c00</color>
     <color name="tituloCreditosAppSecundarios">#ffb300</color>
-    <color name="tituloCapitulo1">#028dd3</color>
-    <color name="tituloCapitulo2">#ff9e05</color>
+    <color name="tituloCapitulo1">#683c12</color>
+    <color name="tituloCapitulo2">#126867</color>
     <color name="movimientoIncorrecto">#ff7f7f</color>
-    <color name="movimientoCorrecto">#7fff7f</color>
+    <color name="movimientoCorrecto">#33ff33</color>
 </resources>

@@ -43,20 +43,20 @@
     <string name="textoTituloApp">Aprende con Rey</string>
     <string name="verVideo">Ver video</string>
 
-    <string name="ej1Capitulo1Parte1">Ejercicio: Coordenadas del tablero</string>
-    <string name="ej2Capitulo1Parte1">Ejercicio: Colocar piezas</string>
+    <string name="ej1Capitulo1Parte1">Coordenadas del tablero</string>
+    <string name="ej2Capitulo1Parte1">Colocar piezas</string>
 
 
-    <string name="ej1Capitulo1Parte2">Ejercicio: Mover torre</string>
-    <string name="ej2Capitulo1Parte2">Ejercicio: Mover alfil</string>
-    <string name="ej3Capitulo1Parte2">Ejercicio: Mover dama</string>
-    <string name="ej4Capitulo1Parte2">Ejercicio: Mover caballo</string>
-    <string name="ej5Capitulo1Parte2">Ejercicio: Mover peón</string>
-    <string name="ej6Capitulo1Parte2">Ejercicio: Mover rey</string>
+    <string name="ej1Capitulo1Parte2">Mover torre</string>
+    <string name="ej2Capitulo1Parte2">Mover alfil</string>
+    <string name="ej3Capitulo1Parte2">Mover dama</string>
+    <string name="ej4Capitulo1Parte2">Mover caballo</string>
+    <string name="ej5Capitulo1Parte2">Mover peón</string>
+    <string name="ej6Capitulo1Parte2">Mover rey</string>
 
-    <string name="ej1Capitulo2Parte1">Ejercicio: Valor piezas</string>
-    <string name="ej2Capitulo2Parte1">Ejercicio: Colocar piezas</string>
-    <string name="ej3Capitulo2Parte1">Ejercicio: Mover rey en jaque</string>
+    <string name="ej1Capitulo2Parte1">Valor piezas</string>
+    <string name="ej2Capitulo2Parte1">Colocar piezas</string>
+    <string name="ej3Capitulo2Parte1">Mover rey en jaque</string>
 
     <string name="preguntaAlfiles">¿Cuántos alfiles tiene cada jugador?</string>
     <string name="respOpc1Alfiles">1 alfil</string>
@@ -73,6 +73,8 @@
     <string name="respOpc2Reyes">2 reyes</string>
     <string name="respOpc3Reyes">8 reyes</string>
 
-
+    <string name="contenidos">Contenidos:</string>
+    <string name="leccion">Lección:</string>
+    <string name="ejercicios">Ejercicios:</string>
 
     </resources>

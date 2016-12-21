@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
         Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/BalooPaaji-Regular.ttf");
         Typeface fuente1 = Typeface.createFromAsset(getAssets(), "fonts/Gorditas-Bold.ttf");
-        // Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/BungeeShade-Regular.ttf");
-        // Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/HoltwoodOneSC.ttf");
+        //Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/BungeeShade-Regular.ttf");
+        //Typeface fuente = Typeface.createFromAsset(getAssets(), "fonts/HoltwoodOneSC.ttf");
         Button boton1 = (Button) findViewById(R.id.boton1);
         boton1.setTypeface(fuente);
         Button boton2 = (Button) findViewById(R.id.boton2);
@@ -57,8 +57,10 @@ public class MainActivity extends AppCompatActivity {
         //Button boton4 = (Button) findViewById(R.id.boton4);
         //boton4.setTypeface(fuente);
 
-        TextView textoTituloApp= (TextView)findViewById(R.id.textoTituloApp);
+        TextView textoTituloApp = (TextView)findViewById(R.id.textoTituloApp);
         textoTituloApp.setTypeface(fuente1);
+        TextView textoContenidos = (TextView)findViewById(R.id.textoContenidos);
+        textoContenidos.setTypeface(fuente);
 
         ImageView ajustes = (ImageView) findViewById(R.id.ajustes);
         ImageView acercaDe = (ImageView) findViewById(R.id.info);

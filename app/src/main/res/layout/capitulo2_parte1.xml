@@ -15,72 +15,88 @@
         android:layout_weight="1" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="2"
+        android:gravity="center"
+        android:padding="10dp"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/textoCapitulo21"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_margin="10dp"
-            android:gravity="center_vertical">
+            android:gravity="start|center_vertical"
+            android:text="@string/capitulo2_parte1"
+            android:textAllCaps="true"
+            android:textColor="@color/tituloCapitulo1"
+            android:textSize="@dimen/textSizeTituloCapitulos"
+            android:textStyle="normal|bold" />
 
-            <TextView
-                android:text="@string/capitulo2_parte1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textoCapitulo21"
-                android:textColor="@color/tituloCapitulo1"
-                android:textSize="@dimen/textSizeTituloCapitulos"
-                android:textStyle="normal|bold"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:layout_marginTop="5dp" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/textoLeccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:text="@string/leccion"
+            android:textAllCaps="false"
+            android:textColor="@color/tituloCapitulo2"
+            android:textSize="@dimen/textSizeSubTituloCapitulos"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/boton12"
+            style="@style/boton.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="boton12"
+            android:text="@string/verVideo" />
+
+        <TextView
+            android:id="@+id/textoEjercicios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:text="@string/ejercicios"
+            android:textAllCaps="false"
+            android:textColor="@color/tituloCapitulo2"
+            android:textSize="@dimen/textSizeSubTituloCapitulos"
+            android:textStyle="italic" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="false"
-            android:layout_weight="1"
+            android:fillViewport="true"
             android:orientation="vertical"
-            android:layout_gravity="center_vertical">
+            android:scrollbarStyle="outsideOverlay">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:gravity="center_vertical|center"
-                android:orientation="vertical"
-                android:layout_gravity="center_vertical">
-
-                <Button
-                    android:id="@+id/boton12"
-                    style="@style/boton.1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/verVideo"
-                    android:onClick="boton12" />
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/boton13"
                     style="@style/boton.2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ej1Capitulo2Parte1"
-                    android:onClick="boton13"/>
+                    android:onClick="boton13"
+                    android:text="@string/ej1Capitulo2Parte1" />
 
                 <Button
                     android:id="@+id/boton14"
                     style="@style/boton.2"
-                    android:text="@string/ej2Capitulo2Parte1"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="boton14"/>
+                    android:onClick="boton14"
+                    android:text="@string/ej2Capitulo2Parte1" />
 
                 <Button
                     android:id="@+id/boton15"
@@ -90,9 +106,11 @@
                     android:text="@string/ej3Capitulo2Parte1"
                     android:textColor="@color/botonFondo2" />
 
-
             </LinearLayout>
         </ScrollView>
-
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>

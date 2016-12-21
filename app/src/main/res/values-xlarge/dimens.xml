@@ -7,13 +7,14 @@
     <dimen name="borde_interior">1dp</dimen>
     <dimen name="tamaño_textoBorde">24dp</dimen>
     <item name="grosor_marco" format="float" type="dimen">0.5</item>
-    <dimen name="botonPaddingTop">5sp</dimen>
-    <dimen name="botonPaddingBottom">5sp</dimen>
+    <dimen name="textsize_botones">34sp</dimen>
+    <dimen name="botonPaddingTop">0sp</dimen>
+    <dimen name="botonPaddingBottom">0sp</dimen>
     <dimen name="botonPaddingRight">30sp</dimen>
     <dimen name="botonPaddingLeft">30sp</dimen>
-    <dimen name="botonLayoutMargin">5dp</dimen>
-    <dimen name="textsize_botones">36sp</dimen>
+    <dimen name="botonLayoutMargin">10dp</dimen>
     <dimen name="grosor_marco_botones">8dp</dimen>
     <dimen name="radio_marco_botones">60dp</dimen>
-    <dimen name="textSizeTituloCapitulos">52sp</dimen>
+    <dimen name="textSizeTituloCapitulos">50sp</dimen>
+    <dimen name="textSizeSubTituloCapitulos">42sp</dimen>
 </resources>

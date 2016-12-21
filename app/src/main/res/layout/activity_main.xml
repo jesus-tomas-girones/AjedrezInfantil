@@ -16,51 +16,53 @@
         android:layout_weight="1" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:padding="10dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:text="@string/textoTituloApp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:gravity="center_vertical"
-            android:layout_marginTop="5dp">
+            android:id="@+id/textoTituloApp"
+            android:textColor="@color/tituloCapitulo1"
+            android:textSize="@dimen/textSizeTituloCapitulos"
+            android:textStyle="normal|bold"
+            android:gravity="start|center_vertical"
+            android:textAllCaps="true" />
 
-            <TextView
-                android:text="@string/textoTituloApp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textoTituloApp"
-                android:textColor="@color/tituloCapitulo1"
-                android:textSize="@dimen/textSizeTituloCapitulos"
-                android:textStyle="normal|bold"
-                android:textAlignment="center"
-                android:padding="15dp"
-                android:textAllCaps="true" />
-        </LinearLayout>
-
-
+        <TextView
+            android:id="@+id/textoContenidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:text="@string/contenidos"
+            android:textAllCaps="false"
+            android:textColor="@color/tituloCapitulo2"
+            android:textSize="@dimen/textSizeSubTituloCapitulos"
+            android:textStyle="italic" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="false"
-            android:layout_weight="1"
+            android:fillViewport="true"
             android:orientation="vertical"
-            android:paddingTop="5dp"
-            android:layout_gravity="center_vertical">
+            android:scrollbarStyle="outsideOverlay">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:gravity="center_vertical|center"
-                android:orientation="vertical"
-                android:layout_gravity="center_vertical">
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/boton1"
@@ -86,7 +88,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="boton3"
-                    android:text="@string/capitulo2_parte1" />
+                    android:text="@string/capitulo2_parte1"
+                    android:elevation="1dp" />
 
                 <!--Button
                     android:id="@+id/boton4"
@@ -98,7 +101,10 @@
 
             </LinearLayout>
         </ScrollView>
-
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
@@ -106,6 +112,7 @@
             android:layout_gravity="right"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp">
+
 
             <ImageView
                 android:layout_width="wrap_content"

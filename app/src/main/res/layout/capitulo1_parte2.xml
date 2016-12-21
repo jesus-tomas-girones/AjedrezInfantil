@@ -15,98 +15,150 @@
         android:layout_weight="1" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="2"
+        android:gravity="center"
+        android:padding="10dp"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/textoCapitulo12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_margin="10dp"
-            android:gravity="center_vertical">
+            android:text="@string/capitulo1_parte2"
+            android:gravity="start|center_vertical"
+            android:textAllCaps="true"
+            android:textColor="@color/tituloCapitulo1"
+            android:textSize="@dimen/textSizeTituloCapitulos"
+            android:textStyle="normal|bold" />
 
-            <TextView
-                android:text="@string/capitulo1_parte2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textoCapitulo12"
-                android:textColor="@color/tituloCapitulo1"
-                android:textSize="@dimen/textSizeTituloCapitulos"
-                android:textStyle="normal|bold"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:layout_marginTop="5dp" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/textoLeccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:text="@string/leccion"
+            android:textAllCaps="false"
+            android:textColor="@color/tituloCapitulo2"
+            android:textSize="@dimen/textSizeSubTituloCapitulos"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/boton8"
+            style="@style/boton.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="boton8"
+            android:text="@string/verVideo" />
+
+        <TextView
+            android:id="@+id/textoEjercicios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:text="@string/ejercicios"
+            android:textAllCaps="false"
+            android:textColor="@color/tituloCapitulo2"
+            android:textSize="@dimen/textSizeSubTituloCapitulos"
+            android:textStyle="italic" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:fillViewport="true"
+            android:orientation="vertical"
+            android:scrollbarStyle="outsideOverlay">
 
-            <LinearLayout
+            <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical|center"
-                android:orientation="vertical">
+                android:gravity="center">
 
-                <Button
-                    android:id="@+id/boton8"
-                    style="@style/boton.2"
+                <TableRow
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/verVideo"
-                    android:onClick="boton8" />
-                <Button
-                    android:id="@+id/boton9"
-                    style="@style/boton.1"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/boton13"
+                        style="@style/boton.1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="botonMoverPeon"
+                        android:text="@string/ej5Capitulo1Parte2" />
+
+                    <Button
+                        android:id="@+id/boton12"
+                        style="@style/boton.1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="botonMoverCaballo"
+                        android:text="@string/ej4Capitulo1Parte2" />
+
+                </TableRow>
+
+                <TableRow
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="botonMoverTorre"
-                    android:text="@string/ej1Capitulo1Parte2" />
-                <Button
-                    android:id="@+id/boton10"
-                    style="@style/boton.1"
-                    android:text="@string/ej2Capitulo1Parte2"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/boton9"
+                        style="@style/boton.1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="botonMoverTorre"
+                        android:text="@string/ej1Capitulo1Parte2" />
+
+                    <Button
+                        android:id="@+id/boton10"
+                        style="@style/boton.1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="botonMoverAlfil"
+                        android:text="@string/ej2Capitulo1Parte2" />
+
+                </TableRow>
+
+                <TableRow
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="botonMoverAlfil"/>
-                <Button
-                    android:id="@+id/boton11"
-                    style="@style/boton.1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="botonMoverDama"
-                    android:text="@string/ej3Capitulo1Parte2"/>
-                <Button
-                    android:id="@+id/boton12"
-                    style="@style/boton.1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="botonMoverCaballo"
-                    android:text="@string/ej4Capitulo1Parte2"/>
-                <Button
-                    android:id="@+id/boton13"
-                    style="@style/boton.1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="botonMoverPeon"
-                    android:text="@string/ej5Capitulo1Parte2"/>
-                <Button
-                    android:id="@+id/boton14"
-                    style="@style/boton.1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="botonMoverRey"
-                    android:text="@string/ej6Capitulo1Parte2"/>
-            </LinearLayout>
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/boton11"
+                        style="@style/boton.1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="botonMoverDama"
+                        android:text="@string/ej3Capitulo1Parte2" />
+
+                    <Button
+                        android:id="@+id/boton14"
+                        style="@style/boton.1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="botonMoverRey"
+                        android:text="@string/ej6Capitulo1Parte2" />
+
+                </TableRow>
+            </TableLayout>
         </ScrollView>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 </LinearLayout>
