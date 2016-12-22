@@ -1,0 +1,14 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <item android:drawable="@color/cuadriculaBlanca" android:duration="500" />
+    <item android:drawable="@color/parpadeoCuadriculaBlancaIncorrecta" android:duration="500"/>
+    <item android:drawable="@color/cuadriculaBlanca" android:duration="500" />
+    <item android:drawable="@color/parpadeoCuadriculaBlancaIncorrecta" android:duration="500"/>
+    <item android:drawable="@color/cuadriculaBlanca" android:duration="500" />
+    <item android:drawable="@color/parpadeoCuadriculaBlancaIncorrecta" android:duration="500"/>
+    <item android:drawable="@color/cuadriculaBlanca" android:duration="500" />
+    <item android:drawable="@color/parpadeoCuadriculaBlancaIncorrecta" android:duration="500"/>
+    <item android:drawable="@color/cuadriculaBlanca" android:duration="500" />
+    <item android:drawable="@color/parpadeoCuadriculaBlancaIncorrecta" android:duration="500"/>
+    <item android:drawable="@color/cuadriculaBlanca" android:duration="500" />
+</animation-list>

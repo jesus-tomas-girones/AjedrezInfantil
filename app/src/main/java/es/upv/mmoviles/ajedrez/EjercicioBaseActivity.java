@@ -39,6 +39,10 @@ public class EjercicioBaseActivity extends AppCompatActivity {
     private CountDownTimer cuentaAtras;
     private int TIEMPO_CUENTA_ATRAS = 8000; // milisegundos
 
+    public enum Movimiento {
+        INCORRECTO, CORRECTO
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,24 +135,9 @@ public class EjercicioBaseActivity extends AppCompatActivity {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                onPulsar((ImageView) v);
                 ClipData data = ClipData.newPlainText("", "");
-//                ClipData data = ClipData.newPlainText("ColorFondo", v.getBackground());
-                //Construimos la sombra de arrastre de la Vista
-
-/*                ImageView sombra = new ImageView(EjercicioBaseActivity.this);
-//                sombra.setImageResource(R.mipmap.ic_launcher);
-                sombra.setImageDrawable(((ImageView) v).getDrawable());
-                sombra.getDrawable().setBounds(0, 0, v.getWidth(), v.getHeight());
-*/
-//                ImageView peon = (ImageView)findViewById(R.id.peon);
-
-                //v.setBackgroundColor(Color.TRANSPARENT);
-                MiDragShadowBuilder shadowBuilder = new MiDragShadowBuilder(v); //sombra);
-
-//                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(new View(getApplicationContext()));
-
-//                shadowBuilder.getView().setBackgroundColor(Color.TRANSPARENT);
-
+                MiDragShadowBuilder shadowBuilder = new MiDragShadowBuilder(v); //sombra
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     v.startDragAndDrop(data, shadowBuilder, v, 0);
                 } else {
@@ -308,9 +297,9 @@ public class EjercicioBaseActivity extends AppCompatActivity {
      * @param col  columna  "A" -> 0, "B" ->1, ...
      * @param fila fila "1" -> 0, "2" ->1, ...
      */
-    protected void resaltarCasilla(int col, int fila) {
+    protected void resaltarCasilla(int col, int fila, Movimiento movimiento) {
         ImageView imagen = getCasilla(col, fila);
-        resaltarCasilla(imagen);
+        resaltarCasilla(imagen, movimiento);
     }
 
     /**
@@ -359,7 +348,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                 for (int c = 1, jMax = linea.getChildCount() - 1; c < jMax; c++) {
                     ImageView imagen = (ImageView) linea.getChildAt(c);
                     if (validador.movimientoValido(colOrigen, filaOrigen, c - 1, 8 - f)) { //8-f: Las filas se numera de abajo a arriba
-                        resaltarCasilla(imagen);
+                        resaltarCasilla(imagen, Movimiento.CORRECTO);
 
                     }
                 }
@@ -390,11 +379,23 @@ public class EjercicioBaseActivity extends AppCompatActivity {
      * @param casilla vista de tipo ImageView correspondiente a la casilla resaltar
      * @author Usua
      */
-    protected void resaltarCasilla(ImageView casilla) {
-        if (esCuadriculaNegra(casilla))
-            casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra);
-        else //if (esCuadriculaBlanca(casilla))
-            casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca);
+    protected void resaltarCasilla(ImageView casilla, Movimiento movimiento) {
+        if (movimiento == Movimiento.CORRECTO) {
+            if (esCuadriculaNegra(casilla)) {
+                casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra);
+            }
+            else {
+                casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca);
+            }
+        }
+        else {
+            if (esCuadriculaNegra(casilla)) {
+                casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra_incorrecta);
+            }
+            else {
+                casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca_incorrecta);
+            }
+        }
         AnimationDrawable animacionCasilla;
         animacionCasilla = (AnimationDrawable) casilla.getBackground();
         animacionCasilla.stop();

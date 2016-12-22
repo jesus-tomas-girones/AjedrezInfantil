@@ -12,6 +12,8 @@
     <color name="gris">#E6E6E6</color>
     <color name="parpadeoCuadriculaNegra">#02700b</color>
     <color name="parpadeoCuadriculaBlanca">#9ffca6</color>
+    <color name="parpadeoCuadriculaNegraIncorrecta">#70020b</color>
+    <color name="parpadeoCuadriculaBlancaIncorrecta">#fc9fa6</color>
     <color name="fondoPrincipal">#7CD1EC</color>
     <color name="botonFondo1">#1da2e5</color>
     <color name="botonFondo2">#ffb134</color>

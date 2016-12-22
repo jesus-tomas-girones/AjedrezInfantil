@@ -63,23 +63,23 @@ public class ColocarPiezasActivity extends EjercicioBaseActivity {
                     break;
                 case 'T':
                     avatar.habla(R.raw.colocar_piezas_mal_torre);
-                    resaltarCasilla(0,0); resaltarCasilla(7,0);
+                    resaltarCasilla(0, 0, Movimiento.CORRECTO); resaltarCasilla(7, 0, Movimiento.CORRECTO);
                     break;
                 case 'C':
                     avatar.habla(R.raw.colocar_piezas_mal_caballo);
-                    resaltarCasilla(1,0); resaltarCasilla(6,0);
+                    resaltarCasilla(1, 0, Movimiento.CORRECTO); resaltarCasilla(6, 0, Movimiento.CORRECTO);
                     break;
                 case 'A':
                     avatar.habla(R.raw.colocar_piezas_mal_alfil);
-                    resaltarCasilla(2,0); resaltarCasilla(5,0);
+                    resaltarCasilla(2, 0, Movimiento.CORRECTO); resaltarCasilla(5, 0, Movimiento.CORRECTO);
                     break;
                 case 'D':
                     avatar.habla(R.raw.colocar_piezas_mal_dama);
-                    resaltarCasilla(3,0);
+                    resaltarCasilla(3, 0, Movimiento.CORRECTO);
                     break;
                 case 'R':
                     avatar.habla(R.raw.colocar_piezas_mal_rey);
-                    resaltarCasilla(4,0);
+                    resaltarCasilla(4, 0, Movimiento.CORRECTO);
             }
         }
         return salida;
