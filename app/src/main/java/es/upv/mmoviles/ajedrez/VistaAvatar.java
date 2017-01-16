@@ -306,50 +306,54 @@ public class VistaAvatar extends FrameLayout {
     }
 
     private void actualizaBoca() {
-        if (visualizerVoz != null && visualizerVoz.getEnabled()) {
-            byte[] bytes = new byte[visualizerVoz.getCaptureSize()];
-            if (visualizerVoz.getWaveForm(bytes) != Visualizer.SUCCESS) return;
-            int valor, amplitud, numeroMuestrasAudibles = 0, amplitudAcumulada = 0;
-            for (int i = 0; i < bytes.length; i++) {
-                valor = 0xff & bytes[i];
-                //Log.d("AjedrezInfantil", "VistaAvatar: valor=" + valor);
-                if (valor == 0) {
-                    amplitud = 0;
-                } else if (valor <= 128) {
-                    amplitud = 128 - valor;
-                } else {
-                    amplitud = valor - 128;
+        try {
+            if (visualizerVoz != null && visualizerVoz.getEnabled()) {
+                byte[] bytes = new byte[visualizerVoz.getCaptureSize()];
+                if (visualizerVoz.getWaveForm(bytes) != Visualizer.SUCCESS) return;
+                int valor, amplitud, numeroMuestrasAudibles = 0, amplitudAcumulada = 0;
+                for (int i = 0; i < bytes.length; i++) {
+                    valor = 0xff & bytes[i];
+                    //Log.d("AjedrezInfantil", "VistaAvatar: valor=" + valor);
+                    if (valor == 0) {
+                        amplitud = 0;
+                    } else if (valor <= 128) {
+                        amplitud = 128 - valor;
+                    } else {
+                        amplitud = valor - 128;
+                    }
+                    if (amplitud > 0) {
+                        amplitudAcumulada += amplitud;
+                        numeroMuestrasAudibles++;
+                    }
+                    amplitudMaxima = Math.max(amplitudMaxima, amplitud);
                 }
-                if (amplitud > 0) {
-                    amplitudAcumulada += amplitud;
-                    numeroMuestrasAudibles++;
+                float amplitudMedia = 0;
+                if (numeroMuestrasAudibles > 0) {
+                    amplitudMedia = ((float) amplitudAcumulada) / numeroMuestrasAudibles;
                 }
-                amplitudMaxima = Math.max(amplitudMaxima, amplitud);
-            }
-            float amplitudMedia = 0;
-            if (numeroMuestrasAudibles > 0) {
-                amplitudMedia = ((float) amplitudAcumulada) / numeroMuestrasAudibles;
-            }
-            float amplitudMediaRelativa = 0;
-            if (amplitudMaxima > 0) {
-                amplitudMediaRelativa = (amplitudMedia / amplitudMaxima) * 100;
-            }
-            if (amplitudMediaRelativa < UMBRAL_MOVER_BOCA) {
-                if (bocaParada) {
-                    cierraBoca();
-                } else {
-                    paraBoca();
+                float amplitudMediaRelativa = 0;
+                if (amplitudMaxima > 0) {
+                    amplitudMediaRelativa = (amplitudMedia / amplitudMaxima) * 100;
                 }
+                if (amplitudMediaRelativa < UMBRAL_MOVER_BOCA) {
+                    if (bocaParada) {
+                        cierraBoca();
+                    } else {
+                        paraBoca();
+                    }
                 /*Log.d("AjedrezInfantil", "VistaAvatar: amplitudMedia=" + amplitudMedia
                         + " amplitudMediaRelativa=" + amplitudMediaRelativa
                         + " amplitudMaxima=" + amplitudMaxima);*/
-            } else {
-                mueveBoca();
+                } else {
+                    mueveBoca();
                 /*Log.d("AjedrezInfantil", "VistaAvatar: amplitudMedia=" + amplitudMedia
                         + " amplitudMediaRelativa=" + amplitudMediaRelativa
                         + " amplitudMaxima=" + amplitudMaxima + "***");*/
-            }
-        } else cierraBoca();
+                }
+            } else cierraBoca();
+        }catch (Exception e){
+            Log.e("Ajedrez infantil", e.toString());
+        }
     }
 
     private void actualizaAvatar() {

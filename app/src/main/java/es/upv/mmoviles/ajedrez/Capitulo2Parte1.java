@@ -76,8 +76,7 @@ public class Capitulo2Parte1 extends AppCompatActivity {
     }
 
     public void boton15(View v) {
-
-        //startActivity(new Intent(this, MoverReyActivity.class));
+        startActivity(new Intent(this, MoverReyEnJaqueActivity.class));
     }
 
 }

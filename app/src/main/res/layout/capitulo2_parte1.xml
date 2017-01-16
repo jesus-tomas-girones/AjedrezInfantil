@@ -103,6 +103,7 @@
                     style="@style/boton.2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="boton15"
                     android:text="@string/ej3Capitulo2Parte1"
                     android:textColor="@color/botonFondo2" />
 

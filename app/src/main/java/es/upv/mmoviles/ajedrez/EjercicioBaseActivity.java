@@ -40,7 +40,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
     private int TIEMPO_CUENTA_ATRAS = 8000; // milisegundos
 
     public enum Movimiento {
-        INCORRECTO, CORRECTO
+        ORIGEN, INCORRECTO, CORRECTO
     }
 
     @Override
@@ -175,10 +175,10 @@ public class EjercicioBaseActivity extends AppCompatActivity {
             // Defines local variables
             int width, height;
 
-            // Sets the width of the shadow to half the width of the original View
+            // Sets the width of the shadow to equal the width of the original View
             width = getView().getWidth();
 
-            // Sets the height of the shadow to half the height of the original View
+            // Sets the height of the shadow to equal the height of the original View
             height = getView().getHeight();
 
             // The drag shadow is a ColorDrawable. This sets its dimensions to be the same as the
@@ -212,6 +212,9 @@ public class EjercicioBaseActivity extends AppCompatActivity {
             int accion = event.getAction();
             switch (accion) {
                 case DragEvent.ACTION_DRAG_STARTED:
+                    if (vistaOrigen.getDrawable()!=null
+                            && vistaOrigen.getTag() != null
+                            && vistaOrigen.getTag().toString().charAt(0)!='P') vistaOrigen.getDrawable().setAlpha(0);
                     break;
                 case DragEvent.ACTION_DRAG_LOCATION:
                     break;
@@ -221,21 +224,23 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                     break;
                 case DragEvent.ACTION_DROP:
                     //Log.i("Script", vistaDestino.getTag() + "- ACTION_DROP");
+                    String origen, destino;
+                    int colOrigen = 0, filaOrigen = 0, colDestino = 0, filaDestino = 0;
                     boolean movimientoValido;
                     if ((vistaOrigen.getTag() == null) ||
                             (vistaDestino.getTag() == null)) {
                         movimientoValido = true;     // No podemos aplicar validación de movimiento
                     } else {
-                        String origen = vistaOrigen.getTag().toString();
-                        String destino = vistaDestino.getTag().toString();
-                        int colDestino = destino.charAt(0) - 'A';
-                        int filaDestino = destino.charAt(1) - '1';
+                        origen = vistaOrigen.getTag().toString();
+                        destino = vistaDestino.getTag().toString();
+                        colDestino = destino.charAt(0) - 'A';
+                        filaDestino = destino.charAt(1) - '1';
                         if (origen.charAt(0) == 'P') { //Arrastramos una pieza de fuera al tablero
                             movimientoValido = (vistaDestino.getDrawable() == null) &&  //No hay una pieza ya colocada
                                     onColocar(origen.charAt(1), colDestino, filaDestino); //La posición es correcta
                         } else {                      // Arrastramos una pieza del tablero al tablero
-                            int colOrigen = origen.charAt(0) - 'A';
-                            int filaOrigen = origen.charAt(1) - '1';
+                            colOrigen = origen.charAt(0) - 'A';
+                            filaOrigen = origen.charAt(1) - '1';
                             movimientoValido = (vistaOrigen.getDrawable() != null)  //Estamos moviendo una ficha
                                     && onMovimiento(colOrigen, filaOrigen, colDestino, filaDestino);
                         }
@@ -243,6 +248,7 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                     if (movimientoValido && (vistaOrigen != vistaDestino)) {
                         if (vistaOrigen.getDrawable() != null) {
                             Drawable clone = vistaOrigen.getDrawable().getConstantState().newDrawable(); // Clonamos el Drawable para que las piezas se comporten independientemente.
+                            clone.setAlpha(255);
                             vistaDestino.setImageDrawable(clone);
                         }
                         if ((vistaOrigen.getTag() != null) &&
@@ -251,9 +257,15 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                         }
                         vistaDestino.invalidate();
                     }
+                    else {
+                        if (vistaOrigen.getDrawable()!=null) vistaOrigen.getDrawable().setAlpha(255);
+                        vistaOrigen.invalidate();
+                    }
+                    onMovimiento(movimientoValido, colOrigen, filaOrigen, colDestino, filaDestino);
                 case DragEvent.ACTION_DRAG_ENDED:
                     //Log.i("Script", "- ACTION_DRAG_ENDED");
                 default:
+                    if (vistaOrigen.getDrawable()!=null) vistaOrigen.getDrawable().setAlpha(255);
                     break;
             }
             return true;
@@ -272,6 +284,18 @@ public class EjercicioBaseActivity extends AppCompatActivity {
      */
     protected boolean onMovimiento(int colOrigen, int filaOrigen, int colDestino, int filaDestino) {
         return true;
+    }
+
+    /**
+     * método ha de ser sobreescrito por los descencientes para informar del final y el resultado de un movimiento.
+     *
+     * @param movimientoValido movimiento válido
+     * @param colOrigen        columna origen "A" -> 0, "B" ->1, ...
+     * @param filaOrigen       fila origen "1" -> 0, "2" ->1, ...
+     * @param colDestino       columna destino
+     * @param filaDestino      fila destino
+     */
+    protected void onMovimiento(boolean movimientoValido, int colOrigen, int filaOrigen, int colDestino, int filaDestino) {
     }
 
     protected boolean onPulsar(ImageView imgview) {
@@ -300,6 +324,22 @@ public class EjercicioBaseActivity extends AppCompatActivity {
     protected void resaltarCasilla(int col, int fila, Movimiento movimiento) {
         ImageView imagen = getCasilla(col, fila);
         resaltarCasilla(imagen, movimiento);
+    }
+
+    /**
+     * hacemos que una determinada casilla deje de parpadear
+     *
+     * @param col  columna  "A" -> 0, "B" ->1, ...
+     * @param fila fila "1" -> 0, "2" ->1, ...
+     */
+    protected void apagarCasilla(int col, int fila){
+        ImageView imageView = getCasilla(col, fila);
+        if (esCuadriculaNegra(imageView)) {
+            imageView.setBackgroundResource(R.color.cuadriculaNegra);
+        }
+        else {
+            imageView.setBackgroundResource(R.color.cuadriculaBlanca);
+        }
     }
 
     /**
@@ -349,28 +389,11 @@ public class EjercicioBaseActivity extends AppCompatActivity {
                     ImageView imagen = (ImageView) linea.getChildAt(c);
                     if (validador.movimientoValido(colOrigen, filaOrigen, c - 1, 8 - f)) { //8-f: Las filas se numera de abajo a arriba
                         resaltarCasilla(imagen, Movimiento.CORRECTO);
-
                     }
                 }
             }
         }
     }
-
-   /*void resaltarCasilla(ImageView imagen) {
-
-        if (imagen.getBackground().getConstantState()== ResourcesCompat.getDrawable(getResources(),R.color.cuadriculaBlanca, null).getConstantState())
-            imagen.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca);
-
-        else if (imagen.getBackground().getConstantState() == ResourcesCompat.getDrawable(getResources(),R.color.cuadriculaNegra, null).getConstantState())
-            imagen.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra);
-
-        AnimationDrawable animacionCasilla;
-
-        animacionCasilla = (AnimationDrawable) imagen.getBackground();
-        animacionCasilla.stop();
-        animacionCasilla.start();
-
-    }*/
 
     /**
      * Hacemos que una casillas parpadee un par de segundos.
@@ -380,21 +403,29 @@ public class EjercicioBaseActivity extends AppCompatActivity {
      * @author Usua
      */
     protected void resaltarCasilla(ImageView casilla, Movimiento movimiento) {
-        if (movimiento == Movimiento.CORRECTO) {
-            if (esCuadriculaNegra(casilla)) {
-                casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra);
-            }
-            else {
-                casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca);
-            }
-        }
-        else {
-            if (esCuadriculaNegra(casilla)) {
-                casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra_incorrecta);
-            }
-            else {
-                casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca_incorrecta);
-            }
+        switch (movimiento) {
+            case ORIGEN:
+                if (esCuadriculaNegra(casilla)) {
+                    casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra_origen);
+                } else {
+                    casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca_origen);
+                }
+                break;
+            case CORRECTO:
+                if (esCuadriculaNegra(casilla)) {
+                    casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra);
+                } else {
+                    casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca);
+                }
+                break;
+            case INCORRECTO:
+                if (esCuadriculaNegra(casilla)) {
+                    casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_negra_incorrecta);
+                } else {
+                    casilla.setBackgroundResource(R.drawable.animacion_parpadea_casilla_blanca_incorrecta);
+                }
+                break;
+
         }
         AnimationDrawable animacionCasilla;
         animacionCasilla = (AnimationDrawable) casilla.getBackground();
@@ -408,11 +439,6 @@ public class EjercicioBaseActivity extends AppCompatActivity {
         int fila = tag.charAt(1) - '1';
         return (((col + fila) % 2) == 0);
     }
-
-/*    boolean esCuadriculaBlanca(ImageView imageview) {
-        return (!esCuadriculaNegra(imageview));
-    }*/
-
 }
 
 
