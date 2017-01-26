@@ -17,4 +17,10 @@
     <dimen name="radio_marco_botones">60dp</dimen>
     <dimen name="textSizeTituloCapitulos">50sp</dimen>
     <dimen name="textSizeSubTituloCapitulos">42sp</dimen>
+    <dimen name="grosor_marco_pizarra">20dp</dimen>
+    <dimen name="marco_pieza_valoresPiezas">4dp</dimen>
+    <dimen name="separacion_pieza_pizarra">20dp</dimen>
+    <dimen name="separacion_texto_valoresPiezas">50dp</dimen>
+    <dimen name="padding_valoresPiezas">30dp</dimen>
+    <dimen name="grosor_separador">4dp</dimen>
 </resources>

@@ -18,5 +18,12 @@
     <dimen name="tamañoIconos">36dp</dimen>
     <dimen name="textSizeTituloCapitulos">48sp</dimen>
     <dimen name="textSizeSubTituloCapitulos">42sp</dimen>
+    <dimen name="grosor_marco_pizarra">15dp</dimen>
+    <dimen name="marco_pieza_valoresPiezas">3dp</dimen>
+    <dimen name="separacion_pieza_pizarra">15dp</dimen>
+    <dimen name="separacion_texto_valoresPiezas">40dp</dimen>
+    <dimen name="padding_valoresPiezas">20dp</dimen>
+    <dimen name="grosor_separador">3dp</dimen>
+
 
 </resources>

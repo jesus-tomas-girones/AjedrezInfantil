@@ -6,9 +6,11 @@
     <color name="cuadriculaNegra">#000000</color>
     <color name="cuadriculaBlanca">#ffffff</color>
     <color name="cuadriculaMarco">#683c12</color>
+    <color name="grisMarco">#989898</color>
     <color name="bordeMarco">#000000</color>
     <color name="textoMarco">#000000</color>
     <color name="fondoPantalla">#7CD1EC</color>
+    <color name="fondoTableroValorPiezas">#F2F2F2</color>
     <color name="gris">#E6E6E6</color>
     <color name="parpadeoCuadriculaNegra">#02700b</color>
     <color name="parpadeoCuadriculaBlanca">#9ffca6</color>
@@ -28,7 +30,7 @@
     <color name="tituloCreditos">#fb8c00</color>
     <color name="tituloCreditosAppSecundarios">#ffb300</color>
     <color name="tituloCapitulo1">#683c12</color>
-    <color name="tituloCapitulo2">#126867</color>
+    <color name="tituloCapitulo2">#0C4F6F</color> <!--#0C4F6F-->
     <color name="movimientoIncorrecto">#ff7f7f</color>
     <color name="movimientoCorrecto">#33ff33</color>
 </resources>

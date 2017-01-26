@@ -7,7 +7,7 @@
     <dimen name="borde_interior">1dp</dimen>
     <dimen name="tamaño_textoBorde">10dp</dimen>
     <item name="grosor_marco" format="float" type="dimen">0.5</item>
-    <dimen name="textsize_botones">18sp</dimen>
+    <dimen name="textsize_botones">16sp</dimen>
     <dimen name="botonPaddingTop">0sp</dimen>
     <dimen name="botonPaddingBottom">0sp</dimen>
     <dimen name="botonPaddingRight">20sp</dimen>
@@ -18,7 +18,10 @@
     <dimen name="tamañoIconos">26dp</dimen>
     <dimen name="textSizeTituloCapitulos">22sp</dimen>
     <dimen name="textSizeSubTituloCapitulos">20sp</dimen>
-
-
-
+    <dimen name="grosor_marco_pizarra">10dp</dimen>
+    <dimen name="marco_pieza_valoresPiezas">2dp</dimen>
+    <dimen name="separacion_pieza_pizarra">10dp</dimen>
+    <dimen name="separacion_texto_valoresPiezas">30dp</dimen>
+    <dimen name="padding_valoresPiezas">10dp</dimen>
+    <dimen name="grosor_separador">2dp</dimen>
 </resources>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoPrincipal"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:weightSum="100">
+
+    <es.upv.mmoviles.ajedrez.VistaAvatar
+        android:id="@+id/vistaAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="10" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="90"
+        android:background="@color/grisMarco"
+        android:orientation="vertical"
+        android:padding="@dimen/grosor_marco_pizarra">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           android:background="@color/fondoTableroValorPiezas"
+           android:padding="10dp">
+           <TextView
+               android:id="@+id/tituloValorPiezas"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@color/fondoTableroValorPiezas"
+               android:paddingTop="30dp"
+               android:paddingBottom="30dp"
+               android:text="@string/valorPiezas"
+               android:textAlignment="center"
+               android:textAllCaps="true"
+               android:textColor="@android:color/black"
+               android:textSize="@dimen/textSizeSubTituloCapitulos" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/padding_valoresPiezas"
+                android:paddingTop="@dimen/padding_valoresPiezas">
+                <es.upv.mmoviles.ajedrez.RectangleLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/separacion_pieza_pizarra"
+                    android:id="@+id/cuadrado1">
+
+                    <LinearLayout
+                        android:id="@+id/marcoIzquierda"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/bordeMarco"
+                        android:orientation="vertical"
+                        android:padding="@dimen/marco_pieza_valoresPiezas">
+
+                        <ImageView
+                            android:id="@+id/piezaIzquierda"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@color/fondoTableroValorPiezas"
+                            android:padding="10dp"></ImageView>
+
+
+                    </LinearLayout>
+                </es.upv.mmoviles.ajedrez.RectangleLinearLayout>
+
+                <es.upv.mmoviles.ajedrez.RectangleLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/cuadrado2">
+
+                    <ImageView
+                        android:id="@+id/separador"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:src="@drawable/separador"></ImageView>
+                </es.upv.mmoviles.ajedrez.RectangleLinearLayout>
+
+                <es.upv.mmoviles.ajedrez.RectangledLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/separacion_pieza_pizarra"
+                    android:id="@+id/cuadrado3">
+
+                    <LinearLayout
+                        android:id="@+id/marcoDerecha"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/bordeMarco"
+                        android:orientation="vertical"
+                        android:padding="@dimen/marco_pieza_valoresPiezas">
+
+                        <ImageView
+                            android:id="@+id/piezaDerecha"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@color/fondoTableroValorPiezas"
+                            android:padding="10dp"></ImageView>
+
+
+                    </LinearLayout>
+                </es.upv.mmoviles.ajedrez.RectangledLinearLayout>
+
+            </LinearLayout>
+
+          </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

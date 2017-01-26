@@ -76,5 +76,6 @@
     <string name="contenidos">Contenidos:</string>
     <string name="leccion">Lección:</string>
     <string name="ejercicios">Ejercicios:</string>
+    <string name="valorPiezas">Los valores de las piezas</string>
 
     </resources>
