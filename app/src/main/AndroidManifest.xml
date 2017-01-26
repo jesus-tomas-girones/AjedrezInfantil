@@ -44,7 +44,7 @@
             android:name="es.upv.mmoviles.ajedrez.AcercaDeActivity"
             android:label="@string/acercadeLabel"
             android:theme="@style/DialogCustom" />
-        <activity android:name="es.upv.mmoviles.ajedrez.ValorPiezas"
+        <activity android:name="es.upv.mmoviles.ajedrez.ValoresPiezasActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name="es.upv.mmoviles.ajedrez.Preferencias"
